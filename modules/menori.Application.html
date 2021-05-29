@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Menori documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Menori</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>menori.Application</strong></li>
+  <li><a href="../modules/menori.Camera.html">menori.Camera</a></li>
+  <li><a href="../modules/menori.PerspectiveCamera.html">menori.PerspectiveCamera</a></li>
+  <li><a href="../modules/menori.Environment.html">menori.Environment</a></li>
+  <li><a href="../modules/menori.glTFLoader.html">menori.glTFLoader</a></li>
+  <li><a href="../modules/menori.Model.html">menori.Model</a></li>
+  <li><a href="../modules/menori.ModelNode.html">menori.ModelNode</a></li>
+  <li><a href="../modules/menori.ModelNodeTree.html">menori.ModelNodeTree</a></li>
+  <li><a href="../modules/menori.ImageLoader.html">menori.ImageLoader</a></li>
+  <li><a href="../modules/menori.Input.html">menori.Input</a></li>
+  <li><a href="../modules/menori.Node.html">menori.Node</a></li>
+  <li><a href="../modules/menori.Scene.html">menori.Scene</a></li>
+  <li><a href="../modules/menori.ShaderObject.html">menori.ShaderObject</a></li>
+  <li><a href="../modules/menori.Sprite.html">menori.Sprite</a></li>
+  <li><a href="../modules/menori.SpriteLoader.html">menori.SpriteLoader</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>menori.Application</code></h1>
+<p>The main class for managing scenes and the viewport.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#application:constructor">application:constructor ()</a></td>
+	<td class="summary">Constructor.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application:resize_viewport">application:resize_viewport (w, h, opt)</a></td>
+	<td class="summary">Resize viewport.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application:get_dimensions">application:get_dimensions ()</a></td>
+	<td class="summary">Get viewport dimensions.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application:switch_scene">application:switch_scene (name)</a></td>
+	<td class="summary">Change scene with a transition effect.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application:add_scene">application:add_scene (name)</a></td>
+	<td class="summary">Add scene to the scene list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application:get_scene">application:get_scene (name)</a></td>
+	<td class="summary">Get scene from the scene list by the name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application:set_scene">application:set_scene (name)</a></td>
+	<td class="summary">Set current scene by the name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application:get_current_scene">application:get_current_scene ()</a></td>
+	<td class="summary">Get current scene.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application:update">application:update (dt)</a></td>
+	<td class="summary">Application update function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application:render">application:render (dt)</a></td>
+	<td class="summary">Application render function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application.resize">application.resize (w, h)</a></td>
+	<td class="summary">Resize callback.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application.mousemoved">application.mousemoved (x, y, dx, dy, istouch)</a></td>
+	<td class="summary">Mousemoved callback.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "application:constructor"></a>
+    <strong>application:constructor ()</strong>
+    </dt>
+    <dd>
+    Constructor.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "application:resize_viewport"></a>
+    <strong>application:resize_viewport (w, h, opt)</strong>
+    </dt>
+    <dd>
+    Resize viewport.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">h</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">opt</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         (Optional)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "application:get_dimensions"></a>
+    <strong>application:get_dimensions ()</strong>
+    </dt>
+    <dd>
+    Get viewport dimensions.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        w</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        h</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "application:switch_scene"></a>
+    <strong>application:switch_scene (name)</strong>
+    </dt>
+    <dd>
+    Change scene with a transition effect.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "application:add_scene"></a>
+    <strong>application:add_scene (name)</strong>
+    </dt>
+    <dd>
+    Add scene to the scene list.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "application:get_scene"></a>
+    <strong>application:get_scene (name)</strong>
+    </dt>
+    <dd>
+    Get scene from the scene list by the name.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Scene object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "application:set_scene"></a>
+    <strong>application:set_scene (name)</strong>
+    </dt>
+    <dd>
+    Set current scene by the name.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "application:get_current_scene"></a>
+    <strong>application:get_current_scene ()</strong>
+    </dt>
+    <dd>
+    Get current scene.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Scene object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "application:update"></a>
+    <strong>application:update (dt)</strong>
+    </dt>
+    <dd>
+    Application update function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dt</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "application:render"></a>
+    <strong>application:render (dt)</strong>
+    </dt>
+    <dd>
+    Application render function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dt</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "application.resize"></a>
+    <strong>application.resize (w, h)</strong>
+    </dt>
+    <dd>
+    Resize callback.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">w</span>
+
+
+
+        </li>
+        <li><span class="parameter">h</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "application.mousemoved"></a>
+    <strong>application.mousemoved (x, y, dx, dy, istouch)</strong>
+    </dt>
+    <dd>
+    Mousemoved callback.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+
+
+
+        </li>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+        <li><span class="parameter">istouch</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-05-29 23:14:35 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

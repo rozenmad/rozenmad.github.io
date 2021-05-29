@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Menori documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Menori</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.Application.html">menori.Application</a></li>
+  <li><a href="../modules/menori.Camera.html">menori.Camera</a></li>
+  <li><a href="../modules/menori.PerspectiveCamera.html">menori.PerspectiveCamera</a></li>
+  <li><strong>menori.Environment</strong></li>
+  <li><a href="../modules/menori.glTFLoader.html">menori.glTFLoader</a></li>
+  <li><a href="../modules/menori.Model.html">menori.Model</a></li>
+  <li><a href="../modules/menori.ModelNode.html">menori.ModelNode</a></li>
+  <li><a href="../modules/menori.ModelNodeTree.html">menori.ModelNodeTree</a></li>
+  <li><a href="../modules/menori.ImageLoader.html">menori.ImageLoader</a></li>
+  <li><a href="../modules/menori.Input.html">menori.Input</a></li>
+  <li><a href="../modules/menori.Node.html">menori.Node</a></li>
+  <li><a href="../modules/menori.Scene.html">menori.Scene</a></li>
+  <li><a href="../modules/menori.ShaderObject.html">menori.ShaderObject</a></li>
+  <li><a href="../modules/menori.Sprite.html">menori.Sprite</a></li>
+  <li><a href="../modules/menori.SpriteLoader.html">menori.SpriteLoader</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>menori.Environment</code></h1>
+<p>An environment is a class that sends information about the current settings of the environment (such as ambient color, fog, light sources, camera transformation matrices) etc to the shader.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#constructor">constructor (camera)</a></td>
+	<td class="summary">Constructor</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set_optional_uniform">set_optional_uniform (name, value)</a></td>
+	<td class="summary">Set optional uniform.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#add_light">add_light (light)</a></td>
+	<td class="summary">Add light source.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set_fog_color">set_fog_color (r, g, b, a)</a></td>
+	<td class="summary">Set fog color</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#send_uniforms_to">send_uniforms_to (shader)</a></td>
+	<td class="summary">Sends all the environment uniforms to the shader.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#send_light_sources_to">send_light_sources_to (shader)</a></td>
+	<td class="summary">Sends light sources uniforms to the shader.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "constructor"></a>
+    <strong>constructor (camera)</strong>
+    </dt>
+    <dd>
+    Constructor
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">camera</span>
+            <span class="types"><span class="type">Сamera</span></span>
+         camera that will be associated with this environment
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set_optional_uniform"></a>
+    <strong>set_optional_uniform (name, value)</strong>
+    </dt>
+    <dd>
+    Set optional uniform.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">any</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "add_light"></a>
+    <strong>add_light (light)</strong>
+    </dt>
+    <dd>
+    Add light source.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">light</span>
+            <span class="types"><span class="type">LightObject</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set_fog_color"></a>
+    <strong>set_fog_color (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Set fog color
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "send_uniforms_to"></a>
+    <strong>send_uniforms_to (shader)</strong>
+    </dt>
+    <dd>
+    Sends all the environment uniforms to the shader.  This function can be used when creating your own display objects, or for shading technique.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">shader</span>
+            <span class="types"><span class="type">ShaderObject</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "send_light_sources_to"></a>
+    <strong>send_light_sources_to (shader)</strong>
+    </dt>
+    <dd>
+    Sends light sources uniforms to the shader.  This function can be used when creating your own display objects, or for shading technique.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">shader</span>
+            <span class="types"><span class="type">ShaderObject</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-05-29 23:14:35 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

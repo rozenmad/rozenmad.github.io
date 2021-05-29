@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Menori documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Menori</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.Application.html">menori.Application</a></li>
+  <li><a href="../modules/menori.Camera.html">menori.Camera</a></li>
+  <li><a href="../modules/menori.PerspectiveCamera.html">menori.PerspectiveCamera</a></li>
+  <li><a href="../modules/menori.Environment.html">menori.Environment</a></li>
+  <li><a href="../modules/menori.glTFLoader.html">menori.glTFLoader</a></li>
+  <li><a href="../modules/menori.Model.html">menori.Model</a></li>
+  <li><a href="../modules/menori.ModelNode.html">menori.ModelNode</a></li>
+  <li><a href="../modules/menori.ModelNodeTree.html">menori.ModelNodeTree</a></li>
+  <li><a href="../modules/menori.ImageLoader.html">menori.ImageLoader</a></li>
+  <li><a href="../modules/menori.Input.html">menori.Input</a></li>
+  <li><a href="../modules/menori.Node.html">menori.Node</a></li>
+  <li><a href="../modules/menori.Scene.html">menori.Scene</a></li>
+  <li><a href="../modules/menori.ShaderObject.html">menori.ShaderObject</a></li>
+  <li><strong>menori.Sprite</strong></li>
+  <li><a href="../modules/menori.SpriteLoader.html">menori.SpriteLoader</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>menori.Sprite</code></h1>
+<p>Sprite class is a helper object for drawing textures that can contain a set of frames and play animations.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#sprite:constructor">sprite:constructor (quads, image)</a></td>
+	<td class="summary">Constructor</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sprite:clone">sprite:clone ()</a></td>
+	<td class="summary">Clone (shallow copy).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sprite:get_frame_viewport">sprite:get_frame_viewport ()</a></td>
+	<td class="summary">Get current frame viewport.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sprite:get_frame_index">sprite:get_frame_index ()</a></td>
+	<td class="summary">Get index of current frame.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sprite:set_frame_index">sprite:set_frame_index (index)</a></td>
+	<td class="summary">Set frame by index.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sprite:set_pivot">sprite:set_pivot (px, py)</a></td>
+	<td class="summary">Set sprite pivot.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sprite:get_frame_count">sprite:get_frame_count ()</a></td>
+	<td class="summary">Get frame count.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sprite:get_frame_uv">sprite:get_frame_uv (i)</a></td>
+	<td class="summary">Get frame uv position [0 - 1]</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sprite:reset">sprite:reset (duration)</a></td>
+	<td class="summary">Reset animation.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sprite:update">sprite:update (dt)</a></td>
+	<td class="summary">Sprite update function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sprite:draw">sprite:draw (x, y, angle, sx, sy, ox, oy)</a></td>
+	<td class="summary">Sprite draw function.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "sprite:constructor"></a>
+    <strong>sprite:constructor (quads, image)</strong>
+    </dt>
+    <dd>
+    Constructor
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">quads</span>
+         table of <a href="https://love2d.org/wiki/Quad">Quad</a> objects
+        </li>
+        <li><span class="parameter">image</span>
+         <a href="https://love2d.org/wiki/Image">Image</a>
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sprite:clone"></a>
+    <strong>sprite:clone ()</strong>
+    </dt>
+    <dd>
+    Clone (shallow copy).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Sprite object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sprite:get_frame_viewport"></a>
+    <strong>sprite:get_frame_viewport ()</strong>
+    </dt>
+    <dd>
+    Get current frame viewport.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        x</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        y</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        w</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        h</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sprite:get_frame_index"></a>
+    <strong>sprite:get_frame_index ()</strong>
+    </dt>
+    <dd>
+    Get index of current frame.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        index
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sprite:set_frame_index"></a>
+    <strong>sprite:set_frame_index (index)</strong>
+    </dt>
+    <dd>
+    Set frame by index.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">index</span>
+            <span class="types"><span class="type">number</span></span>
+         frame index
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sprite:set_pivot"></a>
+    <strong>sprite:set_pivot (px, py)</strong>
+    </dt>
+    <dd>
+    Set sprite pivot.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">px</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">py</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sprite:get_frame_count"></a>
+    <strong>sprite:get_frame_count ()</strong>
+    </dt>
+    <dd>
+    Get frame count.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sprite:get_frame_uv"></a>
+    <strong>sprite:get_frame_uv (i)</strong>
+    </dt>
+    <dd>
+    Get frame uv position [0 - 1]
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">i</span>
+            <span class="types"><span class="type">number</span></span>
+         frame index
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        x1</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        x2</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        y1</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        y2</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sprite:reset"></a>
+    <strong>sprite:reset (duration)</strong>
+    </dt>
+    <dd>
+    Reset animation.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sprite:update"></a>
+    <strong>sprite:update (dt)</strong>
+    </dt>
+    <dd>
+    Sprite update function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dt</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sprite:draw"></a>
+    <strong>sprite:draw (x, y, angle, sx, sy, ox, oy)</strong>
+    </dt>
+    <dd>
+    Sprite draw function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+
+
+
+        </li>
+        <li><span class="parameter">angle</span>
+
+
+
+        </li>
+        <li><span class="parameter">sx</span>
+
+
+
+        </li>
+        <li><span class="parameter">sy</span>
+
+
+
+        </li>
+        <li><span class="parameter">ox</span>
+
+
+
+        </li>
+        <li><span class="parameter">oy</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-05-29 23:14:35 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
