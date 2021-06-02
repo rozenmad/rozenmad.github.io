@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Menori documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Menori</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.Application.html">menori.Application</a></li>
+  <li><a href="../modules/menori.Camera.html">menori.Camera</a></li>
+  <li><a href="../modules/menori.PerspectiveCamera.html">menori.PerspectiveCamera</a></li>
+  <li><a href="../modules/menori.Environment.html">menori.Environment</a></li>
+  <li><a href="../modules/menori.glTFLoader.html">menori.glTFLoader</a></li>
+  <li><a href="../modules/menori.Model.html">menori.Model</a></li>
+  <li><a href="../modules/menori.ModelNode.html">menori.ModelNode</a></li>
+  <li><a href="../modules/menori.ModelNodeTree.html">menori.ModelNodeTree</a></li>
+  <li><strong>menori.UniformList</strong></li>
+  <li><a href="../modules/menori.ImageLoader.html">menori.ImageLoader</a></li>
+  <li><a href="../modules/menori.Input.html">menori.Input</a></li>
+  <li><a href="../modules/menori.Node.html">menori.Node</a></li>
+  <li><a href="../modules/menori.Scene.html">menori.Scene</a></li>
+  <li><a href="../modules/menori.Sprite.html">menori.Sprite</a></li>
+  <li><a href="../modules/menori.SpriteLoader.html">menori.SpriteLoader</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>menori.UniformList</code></h1>
+<p>Description.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#constructor">constructor ()</a></td>
+	<td class="summary">Constructor.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set">set (name, ...)</a></td>
+	<td class="summary">Set one or more values to a uniform variable into list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set_color">set_color (name, ...)</a></td>
+	<td class="summary">Set one or more color values to uniform variable into list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set_matrix">set_matrix (name, object)</a></td>
+	<td class="summary">Set ml matrix object to uniform variable into list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set_vector">set_vector (name, object)</a></td>
+	<td class="summary">Set ml vector object to uniform variable into list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#remove">remove (name, object)</a></td>
+	<td class="summary">Remove uniform variable from list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#send_to">send_to (shader, concat_str)</a></td>
+	<td class="summary">Sends all uniform values from the list to the shader.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "constructor"></a>
+    <strong>constructor ()</strong>
+    </dt>
+    <dd>
+    Constructor.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set"></a>
+    <strong>set (name, ...)</strong>
+    </dt>
+    <dd>
+    Set one or more values to a uniform variable into list.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">...</span>
+         See shader:send(name, ...)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set_color"></a>
+    <strong>set_color (name, ...)</strong>
+    </dt>
+    <dd>
+    Set one or more color values to uniform variable into list.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">...</span>
+         See shader:sendColor(name, ...)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set_matrix"></a>
+    <strong>set_matrix (name, object)</strong>
+    </dt>
+    <dd>
+    Set ml matrix object to uniform variable into list.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">object</span>
+         ml.mat4
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set_vector"></a>
+    <strong>set_vector (name, object)</strong>
+    </dt>
+    <dd>
+    Set ml vector object to uniform variable into list.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">object</span>
+         ml.vec
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "remove"></a>
+    <strong>remove (name, object)</strong>
+    </dt>
+    <dd>
+    Remove uniform variable from list.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">object</span>
+         ml.vec
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "send_to"></a>
+    <strong>send_to (shader, concat_str)</strong>
+    </dt>
+    <dd>
+    Sends all uniform values from the list to the shader.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">shader</span>
+
+
+
+        </li>
+        <li><span class="parameter">concat_str</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-06-02 04:23:10 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
