@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Menori documentation</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Menori</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/Camera.html">Camera</a></li>
+  <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+  <li><a href="../classes/Environment.html">Environment</a></li>
+  <li><a href="../classes/Material.html">Material</a></li>
+  <li><strong>Mesh</strong></li>
+  <li><a href="../classes/ModelNode.html">ModelNode</a></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><a href="../classes/bound3.html">bound3</a></li>
+  <li><a href="../classes/intersect.html">intersect</a></li>
+  <li><a href="../classes/mat4.html">mat4</a></li>
+  <li><a href="../classes/quat.html">quat</a></li>
+  <li><a href="../classes/vec2.html">vec2</a></li>
+  <li><a href="../classes/vec3.html">vec3</a></li>
+  <li><a href="../classes/vec4.html">vec4</a></li>
+  <li><a href="../classes/Node.html">Node</a></li>
+  <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/Sprite.html">Sprite</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.html">menori</a></li>
+  <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
+  <li><a href="../modules/utils.html">utils</a></li>
+  <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>Mesh</code></h1>
+<p>Class for initializing and storing mesh vertices and material.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Mesh.generate_indices">Mesh.generate_indices (count, template)</a></td>
+	<td class="summary">Generate indices for quadrilateral primitives.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Mesh.get_attribute_index">Mesh.get_attribute_index (attribute, format)</a></td>
+	<td class="summary">Get the attribute index from the vertex format.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Mesh.from_primitive">Mesh.from_primitive (vertices[, opt])</a></td>
+	<td class="summary">Create a menori.Mesh from vertices.</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Mesh:init">Mesh:init (primitives[, texture])</a></td>
+	<td class="summary">The public constructor.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Mesh:draw">Mesh:draw (material)</a></td>
+	<td class="summary">Draw a Mesh object on the screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Mesh:get_triangles">Mesh:get_triangles ()</a></td>
+	<td class="summary">Create a cached array of triangles from the mesh vertices and return it.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Mesh:get_vertices">Mesh:get_vertices ([iprimitive=1])</a></td>
+	<td class="summary">Get an array of all mesh vertices.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Mesh:set_vertices">Mesh:set_vertices (vertices, startvertex[, iprimitive=1])</a></td>
+	<td class="summary">Get an array of all mesh vertices.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Mesh:apply_matrix">Mesh:apply_matrix (matrix)</a></td>
+	<td class="summary">Apply the transformation matrix to the mesh vertices.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Mesh.generate_indices"></a>
+    <strong>Mesh.generate_indices (count, template)</strong>
+    </dt>
+    <dd>
+    Generate indices for quadrilateral primitives.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">count</span>
+            <span class="types"><span class="type">number</span></span>
+         Count of vertices
+        </li>
+        <li><span class="parameter">template</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Template list that is used to generate indices in a specific sequence
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Mesh.get_attribute_index"></a>
+    <strong>Mesh.get_attribute_index (attribute, format)</strong>
+    </dt>
+    <dd>
+    Get the attribute index from the vertex format.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">attribute</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         The attribute to be found.
+        </li>
+        <li><span class="parameter">format</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Vertex format table.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Mesh.from_primitive"></a>
+    <strong>Mesh.from_primitive (vertices[, opt])</strong>
+    </dt>
+    <dd>
+    Create a menori.Mesh from vertices.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vertices</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         that contains vertex data. See <a href="https://love2d.org/wiki/love.graphics.newMesh">LOVE Mesh</a>
+        </li>
+        <li><span class="parameter">opt</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         that containing {mode=, vertexformat=, indices=, texture=}
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Mesh:init"></a>
+    <strong>Mesh:init (primitives[, texture])</strong>
+    </dt>
+    <dd>
+    The public constructor.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">primitives</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         List of primitives
+        </li>
+        <li><span class="parameter">texture</span>
+            <span class="types"><span class="type">Image</span></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Mesh:draw"></a>
+    <strong>Mesh:draw (material)</strong>
+    </dt>
+    <dd>
+    Draw a Mesh object on the screen.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">material</span>
+            <span class="types"><span class="type">menori.Material</span></span>
+         The Material to be used when drawing the mesh.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Mesh:get_triangles"></a>
+    <strong>Mesh:get_triangles ()</strong>
+    </dt>
+    <dd>
+    Create a cached array of triangles from the mesh vertices and return it.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        Triangles { {{x, y, z}, {x, y, z}, {x, y, z}}, ...}
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Mesh:get_vertices"></a>
+    <strong>Mesh:get_vertices ([iprimitive=1])</strong>
+    </dt>
+    <dd>
+    Get an array of all mesh vertices.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">iprimitive</span>
+            <span class="types"><span class="type">int</span></span>
+         The index of the primitive.
+         (<em>default</em> 1)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        The table in the form of {vertex, ...} where each vertex is a table in the form of {attributecomponent, ...}.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Mesh:set_vertices"></a>
+    <strong>Mesh:set_vertices (vertices, startvertex[, iprimitive=1])</strong>
+    </dt>
+    <dd>
+    Get an array of all mesh vertices.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vertices</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         The table in the form of {vertex, ...} where each vertex is a table in the form of {attributecomponent, ...}.
+        </li>
+        <li><span class="parameter">startvertex</span>
+            <span class="types"><span class="type">number</span></span>
+         The vertex from which the insertion will start.
+        </li>
+        <li><span class="parameter">iprimitive</span>
+            <span class="types"><span class="type">int</span></span>
+         The index of the primitive.
+         (<em>default</em> 1)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Mesh:apply_matrix"></a>
+    <strong>Mesh:apply_matrix (matrix)</strong>
+    </dt>
+    <dd>
+    Apply the transformation matrix to the mesh vertices.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">matrix</span>
+            <span class="types"><span class="type">ml.mat4</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2022-05-09 22:09:09 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

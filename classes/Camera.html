@@ -26,6 +26,7 @@
 <br/>
 <h1>Menori</h1>
 
+
 <ul>
   <li><a href="../index.html">Index</a></li>
 </ul>
@@ -36,34 +37,41 @@
 </ul>
 
 
-<h2>Modules</h2>
-<ul class="nowrap">
-  <li><a href="../modules/menori.html">menori</a></li>
-  <li><a href="../modules/menori.Application.html">menori.Application</a></li>
-  <li><strong>menori.Camera</strong></li>
-  <li><a href="../modules/menori.glTFLoader.html">menori.glTFLoader</a></li>
-  <li><a href="../modules/modules.core3d.model_node_tree.html">modules.core3d.model_node_tree</a></li>
-  <li><a href="../modules/menori.Input.html">menori.Input</a></li>
-  <li><a href="../modules/menori.Node.html">menori.Node</a></li>
-  <li><a href="../modules/menori.Scene.html">menori.Scene</a></li>
-  <li><a href="../modules/menori.Sprite.html">menori.Sprite</a></li>
-  <li><a href="../modules/menori.SpriteLoader.html">menori.SpriteLoader</a></li>
-</ul>
 <h2>Classes</h2>
 <ul class="nowrap">
+  <li><a href="../classes/Application.html">Application</a></li>
+  <li><strong>Camera</strong></li>
   <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
   <li><a href="../classes/Environment.html">Environment</a></li>
   <li><a href="../classes/Material.html">Material</a></li>
   <li><a href="../classes/Mesh.html">Mesh</a></li>
   <li><a href="../classes/ModelNode.html">ModelNode</a></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
   <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><a href="../classes/bound3.html">bound3</a></li>
+  <li><a href="../classes/intersect.html">intersect</a></li>
+  <li><a href="../classes/mat4.html">mat4</a></li>
+  <li><a href="../classes/quat.html">quat</a></li>
+  <li><a href="../classes/vec2.html">vec2</a></li>
+  <li><a href="../classes/vec3.html">vec3</a></li>
+  <li><a href="../classes/vec4.html">vec4</a></li>
+  <li><a href="../classes/Node.html">Node</a></li>
+  <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/Sprite.html">Sprite</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.html">menori</a></li>
+  <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
+  <li><a href="../modules/utils.html">utils</a></li>
+  <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
 </ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>menori.Camera</code></h1>
+<h1>Class <code>Camera</code></h1>
 <p>Camera for 2D scenes.</p>
 <p>
 
@@ -74,7 +82,7 @@
 <table class="function_list">
 	<tr>
 	<td class="name" nowrap><a href="#camera:init">camera:init ()</a></td>
-	<td class="summary">init</td>
+	<td class="summary">The public constructor.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#camera:set_pivot">camera:set_pivot (nx, ny)</a></td>
@@ -104,6 +112,14 @@
 	<td class="name" nowrap><a href="#camera:get_position">camera:get_position ()</a></td>
 	<td class="summary">Get camera position.</td>
 	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#camera:set_bounding_box">camera:set_bounding_box (w, h, pvx, pvy)</a></td>
+	<td class="summary">Set camera bounding box.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#camera:set_position_inside_bound">camera:set_position_inside_bound (x, y)</a></td>
+	<td class="summary">Set camera position inside bounding box.</td>
+	</tr>
 </table>
 
 <br/>
@@ -118,7 +134,7 @@
     <strong>camera:init ()</strong>
     </dt>
     <dd>
-    init
+    The public constructor.
 
 
 
@@ -304,6 +320,64 @@
 
 
 </dd>
+    <dt>
+    <a name = "camera:set_bounding_box"></a>
+    <strong>camera:set_bounding_box (w, h, pvx, pvy)</strong>
+    </dt>
+    <dd>
+    Set camera bounding box.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">number</span></span>
+         bounding box width.
+        </li>
+        <li><span class="parameter">h</span>
+            <span class="types"><span class="type">number</span></span>
+         bounding box height.
+        </li>
+        <li><span class="parameter">pvx</span>
+            <span class="types"><span class="type">number</span></span>
+         normalized center x inside bounding box.
+        </li>
+        <li><span class="parameter">pvy</span>
+            <span class="types"><span class="type">number</span></span>
+         normalized center y inside bounding box.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "camera:set_position_inside_bound"></a>
+    <strong>camera:set_position_inside_bound (x, y)</strong>
+    </dt>
+    <dd>
+    Set camera position inside bounding box.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         position x
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         position y
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
 </dl>
 
 
@@ -311,7 +385,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-05-08 19:33:54 </i>
+<i style="float:right;">Last updated 2022-05-09 22:09:09 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

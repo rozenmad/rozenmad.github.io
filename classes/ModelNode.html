@@ -26,77 +26,93 @@
 <br/>
 <h1>Menori</h1>
 
+
 <ul>
   <li><a href="../index.html">Index</a></li>
 </ul>
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Tables">Tables</a></li>
-<li><a href="#Class_ModelNode">Class ModelNode </a></li>
+<li><a href="#Fields">Fields</a></li>
+<li><a href="#Methods">Methods</a></li>
 </ul>
 
 
-<h2>Modules</h2>
-<ul class="nowrap">
-  <li><a href="../modules/menori.html">menori</a></li>
-  <li><a href="../modules/menori.Application.html">menori.Application</a></li>
-  <li><a href="../modules/menori.Camera.html">menori.Camera</a></li>
-  <li><a href="../modules/menori.glTFLoader.html">menori.glTFLoader</a></li>
-  <li><strong>menori.ModelNode</strong></li>
-  <li><a href="../modules/modules.core3d.model_node_tree.html">modules.core3d.model_node_tree</a></li>
-  <li><a href="../modules/menori.UniformList.html">menori.UniformList</a></li>
-  <li><a href="../modules/menori.Input.html">menori.Input</a></li>
-  <li><a href="../modules/menori.Node.html">menori.Node</a></li>
-  <li><a href="../modules/menori.Scene.html">menori.Scene</a></li>
-  <li><a href="../modules/menori.Sprite.html">menori.Sprite</a></li>
-  <li><a href="../modules/menori.SpriteLoader.html">menori.SpriteLoader</a></li>
-</ul>
 <h2>Classes</h2>
 <ul class="nowrap">
+  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/Camera.html">Camera</a></li>
   <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
   <li><a href="../classes/Environment.html">Environment</a></li>
   <li><a href="../classes/Material.html">Material</a></li>
   <li><a href="../classes/Mesh.html">Mesh</a></li>
+  <li><strong>ModelNode</strong></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><a href="../classes/bound3.html">bound3</a></li>
+  <li><a href="../classes/intersect.html">intersect</a></li>
+  <li><a href="../classes/mat4.html">mat4</a></li>
+  <li><a href="../classes/quat.html">quat</a></li>
+  <li><a href="../classes/vec2.html">vec2</a></li>
+  <li><a href="../classes/vec3.html">vec3</a></li>
+  <li><a href="../classes/vec4.html">vec4</a></li>
+  <li><a href="../classes/Node.html">Node</a></li>
+  <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/Sprite.html">Sprite</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.html">menori</a></li>
+  <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
+  <li><a href="../modules/utils.html">utils</a></li>
+  <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
 </ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>menori.ModelNode</code></h1>
-<p>
+<h1>Class <code>ModelNode</code></h1>
+<p>Class for drawing Mesh objects.</p>
+<p> (Inherited from menori.Node class)</p>
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/Node.html#">Node</a>
+    </ul>
 
-</p>
-<p>
 
-</p>
-
-
-<h2><a href="#Tables">Tables</a></h2>
+<h2><a href="#Fields">Fields</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#self">self</a></td>
-	<td class="summary">Class members.</td>
+	<td class="name" nowrap><a href="#ModelNode.material">ModelNode.material</a></td>
+	<td class="summary">Own copy of the Material that is bound to the model.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ModelNode.mesh">ModelNode.mesh</a></td>
+	<td class="summary">The menori.Mesh object that is bound to the model.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ModelNode.color">ModelNode.color</a></td>
+	<td class="summary">Model color.</td>
 	</tr>
 </table>
-<h2><a href="#Class_ModelNode">Class ModelNode </a></h2>
+<h2><a href="#Methods">Methods</a></h2>
 <table class="function_list">
 	<tr>
 	<td class="name" nowrap><a href="#ModelNode:init">ModelNode:init (mesh[, material=Material.default])</a></td>
-	<td class="summary">Constructor.</td>
+	<td class="summary">The public constructor.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#ModelNode:clone">ModelNode:clone ()</a></td>
-	<td class="summary">Cloning an object.</td>
+	<td class="summary">Clone an object.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#ModelNode:calculate_aabb">ModelNode:calculate_aabb ([index=1])</a></td>
-	<td class="summary">Вычисляет AABB применяя текущие трансформации.</td>
+	<td class="summary">Calculate AABB by applying the current transformations.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#ModelNode:render">ModelNode:render (scene, environment)</a></td>
-	<td class="summary">Функция отрисовки объекта.</td>
+	<td class="summary">Draw a ModelNode object on the screen.</td>
 	</tr>
 </table>
 
@@ -104,27 +120,64 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
 
     <dl class="function">
     <dt>
-    <a name = "self"></a>
-    <strong>self</strong>
+    <a name = "ModelNode.material"></a>
+    <strong>ModelNode.material</strong>
     </dt>
     <dd>
-    Class members.
+    Own copy of the Material that is bound to the model.
 
 
-    <h3>Fields:</h3>
     <ul>
         <li><span class="parameter">material</span>
-         Собственная копия Материала который привязан к модели.
+
+
+
         </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ModelNode.mesh"></a>
+    <strong>ModelNode.mesh</strong>
+    </dt>
+    <dd>
+    The menori.Mesh object that is bound to the model.
+
+
+    <ul>
         <li><span class="parameter">mesh</span>
-         Объект menori.Mesh который привязан к модели.
+
+
+
         </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ModelNode.color"></a>
+    <strong>ModelNode.color</strong>
+    </dt>
+    <dd>
+    Model color.  (Deprecated)
+
+
+    <ul>
         <li><span class="parameter">color</span>
-         Цвет модели. (Deprecated)
+
+
+
         </li>
     </ul>
 
@@ -134,7 +187,7 @@
 
 </dd>
 </dl>
-    <h2 class="section-header "><a name="Class_ModelNode"></a>Class ModelNode </h2>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
 
     <dl class="function">
     <dt>
@@ -142,7 +195,7 @@
     <strong>ModelNode:init (mesh[, material=Material.default])</strong>
     </dt>
     <dd>
-    Constructor.
+    The public constructor.
 
 
     <h3>Parameters:</h3>
@@ -153,7 +206,7 @@
         </li>
         <li><span class="parameter">material</span>
             <span class="types"><span class="type">menori.Material</span></span>
-         object. (Для материала будет создана новая копия)
+         object. (A new copy will be created for the material)
          (<em>default</em> Material.default)
         </li>
     </ul>
@@ -168,7 +221,7 @@
     <strong>ModelNode:clone ()</strong>
     </dt>
     <dd>
-    Cloning an object.
+    Clone an object.
 
 
 
@@ -188,14 +241,14 @@
     <strong>ModelNode:calculate_aabb ([index=1])</strong>
     </dt>
     <dd>
-    Вычисляет AABB применяя текущие трансформации.
+    Calculate AABB by applying the current transformations.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">index</span>
             <span class="types"><span class="type">number</span></span>
-         Индекс примитива в меше.
+         The index of the primitive in the mesh.
          (<em>default</em> 1)
         </li>
     </ul>
@@ -216,8 +269,8 @@
     <strong>ModelNode:render (scene, environment)</strong>
     </dt>
     <dd>
-    Функция отрисовки объекта.
- Эта функция будет вызвана неявно по иерархии, когда узел будет рисоваться с помощью scene:render_nodes()
+    Draw a ModelNode object on the screen.
+ This function will be called implicitly in the hierarchy when a node is drawn with scene:render_nodes()
 
 
     <h3>Parameters:</h3>
@@ -244,7 +297,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-05-08 19:09:10 </i>
+<i style="float:right;">Last updated 2022-05-09 22:09:09 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

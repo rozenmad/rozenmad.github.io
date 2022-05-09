@@ -32,68 +32,64 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Class_PerspectiveCamera">Class PerspectiveCamera </a></li>
+<li><a href="#Functions">Functions</a></li>
 </ul>
 
 
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/Camera.html">Camera</a></li>
+  <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+  <li><strong>List</strong></li>
+  <li><a href="../classes/Material.html">Material</a></li>
+  <li><a href="../classes/Mesh.html">Mesh</a></li>
+  <li><a href="../classes/ModelNode.html">ModelNode</a></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><a href="../classes/Input.html">Input</a></li>
+  <li><a href="../classes/Node.html">Node</a></li>
+  <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/Sprite.html">Sprite</a></li>
+  <li><a href="../classes/SpriteLoader.html">SpriteLoader</a></li>
+</ul>
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/menori.html">menori</a></li>
-  <li><a href="../modules/menori.Application.html">menori.Application</a></li>
-  <li><a href="../modules/menori.Camera.html">menori.Camera</a></li>
-  <li><strong>menori.Environment</strong></li>
-  <li><a href="../modules/menori.glTFLoader.html">menori.glTFLoader</a></li>
-  <li><a href="../modules/menori.Material.html">menori.Material</a></li>
-  <li><a href="../modules/menori.ModelNode.html">menori.ModelNode</a></li>
-  <li><a href="../modules/modules.core3d.model_node_tree.html">modules.core3d.model_node_tree</a></li>
-  <li><a href="../modules/menori.UniformList.html">menori.UniformList</a></li>
-  <li><a href="../modules/menori.Input.html">menori.Input</a></li>
-  <li><a href="../modules/menori.Node.html">menori.Node</a></li>
-  <li><a href="../modules/menori.Scene.html">menori.Scene</a></li>
-  <li><a href="../modules/menori.Sprite.html">menori.Sprite</a></li>
-  <li><a href="../modules/menori.SpriteLoader.html">menori.SpriteLoader</a></li>
-</ul>
-<h2>Classes</h2>
-<ul class="nowrap">
-  <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
-  <li><a href="../classes/Mesh.html">Mesh</a></li>
+  <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
 </ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>menori.Environment</code></h1>
-<p>An environment is a class that sends information about the current settings of the environment (such as ambient color, fog, light sources, camera transformation matrices) etc to the shader.</p>
+<h1>Class <code>List</code></h1>
+<p>A list class that wraps a table</p>
 <p>
 
 </p>
 
 
-<h2><a href="#Class_PerspectiveCamera">Class PerspectiveCamera </a></h2>
+<h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#PerspectiveCamera.Environment">PerspectiveCamera.Environment</a></td>
-	<td class="summary">Class members</td>
+	<td class="name" nowrap><a href="#Environment:init">Environment:init (camera)</a></td>
+	<td class="summary">The public constructor.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#environment:init">environment:init (camera)</a></td>
-	<td class="summary">Constructor.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#environment:add_light">environment:add_light (uniform_name, light)</a></td>
+	<td class="name" nowrap><a href="#Environment:add_light">Environment:add_light (uniform_name, light)</a></td>
 	<td class="summary">Add light source.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#environment:send_uniforms_to">environment:send_uniforms_to (shader)</a></td>
+	<td class="name" nowrap><a href="#Environment:send_uniforms_to">Environment:send_uniforms_to (shader)</a></td>
 	<td class="summary">Sends all the environment uniforms to the shader.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#environment:apply_shader">environment:apply_shader (shader)</a></td>
+	<td class="name" nowrap><a href="#Environment:apply_shader">Environment:apply_shader (shader)</a></td>
 	<td class="summary">Sets a Shader as the current pixel effect or vertex shaders.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#environment:send_light_sources_to">environment:send_light_sources_to (shader)</a></td>
+	<td class="name" nowrap><a href="#Environment:send_light_sources_to">Environment:send_light_sources_to (shader)</a></td>
 	<td class="summary">Sends light sources uniforms to the shader.</td>
 	</tr>
 </table>
@@ -102,41 +98,15 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Class_PerspectiveCamera"></a>Class PerspectiveCamera </h2>
-
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+    Methods
     <dl class="function">
     <dt>
-    <a name = "PerspectiveCamera.Environment"></a>
-    <strong>PerspectiveCamera.Environment</strong>
+    <a name = "Environment:init"></a>
+    <strong>Environment:init (camera)</strong>
     </dt>
     <dd>
-    Class members
-
-
-    <h3>Fields:</h3>
-    <ul>
-        <li><span class="parameter">camera</span>
-         (menori.Camera or menori.PerspectiveCamera) object associated with the current Environment.
-        </li>
-        <li><span class="parameter">uniform_list</span>
-         (menori.UniformList) object. Uniforms in the list are automatically sent to the shader, which will be used to display objects with this environment.
-        </li>
-        <li><span class="parameter">lights</span>
-         List of light sources.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "environment:init"></a>
-    <strong>environment:init (camera)</strong>
-    </dt>
-    <dd>
-    Constructor.
+    The public constructor.
 
 
     <h3>Parameters:</h3>
@@ -152,8 +122,8 @@
 
 </dd>
     <dt>
-    <a name = "environment:add_light"></a>
-    <strong>environment:add_light (uniform_name, light)</strong>
+    <a name = "Environment:add_light"></a>
+    <strong>Environment:add_light (uniform_name, light)</strong>
     </dt>
     <dd>
     Add light source.
@@ -177,8 +147,8 @@
 
 </dd>
     <dt>
-    <a name = "environment:send_uniforms_to"></a>
-    <strong>environment:send_uniforms_to (shader)</strong>
+    <a name = "Environment:send_uniforms_to"></a>
+    <strong>Environment:send_uniforms_to (shader)</strong>
     </dt>
     <dd>
     Sends all the environment uniforms to the shader.
@@ -199,8 +169,8 @@
 
 </dd>
     <dt>
-    <a name = "environment:apply_shader"></a>
-    <strong>environment:apply_shader (shader)</strong>
+    <a name = "Environment:apply_shader"></a>
+    <strong>Environment:apply_shader (shader)</strong>
     </dt>
     <dd>
     Sets a Shader as the current pixel effect or vertex shaders.
@@ -221,8 +191,8 @@
 
 </dd>
     <dt>
-    <a name = "environment:send_light_sources_to"></a>
-    <strong>environment:send_light_sources_to (shader)</strong>
+    <a name = "Environment:send_light_sources_to"></a>
+    <strong>Environment:send_light_sources_to (shader)</strong>
     </dt>
     <dd>
     Sends light sources uniforms to the shader.
@@ -249,7 +219,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-05-08 18:59:34 </i>
+<i style="float:right;">Last updated 2022-05-09 14:45:19 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

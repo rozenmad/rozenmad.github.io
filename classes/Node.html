@@ -1,0 +1,1099 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Menori documentation</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Menori</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Fields">Fields</a></li>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/Camera.html">Camera</a></li>
+  <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+  <li><a href="../classes/Environment.html">Environment</a></li>
+  <li><a href="../classes/Material.html">Material</a></li>
+  <li><a href="../classes/Mesh.html">Mesh</a></li>
+  <li><a href="../classes/ModelNode.html">ModelNode</a></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><a href="../classes/bound3.html">bound3</a></li>
+  <li><a href="../classes/intersect.html">intersect</a></li>
+  <li><a href="../classes/mat4.html">mat4</a></li>
+  <li><a href="../classes/quat.html">quat</a></li>
+  <li><a href="../classes/vec2.html">vec2</a></li>
+  <li><a href="../classes/vec3.html">vec3</a></li>
+  <li><a href="../classes/vec4.html">vec4</a></li>
+  <li><strong>Node</strong></li>
+  <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/Sprite.html">Sprite</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.html">menori</a></li>
+  <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
+  <li><a href="../modules/utils.html">utils</a></li>
+  <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>Node</code></h1>
+<p>Node is the base class of all display objects.</p>
+<p>Node object can be assigned as a child of another node, resulting in a tree arrangement.
+You need to inherit from the Node class to create your own display object.</p>
+
+
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Node.name">Node.name</a></td>
+	<td class="summary">Name of node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.children">Node.children</a></td>
+	<td class="summary">Children of this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.parent">Node.parent</a></td>
+	<td class="summary">Parent of this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.detach_flag">Node.detach_flag</a></td>
+	<td class="summary">Flag that is used to detach this node from its parent during the next scene update.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.update_flag">Node.update_flag</a></td>
+	<td class="summary">Flag that sets whether the node is updated during the scene update pass.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.render_flag">Node.render_flag</a></td>
+	<td class="summary">Flag that sets whether the node is rendered during the scene render pass.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.update_transform_flag">Node.update_transform_flag</a></td>
+	<td class="summary">Flag that sets whether the node transformations will be updated.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.local_matrix">Node.local_matrix</a></td>
+	<td class="summary">Local transformation matrix</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.world_matrix">Node.world_matrix</a></td>
+	<td class="summary">World transformation matrix based on world (parent) factors.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.position">Node.position</a></td>
+	<td class="summary">Local position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.rotation">Node.rotation</a></td>
+	<td class="summary">Local rotation.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.scale">Node.scale</a></td>
+	<td class="summary">Local scale.</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Node:init">Node:init ([name='node'])</a></td>
+	<td class="summary">The public constructor.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:clone">Node:clone (new_object)</a></td>
+	<td class="summary">Clone an object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:set_position">Node:set_position (x, y, z)</a></td>
+	<td class="summary">Set Node local position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:set_rotation">Node:set_rotation (q)</a></td>
+	<td class="summary">Set Node local rotation.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:set_scale">Node:set_scale (sx, sy, sz)</a></td>
+	<td class="summary">Set Node local scale.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:get_world_position">Node:get_world_position ([retvalue])</a></td>
+	<td class="summary">Get world space position of the Node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:get_world_rotation">Node:get_world_rotation ([retvalue])</a></td>
+	<td class="summary">Get world space rotation of the Node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:get_world_scale">Node:get_world_scale ([retvalue])</a></td>
+	<td class="summary">The world space scale of the Node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:right">Node:right ([retvalue])</a></td>
+	<td class="summary">The red axis of the transform in world space.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:up">Node:up ([retvalue])</a></td>
+	<td class="summary">The green axis of the transform in world space.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:forward">Node:forward ([retvalue])</a></td>
+	<td class="summary">The blue axis of the transform in world space.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:get_aabb">Node:get_aabb ()</a></td>
+	<td class="summary">Calculate the largest AABB in down the hierarchy of nodes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:recursive_update_transform">Node:recursive_update_transform ()</a></td>
+	<td class="summary">Update all transform up the hierarchy to the root node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:update_transform">Node:update_transform ()</a></td>
+	<td class="summary">Update transformation matrix only for this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:get_child_by_index">Node:get_child_by_index (index)</a></td>
+	<td class="summary">Get child Node by index.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:remove_children">Node:remove_children ()</a></td>
+	<td class="summary">Remove all children from this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:attach">Node:attach (object)</a></td>
+	<td class="summary">Attach child node to this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:detach">Node:detach (child)</a></td>
+	<td class="summary">Detach child node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:find">Node:find (name)</a></td>
+	<td class="summary">Find a child by name and returns it.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:foreach">Node:foreach (callback)</a></td>
+	<td class="summary">Recursively traverse all nodes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:detach_from_parent">Node:detach_from_parent ()</a></td>
+	<td class="summary">Detach this node from the parent node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:get_root_node">Node:get_root_node ([upto])</a></td>
+	<td class="summary">Get the topmost Node in the hierarchy.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:children_count">Node:children_count ()</a></td>
+	<td class="summary">The number of children attached to this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:debug_print">Node:debug_print (node, tabs)</a></td>
+	<td class="summary">Recursively print all the children attached to this node.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Node.name"></a>
+    <strong>Node.name</strong>
+    </dt>
+    <dd>
+    Name of node.
+
+
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+         (<em>default</em> "node")
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.children"></a>
+    <strong>Node.children</strong>
+    </dt>
+    <dd>
+    Children of this node.
+
+
+    <ul>
+        <li><span class="parameter">children</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.parent"></a>
+    <strong>Node.parent</strong>
+    </dt>
+    <dd>
+    Parent of this node.
+
+
+    <ul>
+        <li><span class="parameter">parent</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.detach_flag"></a>
+    <strong>Node.detach_flag</strong>
+    </dt>
+    <dd>
+    Flag that is used to detach this node from its parent during the next scene update.
+
+
+    <ul>
+        <li><span class="parameter">detach_flag</span>
+            <span class="types"><span class="type">bool</span></span>
+
+
+
+         (<em>default</em> false)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.update_flag"></a>
+    <strong>Node.update_flag</strong>
+    </dt>
+    <dd>
+    Flag that sets whether the node is updated during the scene update pass.
+
+
+    <ul>
+        <li><span class="parameter">update_flag</span>
+            <span class="types"><span class="type">bool</span></span>
+
+
+
+         (<em>default</em> true)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.render_flag"></a>
+    <strong>Node.render_flag</strong>
+    </dt>
+    <dd>
+    Flag that sets whether the node is rendered during the scene render pass.
+
+
+    <ul>
+        <li><span class="parameter">render_flag</span>
+            <span class="types"><span class="type">bool</span></span>
+
+
+
+         (<em>default</em> true)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.update_transform_flag"></a>
+    <strong>Node.update_transform_flag</strong>
+    </dt>
+    <dd>
+    Flag that sets whether the node transformations will be updated.
+
+
+    <ul>
+        <li><span class="parameter">update_transform_flag</span>
+            <span class="types"><span class="type">bool</span></span>
+
+
+
+         (<em>default</em> true)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.local_matrix"></a>
+    <strong>Node.local_matrix</strong>
+    </dt>
+    <dd>
+    Local transformation matrix
+
+
+    <ul>
+        <li><span class="parameter">local_matrix</span>
+
+
+
+          <em>readonly</em>
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.world_matrix"></a>
+    <strong>Node.world_matrix</strong>
+    </dt>
+    <dd>
+    World transformation matrix based on world (parent) factors.
+
+
+    <ul>
+        <li><span class="parameter">world_matrix</span>
+
+
+
+          <em>readonly</em>
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.position"></a>
+    <strong>Node.position</strong>
+    </dt>
+    <dd>
+    Local position.
+
+
+    <ul>
+        <li><span class="parameter">position</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
+
+
+
+          <em>readonly</em>
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.rotation"></a>
+    <strong>Node.rotation</strong>
+    </dt>
+    <dd>
+    Local rotation.
+
+
+    <ul>
+        <li><span class="parameter">rotation</span>
+            <span class="types"><a class="type" href="../classes/quat.html#">quat</a></span>
+
+
+
+          <em>readonly</em>
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.scale"></a>
+    <strong>Node.scale</strong>
+    </dt>
+    <dd>
+    Local scale.
+
+
+    <ul>
+        <li><span class="parameter">scale</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
+
+
+
+          <em>readonly</em>
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Node:init"></a>
+    <strong>Node:init ([name='node'])</strong>
+    </dt>
+    <dd>
+    The public constructor.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         Node name.
+         (<em>default</em> 'node')
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:clone"></a>
+    <strong>Node:clone (new_object)</strong>
+    </dt>
+    <dd>
+    Clone an object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">new_object</span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">menori.Node</span></span>
+        object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:set_position"></a>
+    <strong>Node:set_position (x, y, z)</strong>
+    </dt>
+    <dd>
+    Set Node local position.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         position x or vec3
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         position y
+        </li>
+        <li><span class="parameter">z</span>
+            <span class="types"><span class="type">number</span></span>
+         position z
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:set_rotation"></a>
+    <strong>Node:set_rotation (q)</strong>
+    </dt>
+    <dd>
+    Set Node local rotation.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">q</span>
+            <span class="types"><span class="type">ml.quat</span></span>
+         Rotation quaternion.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:set_scale"></a>
+    <strong>Node:set_scale (sx, sy, sz)</strong>
+    </dt>
+    <dd>
+    Set Node local scale.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sx</span>
+            <span class="types"><span class="type">number</span></span>
+         scale x or vec3
+        </li>
+        <li><span class="parameter">sy</span>
+            <span class="types"><span class="type">number</span></span>
+         scale y
+        </li>
+        <li><span class="parameter">sz</span>
+            <span class="types"><span class="type">number</span></span>
+         scale z
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:get_world_position"></a>
+    <strong>Node:get_world_position ([retvalue])</strong>
+    </dt>
+    <dd>
+    Get world space position of the Node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">retvalue</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
+        object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:get_world_rotation"></a>
+    <strong>Node:get_world_rotation ([retvalue])</strong>
+    </dt>
+    <dd>
+    Get world space rotation of the Node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">retvalue</span>
+            <span class="types"><a class="type" href="../classes/quat.html#">quat</a></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/quat.html#">quat</a></span>
+        object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:get_world_scale"></a>
+    <strong>Node:get_world_scale ([retvalue])</strong>
+    </dt>
+    <dd>
+    The world space scale of the Node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">retvalue</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec3 object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:right"></a>
+    <strong>Node:right ([retvalue])</strong>
+    </dt>
+    <dd>
+    The red axis of the transform in world space.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">retvalue</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec3 object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:up"></a>
+    <strong>Node:up ([retvalue])</strong>
+    </dt>
+    <dd>
+    The green axis of the transform in world space.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">retvalue</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec3 object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:forward"></a>
+    <strong>Node:forward ([retvalue])</strong>
+    </dt>
+    <dd>
+    The blue axis of the transform in world space.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">retvalue</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
+        object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:get_aabb"></a>
+    <strong>Node:get_aabb ()</strong>
+    </dt>
+    <dd>
+    Calculate the largest AABB in down the hierarchy of nodes.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/bound3.html#">bound3</a></span>
+        object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:recursive_update_transform"></a>
+    <strong>Node:recursive_update_transform ()</strong>
+    </dt>
+    <dd>
+    Update all transform up the hierarchy to the root node.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:update_transform"></a>
+    <strong>Node:update_transform ()</strong>
+    </dt>
+    <dd>
+    Update transformation matrix only for this node.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:get_child_by_index"></a>
+    <strong>Node:get_child_by_index (index)</strong>
+    </dt>
+    <dd>
+    Get child Node by index.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">index</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">menori.Node</span></span>
+        object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:remove_children"></a>
+    <strong>Node:remove_children ()</strong>
+    </dt>
+    <dd>
+    Remove all children from this node.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:attach"></a>
+    <strong>Node:attach (object)</strong>
+    </dt>
+    <dd>
+    Attach child node to this node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">object</span>
+            <span class="types"><span class="type">menori.Node</span></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">menori.Node</span></span>
+        object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:detach"></a>
+    <strong>Node:detach (child)</strong>
+    </dt>
+    <dd>
+    Detach child node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">child</span>
+            <span class="types"><span class="type">menori.Node</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:find"></a>
+    <strong>Node:find (name)</strong>
+    </dt>
+    <dd>
+    Find a child by name and returns it.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         If name contains a '/' character it will access
+ the Node in the hierarchy like a path name.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">menori.Node</span></span>
+        The found child or nil
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:foreach"></a>
+    <strong>Node:foreach (callback)</strong>
+    </dt>
+    <dd>
+    Recursively traverse all nodes.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">function</span></span>
+         Function that is called for every child node with params (child, index)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:detach_from_parent"></a>
+    <strong>Node:detach_from_parent ()</strong>
+    </dt>
+    <dd>
+    Detach this node from the parent node.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:get_root_node"></a>
+    <strong>Node:get_root_node ([upto])</strong>
+    </dt>
+    <dd>
+    Get the topmost Node in the hierarchy.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">upto</span>
+            <span class="types"><span class="type">menori.Node</span></span>
+         the Node where the hierarchy recursion will stop if it exist
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:children_count"></a>
+    <strong>Node:children_count ()</strong>
+    </dt>
+    <dd>
+    The number of children attached to this node.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:debug_print"></a>
+    <strong>Node:debug_print (node, tabs)</strong>
+    </dt>
+    <dd>
+    Recursively print all the children attached to this node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">node</span>
+
+
+
+        </li>
+        <li><span class="parameter">tabs</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2022-05-09 22:09:09 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

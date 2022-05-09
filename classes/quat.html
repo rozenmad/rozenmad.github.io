@@ -1,0 +1,811 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Menori documentation</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Menori</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/Camera.html">Camera</a></li>
+  <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+  <li><a href="../classes/Environment.html">Environment</a></li>
+  <li><a href="../classes/Material.html">Material</a></li>
+  <li><a href="../classes/Mesh.html">Mesh</a></li>
+  <li><a href="../classes/ModelNode.html">ModelNode</a></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><a href="../classes/bound3.html">bound3</a></li>
+  <li><a href="../classes/intersect.html">intersect</a></li>
+  <li><a href="../classes/mat4.html">mat4</a></li>
+  <li><strong>quat</strong></li>
+  <li><a href="../classes/vec2.html">vec2</a></li>
+  <li><a href="../classes/vec3.html">vec3</a></li>
+  <li><a href="../classes/vec4.html">vec4</a></li>
+  <li><a href="../classes/Node.html">Node</a></li>
+  <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/Sprite.html">Sprite</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.html">menori</a></li>
+  <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
+  <li><a href="../modules/utils.html">utils</a></li>
+  <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>quat</code></h1>
+<p>Quaternion.</p>
+<p>menori.ml.quat</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#quat.from_euler_angles">quat.from_euler_angles (y, p, r)</a></td>
+	<td class="summary">from euler angles</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat.from_angle_axis">quat.from_angle_axis (angle, axis, a3, a4)</a></td>
+	<td class="summary">from angle axis</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat.from_direction">quat.from_direction (forward, up)</a></td>
+	<td class="summary">from direction</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat.dot">quat.dot (a, b)</a></td>
+	<td class="summary">dot</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat.lerp">quat.lerp (a, b, s)</a></td>
+	<td class="summary">lerp</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat.slerp">quat.slerp (a, b, s)</a></td>
+	<td class="summary">slerp</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat.is_quat">quat.is_quat (a)</a></td>
+	<td class="summary">is quat</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#quat:clone">quat:clone ()</a></td>
+	<td class="summary">clone</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:set">quat:set (x, y, z, w)</a></td>
+	<td class="summary">set</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:add">quat:add (other)</a></td>
+	<td class="summary">add</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:sub">quat:sub (other)</a></td>
+	<td class="summary">sub</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:mul">quat:mul (other)</a></td>
+	<td class="summary">mul</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:multiply_vec3">quat:multiply_vec3 (v3)</a></td>
+	<td class="summary">multiply vec3</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:scale">quat:scale (s)</a></td>
+	<td class="summary">scale</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:pow">quat:pow (s)</a></td>
+	<td class="summary">pow</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:conjugate">quat:conjugate ()</a></td>
+	<td class="summary">conjugate</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:inverse">quat:inverse ()</a></td>
+	<td class="summary">inverse</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:normalize">quat:normalize ()</a></td>
+	<td class="summary">normalize</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:reciprocal">quat:reciprocal ()</a></td>
+	<td class="summary">reciprocal</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:length">quat:length ()</a></td>
+	<td class="summary">length</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:length2">quat:length2 ()</a></td>
+	<td class="summary">length2</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:unpack">quat:unpack (a)</a></td>
+	<td class="summary">unpack</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:is_zero">quat:is_zero ()</a></td>
+	<td class="summary">is zero</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:is_real">quat:is_real ()</a></td>
+	<td class="summary">is real</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:is_imaginary">quat:is_imaginary ()</a></td>
+	<td class="summary">is imaginary</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:to_angle_axis_unpack">quat:to_angle_axis_unpack ()</a></td>
+	<td class="summary">to angle axis unpack</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:to_angle_axis">quat:to_angle_axis ()</a></td>
+	<td class="summary">to angle axis</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quat:to_euler">quat:to_euler (order)</a></td>
+	<td class="summary">to euler angles</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "quat.from_euler_angles"></a>
+    <strong>quat.from_euler_angles (y, p, r)</strong>
+    </dt>
+    <dd>
+    from euler angles
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">y</span>
+
+
+
+        </li>
+        <li><span class="parameter">p</span>
+
+
+
+        </li>
+        <li><span class="parameter">r</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat.from_angle_axis"></a>
+    <strong>quat.from_angle_axis (angle, axis, a3, a4)</strong>
+    </dt>
+    <dd>
+    from angle axis
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">angle</span>
+
+
+
+        </li>
+        <li><span class="parameter">axis</span>
+
+
+
+        </li>
+        <li><span class="parameter">a3</span>
+
+
+
+        </li>
+        <li><span class="parameter">a4</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat.from_direction"></a>
+    <strong>quat.from_direction (forward, up)</strong>
+    </dt>
+    <dd>
+    from direction
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">forward</span>
+
+
+
+        </li>
+        <li><span class="parameter">up</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat.dot"></a>
+    <strong>quat.dot (a, b)</strong>
+    </dt>
+    <dd>
+    dot
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat.lerp"></a>
+    <strong>quat.lerp (a, b, s)</strong>
+    </dt>
+    <dd>
+    lerp
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+        <li><span class="parameter">s</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat.slerp"></a>
+    <strong>quat.slerp (a, b, s)</strong>
+    </dt>
+    <dd>
+    slerp
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+        <li><span class="parameter">s</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat.is_quat"></a>
+    <strong>quat.is_quat (a)</strong>
+    </dt>
+    <dd>
+    is quat
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "quat:clone"></a>
+    <strong>quat:clone ()</strong>
+    </dt>
+    <dd>
+    clone
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:set"></a>
+    <strong>quat:set (x, y, z, w)</strong>
+    </dt>
+    <dd>
+    set
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+
+
+
+        </li>
+        <li><span class="parameter">z</span>
+
+
+
+        </li>
+        <li><span class="parameter">w</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:add"></a>
+    <strong>quat:add (other)</strong>
+    </dt>
+    <dd>
+    add
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">other</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:sub"></a>
+    <strong>quat:sub (other)</strong>
+    </dt>
+    <dd>
+    sub
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">other</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:mul"></a>
+    <strong>quat:mul (other)</strong>
+    </dt>
+    <dd>
+    mul
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">other</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:multiply_vec3"></a>
+    <strong>quat:multiply_vec3 (v3)</strong>
+    </dt>
+    <dd>
+    multiply vec3
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">v3</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:scale"></a>
+    <strong>quat:scale (s)</strong>
+    </dt>
+    <dd>
+    scale
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">s</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:pow"></a>
+    <strong>quat:pow (s)</strong>
+    </dt>
+    <dd>
+    pow
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">s</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:conjugate"></a>
+    <strong>quat:conjugate ()</strong>
+    </dt>
+    <dd>
+    conjugate
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:inverse"></a>
+    <strong>quat:inverse ()</strong>
+    </dt>
+    <dd>
+    inverse
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:normalize"></a>
+    <strong>quat:normalize ()</strong>
+    </dt>
+    <dd>
+    normalize
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:reciprocal"></a>
+    <strong>quat:reciprocal ()</strong>
+    </dt>
+    <dd>
+    reciprocal
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:length"></a>
+    <strong>quat:length ()</strong>
+    </dt>
+    <dd>
+    length
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:length2"></a>
+    <strong>quat:length2 ()</strong>
+    </dt>
+    <dd>
+    length2
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:unpack"></a>
+    <strong>quat:unpack (a)</strong>
+    </dt>
+    <dd>
+    unpack
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:is_zero"></a>
+    <strong>quat:is_zero ()</strong>
+    </dt>
+    <dd>
+    is zero
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:is_real"></a>
+    <strong>quat:is_real ()</strong>
+    </dt>
+    <dd>
+    is real
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:is_imaginary"></a>
+    <strong>quat:is_imaginary ()</strong>
+    </dt>
+    <dd>
+    is imaginary
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:to_angle_axis_unpack"></a>
+    <strong>quat:to_angle_axis_unpack ()</strong>
+    </dt>
+    <dd>
+    to angle axis unpack
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:to_angle_axis"></a>
+    <strong>quat:to_angle_axis ()</strong>
+    </dt>
+    <dd>
+    to angle axis
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quat:to_euler"></a>
+    <strong>quat:to_euler (order)</strong>
+    </dt>
+    <dd>
+    to euler angles
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">order</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2022-05-09 22:09:09 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

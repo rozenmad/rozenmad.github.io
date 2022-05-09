@@ -1,0 +1,763 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Menori documentation</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Menori</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/Camera.html">Camera</a></li>
+  <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+  <li><a href="../classes/Environment.html">Environment</a></li>
+  <li><a href="../classes/Material.html">Material</a></li>
+  <li><a href="../classes/Mesh.html">Mesh</a></li>
+  <li><a href="../classes/ModelNode.html">ModelNode</a></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><a href="../classes/bound3.html">bound3</a></li>
+  <li><a href="../classes/intersect.html">intersect</a></li>
+  <li><strong>mat4</strong></li>
+  <li><a href="../classes/quat.html">quat</a></li>
+  <li><a href="../classes/vec2.html">vec2</a></li>
+  <li><a href="../classes/vec3.html">vec3</a></li>
+  <li><a href="../classes/vec4.html">vec4</a></li>
+  <li><a href="../classes/Node.html">Node</a></li>
+  <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/Sprite.html">Sprite</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.html">menori</a></li>
+  <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
+  <li><a href="../modules/utils.html">utils</a></li>
+  <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>mat4</code></h1>
+<p>Matrix4.</p>
+<p>menori.ml.mat4</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#mat4.is_mat4">mat4.is_mat4 (a)</a></td>
+	<td class="summary">is mat4</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4.unproject">mat4.unproject (win, model, proj, viewport)</a></td>
+	<td class="summary">unproject</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#mat4:to_temp_transform_object">mat4:to_temp_transform_object ()</a></td>
+	<td class="summary">to temp transform object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:to_table">mat4:to_table ()</a></td>
+	<td class="summary">to table</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:clone">mat4:clone ()</a></td>
+	<td class="summary">clone</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:copy">mat4:copy (other)</a></td>
+	<td class="summary">copy</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:identity">mat4:identity ()</a></td>
+	<td class="summary">identity</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:is_identity">mat4:is_identity ()</a></td>
+	<td class="summary">is identity</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:multiply">mat4:multiply (other)</a></td>
+	<td class="summary">multiply</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:determinant">mat4:determinant ()</a></td>
+	<td class="summary">determinant</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:inverse">mat4:inverse ()</a></td>
+	<td class="summary">inverse</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:transpose">mat4:transpose ()</a></td>
+	<td class="summary">transpose</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:compose">mat4:compose (position, rotation, scale)</a></td>
+	<td class="summary">compose</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:decompose">mat4:decompose (position, rotation, scale)</a></td>
+	<td class="summary">decompose</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:set_position_and_rotation">mat4:set_position_and_rotation (position, angle, axis)</a></td>
+	<td class="summary">set position and rotation</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:scale">mat4:scale (x, y, z)</a></td>
+	<td class="summary">scale</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:translate">mat4:translate (x, y, z)</a></td>
+	<td class="summary">translate</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:shear">mat4:shear (yx, xy, zx, zy, xz, yz)</a></td>
+	<td class="summary">shear</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:rotate">mat4:rotate (angle, axis)</a></td>
+	<td class="summary">rotate</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:reflect">mat4:reflect (position, normal)</a></td>
+	<td class="summary">reflect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:multiply_vec4">mat4:multiply_vec4 (v, out)</a></td>
+	<td class="summary">multiply vec4</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:multiply_vec3">mat4:multiply_vec3 (v, out)</a></td>
+	<td class="summary">multiply vec3</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:is_changed">mat4:is_changed ()</a></td>
+	<td class="summary">is changed</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mat4:unpack">mat4:unpack ()</a></td>
+	<td class="summary">unpack</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "mat4.is_mat4"></a>
+    <strong>mat4.is_mat4 (a)</strong>
+    </dt>
+    <dd>
+    is mat4
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4.unproject"></a>
+    <strong>mat4.unproject (win, model, proj, viewport)</strong>
+    </dt>
+    <dd>
+    unproject
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">win</span>
+
+
+
+        </li>
+        <li><span class="parameter">model</span>
+
+
+
+        </li>
+        <li><span class="parameter">proj</span>
+
+
+
+        </li>
+        <li><span class="parameter">viewport</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "mat4:to_temp_transform_object"></a>
+    <strong>mat4:to_temp_transform_object ()</strong>
+    </dt>
+    <dd>
+    to temp transform object
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:to_table"></a>
+    <strong>mat4:to_table ()</strong>
+    </dt>
+    <dd>
+    to table
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:clone"></a>
+    <strong>mat4:clone ()</strong>
+    </dt>
+    <dd>
+    clone
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:copy"></a>
+    <strong>mat4:copy (other)</strong>
+    </dt>
+    <dd>
+    copy
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">other</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:identity"></a>
+    <strong>mat4:identity ()</strong>
+    </dt>
+    <dd>
+    identity
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:is_identity"></a>
+    <strong>mat4:is_identity ()</strong>
+    </dt>
+    <dd>
+    is identity
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:multiply"></a>
+    <strong>mat4:multiply (other)</strong>
+    </dt>
+    <dd>
+    multiply
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">other</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:determinant"></a>
+    <strong>mat4:determinant ()</strong>
+    </dt>
+    <dd>
+    determinant
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:inverse"></a>
+    <strong>mat4:inverse ()</strong>
+    </dt>
+    <dd>
+    inverse
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:transpose"></a>
+    <strong>mat4:transpose ()</strong>
+    </dt>
+    <dd>
+    transpose
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:compose"></a>
+    <strong>mat4:compose (position, rotation, scale)</strong>
+    </dt>
+    <dd>
+    compose
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">position</span>
+
+
+
+        </li>
+        <li><span class="parameter">rotation</span>
+
+
+
+        </li>
+        <li><span class="parameter">scale</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:decompose"></a>
+    <strong>mat4:decompose (position, rotation, scale)</strong>
+    </dt>
+    <dd>
+    decompose
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">position</span>
+
+
+
+        </li>
+        <li><span class="parameter">rotation</span>
+
+
+
+        </li>
+        <li><span class="parameter">scale</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:set_position_and_rotation"></a>
+    <strong>mat4:set_position_and_rotation (position, angle, axis)</strong>
+    </dt>
+    <dd>
+    set position and rotation
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">position</span>
+
+
+
+        </li>
+        <li><span class="parameter">angle</span>
+
+
+
+        </li>
+        <li><span class="parameter">axis</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:scale"></a>
+    <strong>mat4:scale (x, y, z)</strong>
+    </dt>
+    <dd>
+    scale
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+
+
+
+        </li>
+        <li><span class="parameter">z</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:translate"></a>
+    <strong>mat4:translate (x, y, z)</strong>
+    </dt>
+    <dd>
+    translate
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+
+
+
+        </li>
+        <li><span class="parameter">z</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:shear"></a>
+    <strong>mat4:shear (yx, xy, zx, zy, xz, yz)</strong>
+    </dt>
+    <dd>
+    shear
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">yx</span>
+
+
+
+        </li>
+        <li><span class="parameter">xy</span>
+
+
+
+        </li>
+        <li><span class="parameter">zx</span>
+
+
+
+        </li>
+        <li><span class="parameter">zy</span>
+
+
+
+        </li>
+        <li><span class="parameter">xz</span>
+
+
+
+        </li>
+        <li><span class="parameter">yz</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:rotate"></a>
+    <strong>mat4:rotate (angle, axis)</strong>
+    </dt>
+    <dd>
+    rotate
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">angle</span>
+
+
+
+        </li>
+        <li><span class="parameter">axis</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:reflect"></a>
+    <strong>mat4:reflect (position, normal)</strong>
+    </dt>
+    <dd>
+    reflect
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">position</span>
+
+
+
+        </li>
+        <li><span class="parameter">normal</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:multiply_vec4"></a>
+    <strong>mat4:multiply_vec4 (v, out)</strong>
+    </dt>
+    <dd>
+    multiply vec4
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">v</span>
+
+
+
+        </li>
+        <li><span class="parameter">out</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:multiply_vec3"></a>
+    <strong>mat4:multiply_vec3 (v, out)</strong>
+    </dt>
+    <dd>
+    multiply vec3
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">v</span>
+
+
+
+        </li>
+        <li><span class="parameter">out</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:is_changed"></a>
+    <strong>mat4:is_changed ()</strong>
+    </dt>
+    <dd>
+    is changed
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mat4:unpack"></a>
+    <strong>mat4:unpack ()</strong>
+    </dt>
+    <dd>
+    unpack
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2022-05-09 22:09:09 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

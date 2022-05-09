@@ -26,123 +26,90 @@
 <br/>
 <h1>Menori</h1>
 
+
 <ul>
   <li><a href="../index.html">Index</a></li>
 </ul>
 
 <h2>Contents</h2>
 <ul>
+<li><a href="#Functions">Functions</a></li>
 <li><a href="#Tables">Tables</a></li>
-<li><a href="#Class_ModelNode">Class ModelNode </a></li>
 </ul>
 
 
 <h2>Modules</h2>
 <ul class="nowrap">
-  <li><a href="../modules/menori.html">menori</a></li>
   <li><a href="../modules/menori.Application.html">menori.Application</a></li>
   <li><a href="../modules/menori.Camera.html">menori.Camera</a></li>
-  <li><a href="../modules/menori.glTFLoader.html">menori.glTFLoader</a></li>
-  <li><strong>menori.ModelNode</strong></li>
-  <li><a href="../modules/modules.core3d.model_node_tree.html">modules.core3d.model_node_tree</a></li>
-  <li><a href="../modules/menori.UniformList.html">menori.UniformList</a></li>
+  <li><a href="../modules/core3d.camera.html">core3d.camera</a></li>
+  <li><a href="../modules/core3d.environment.html">core3d.environment</a></li>
+  <li><a href="../modules/core3d.gltf.html">core3d.gltf</a></li>
+  <li><a href="../modules/core3d.material.html">core3d.material</a></li>
+  <li><a href="../modules/core3d.mesh.html">core3d.mesh</a></li>
+  <li><strong>core3d.model_node</strong></li>
+  <li><a href="../modules/core3d.model_node_tree.html">core3d.model_node_tree</a></li>
+  <li><a href="../modules/core3d.uniform_list.html">core3d.uniform_list</a></li>
   <li><a href="../modules/menori.Input.html">menori.Input</a></li>
   <li><a href="../modules/menori.Node.html">menori.Node</a></li>
   <li><a href="../modules/menori.Scene.html">menori.Scene</a></li>
   <li><a href="../modules/menori.Sprite.html">menori.Sprite</a></li>
   <li><a href="../modules/menori.SpriteLoader.html">menori.SpriteLoader</a></li>
 </ul>
-<h2>Classes</h2>
-<ul class="nowrap">
-  <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
-  <li><a href="../classes/Environment.html">Environment</a></li>
-  <li><a href="../classes/Material.html">Material</a></li>
-  <li><a href="../classes/Mesh.html">Mesh</a></li>
-</ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>menori.ModelNode</code></h1>
-<p>
-
-</p>
-<p>
-
-</p>
-
-
-<h2><a href="#Tables">Tables</a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#self">self</a></td>
-	<td class="summary">Class members.</td>
-	</tr>
-</table>
-<h2><a href="#Class_ModelNode">Class ModelNode </a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#ModelNode:init">ModelNode:init (mesh[, material=Material.default])</a></td>
-	<td class="summary">Constructor.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#ModelNode:clone">ModelNode:clone ()</a></td>
-	<td class="summary">Cloning an object.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#ModelNode:calculate_aabb">ModelNode:calculate_aabb ([index=1])</a></td>
-	<td class="summary">Вычисляет AABB применяя текущие трансформации.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#ModelNode:render">ModelNode:render (scene, environment)</a></td>
-	<td class="summary">Функция отрисовки объекта.</td>
-	</tr>
-</table>
-
-<br/>
-<br/>
-
-
-    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
-
-    <dl class="function">
-    <dt>
-    <a name = "self"></a>
-    <strong>self</strong>
-    </dt>
-    <dd>
-    Class members.
-
-
-    <h3>Fields:</h3>
+<h1>Module <code>core3d.model_node</code></h1>
+<p>Класс для отрисовки Mesh объектов.</p>
+<p>(Наследуется от класса menori.Node)</p>
+    <h3>See also:</h3>
     <ul>
-        <li><span class="parameter">material</span>
-         Собственная копия Материала который привязан к модели.
-        </li>
-        <li><span class="parameter">mesh</span>
-         Объект menori.Mesh который привязан к модели.
-        </li>
-        <li><span class="parameter">color</span>
-         Цвет модели. (Deprecated)
-        </li>
+         <a href="../modules/menori.Node.html#">menori.Node</a>
     </ul>
 
 
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#init">init (mesh[, material=Material.default])</a></td>
+	<td class="summary">Constructor</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#clone">clone ()</a></td>
+	<td class="summary">Cloning an object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#calculate_aabb">calculate_aabb ([index=1])</a></td>
+	<td class="summary">Вычисляет AABB применяя текущие трансформации.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#render">render (scene, environment)</a></td>
+	<td class="summary">Функция отрисовки объекта.</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#ModelNode">ModelNode</a></td>
+	<td class="summary">Class members</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
 
 
-
-</dd>
-</dl>
-    <h2 class="section-header "><a name="Class_ModelNode"></a>Class ModelNode </h2>
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
-    <a name = "ModelNode:init"></a>
-    <strong>ModelNode:init (mesh[, material=Material.default])</strong>
+    <a name = "init"></a>
+    <strong>init (mesh[, material=Material.default])</strong>
     </dt>
     <dd>
-    Constructor.
+    Constructor
 
 
     <h3>Parameters:</h3>
@@ -164,11 +131,11 @@
 
 </dd>
     <dt>
-    <a name = "ModelNode:clone"></a>
-    <strong>ModelNode:clone ()</strong>
+    <a name = "clone"></a>
+    <strong>clone ()</strong>
     </dt>
     <dd>
-    Cloning an object.
+    Cloning an object
 
 
 
@@ -184,8 +151,8 @@
 
 </dd>
     <dt>
-    <a name = "ModelNode:calculate_aabb"></a>
-    <strong>ModelNode:calculate_aabb ([index=1])</strong>
+    <a name = "calculate_aabb"></a>
+    <strong>calculate_aabb ([index=1])</strong>
     </dt>
     <dd>
     Вычисляет AABB применяя текущие трансформации.
@@ -212,8 +179,8 @@
 
 </dd>
     <dt>
-    <a name = "ModelNode:render"></a>
-    <strong>ModelNode:render (scene, environment)</strong>
+    <a name = "render"></a>
+    <strong>render (scene, environment)</strong>
     </dt>
     <dd>
     Функция отрисовки объекта.
@@ -238,13 +205,43 @@
 
 </dd>
 </dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "ModelNode"></a>
+    <strong>ModelNode</strong>
+    </dt>
+    <dd>
+    Class members
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">material</span>
+         Собственная копия Материала который привязан к модели.
+        </li>
+        <li><span class="parameter">mesh</span>
+         Объект menori.Mesh который привязан к модели.
+        </li>
+        <li><span class="parameter">color</span>
+         Цвет модели. (Deprecated)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-05-08 19:09:10 </i>
+<i style="float:right;">Last updated 2022-05-08 08:20:28 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

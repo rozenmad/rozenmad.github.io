@@ -1,0 +1,724 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Menori documentation</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Menori</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/Camera.html">Camera</a></li>
+  <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+  <li><a href="../classes/Environment.html">Environment</a></li>
+  <li><a href="../classes/Material.html">Material</a></li>
+  <li><a href="../classes/Mesh.html">Mesh</a></li>
+  <li><a href="../classes/ModelNode.html">ModelNode</a></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><a href="../classes/bound3.html">bound3</a></li>
+  <li><a href="../classes/intersect.html">intersect</a></li>
+  <li><a href="../classes/mat4.html">mat4</a></li>
+  <li><a href="../classes/quat.html">quat</a></li>
+  <li><a href="../classes/vec2.html">vec2</a></li>
+  <li><strong>vec3</strong></li>
+  <li><a href="../classes/vec4.html">vec4</a></li>
+  <li><a href="../classes/Node.html">Node</a></li>
+  <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/Sprite.html">Sprite</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.html">menori</a></li>
+  <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
+  <li><a href="../modules/utils.html">utils</a></li>
+  <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>vec3</code></h1>
+<p>Vector3.</p>
+<p>menori.ml.vec3</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#vec3.is_vec3">vec3.is_vec3 (a)</a></td>
+	<td class="summary">is vec3</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3.dot">vec3.dot (a, b)</a></td>
+	<td class="summary">dot</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3.distance">vec3.distance (p0, p1)</a></td>
+	<td class="summary">distance</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3.fract">vec3.fract (a)</a></td>
+	<td class="summary">fract</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3.cross">vec3.cross (a, b)</a></td>
+	<td class="summary">cross</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3.min">vec3.min (a, b)</a></td>
+	<td class="summary">min</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3.abs">vec3.abs (a)</a></td>
+	<td class="summary">abs</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3.lessThan">vec3.lessThan (a, b)</a></td>
+	<td class="summary">lessThan</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3.pow">vec3.pow (a, b)</a></td>
+	<td class="summary">pow</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#vec3:clone">vec3:clone ()</a></td>
+	<td class="summary">clone</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:set">vec3:set (x, y, z)</a></td>
+	<td class="summary">set</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:add">vec3:add (a, b)</a></td>
+	<td class="summary">add</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:sub">vec3:sub (a, b)</a></td>
+	<td class="summary">sub</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:mul">vec3:mul (a, b)</a></td>
+	<td class="summary">mul</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:div">vec3:div (a, b)</a></td>
+	<td class="summary">div</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:scale">vec3:scale (scalar)</a></td>
+	<td class="summary">scale</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:length">vec3:length ()</a></td>
+	<td class="summary">length</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:length2">vec3:length2 ()</a></td>
+	<td class="summary">length2</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:normalize">vec3:normalize ()</a></td>
+	<td class="summary">normalize</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:round">vec3:round ()</a></td>
+	<td class="summary">round</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:unpack">vec3:unpack ()</a></td>
+	<td class="summary">unpack</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:set_from_matrix_position">vec3:set_from_matrix_position (m)</a></td>
+	<td class="summary">set from matrix position</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:max">vec3:max (a, b)</a></td>
+	<td class="summary">max</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "vec3.is_vec3"></a>
+    <strong>vec3.is_vec3 (a)</strong>
+    </dt>
+    <dd>
+    is vec3
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3.dot"></a>
+    <strong>vec3.dot (a, b)</strong>
+    </dt>
+    <dd>
+    dot
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3.distance"></a>
+    <strong>vec3.distance (p0, p1)</strong>
+    </dt>
+    <dd>
+    distance
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p0</span>
+
+
+
+        </li>
+        <li><span class="parameter">p1</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3.fract"></a>
+    <strong>vec3.fract (a)</strong>
+    </dt>
+    <dd>
+    fract
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3.cross"></a>
+    <strong>vec3.cross (a, b)</strong>
+    </dt>
+    <dd>
+    cross
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3.min"></a>
+    <strong>vec3.min (a, b)</strong>
+    </dt>
+    <dd>
+    min
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3.abs"></a>
+    <strong>vec3.abs (a)</strong>
+    </dt>
+    <dd>
+    abs
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3.lessThan"></a>
+    <strong>vec3.lessThan (a, b)</strong>
+    </dt>
+    <dd>
+    lessThan
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3.pow"></a>
+    <strong>vec3.pow (a, b)</strong>
+    </dt>
+    <dd>
+    pow
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "vec3:clone"></a>
+    <strong>vec3:clone ()</strong>
+    </dt>
+    <dd>
+    clone
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:set"></a>
+    <strong>vec3:set (x, y, z)</strong>
+    </dt>
+    <dd>
+    set
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+
+
+
+        </li>
+        <li><span class="parameter">z</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:add"></a>
+    <strong>vec3:add (a, b)</strong>
+    </dt>
+    <dd>
+    add
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:sub"></a>
+    <strong>vec3:sub (a, b)</strong>
+    </dt>
+    <dd>
+    sub
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:mul"></a>
+    <strong>vec3:mul (a, b)</strong>
+    </dt>
+    <dd>
+    mul
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:div"></a>
+    <strong>vec3:div (a, b)</strong>
+    </dt>
+    <dd>
+    div
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:scale"></a>
+    <strong>vec3:scale (scalar)</strong>
+    </dt>
+    <dd>
+    scale
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">scalar</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:length"></a>
+    <strong>vec3:length ()</strong>
+    </dt>
+    <dd>
+    length
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:length2"></a>
+    <strong>vec3:length2 ()</strong>
+    </dt>
+    <dd>
+    length2
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:normalize"></a>
+    <strong>vec3:normalize ()</strong>
+    </dt>
+    <dd>
+    normalize
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:round"></a>
+    <strong>vec3:round ()</strong>
+    </dt>
+    <dd>
+    round
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:unpack"></a>
+    <strong>vec3:unpack ()</strong>
+    </dt>
+    <dd>
+    unpack
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:set_from_matrix_position"></a>
+    <strong>vec3:set_from_matrix_position (m)</strong>
+    </dt>
+    <dd>
+    set from matrix position
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">m</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:max"></a>
+    <strong>vec3:max (a, b)</strong>
+    </dt>
+    <dd>
+    max
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2022-05-09 22:09:09 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

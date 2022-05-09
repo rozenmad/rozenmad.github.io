@@ -26,6 +26,7 @@
 <br/>
 <h1>Menori</h1>
 
+
 <ul>
   <li><a href="../index.html">Index</a></li>
 </ul>
@@ -36,48 +37,49 @@
 </ul>
 
 
-<h2>Modules</h2>
-<ul class="nowrap">
-  <li><a href="../modules/menori.html">menori</a></li>
-  <li><strong>menori.Application</strong></li>
-  <li><a href="../modules/menori.Camera.html">menori.Camera</a></li>
-  <li><a href="../modules/menori.glTFLoader.html">menori.glTFLoader</a></li>
-  <li><a href="../modules/modules.core3d.model_node_tree.html">modules.core3d.model_node_tree</a></li>
-  <li><a href="../modules/menori.Input.html">menori.Input</a></li>
-  <li><a href="../modules/menori.Node.html">menori.Node</a></li>
-  <li><a href="../modules/menori.Scene.html">menori.Scene</a></li>
-  <li><a href="../modules/menori.Sprite.html">menori.Sprite</a></li>
-  <li><a href="../modules/menori.SpriteLoader.html">menori.SpriteLoader</a></li>
-</ul>
 <h2>Classes</h2>
 <ul class="nowrap">
+  <li><strong>Application</strong></li>
+  <li><a href="../classes/Camera.html">Camera</a></li>
   <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
   <li><a href="../classes/Environment.html">Environment</a></li>
   <li><a href="../classes/Material.html">Material</a></li>
   <li><a href="../classes/Mesh.html">Mesh</a></li>
   <li><a href="../classes/ModelNode.html">ModelNode</a></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
   <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><a href="../classes/bound3.html">bound3</a></li>
+  <li><a href="../classes/intersect.html">intersect</a></li>
+  <li><a href="../classes/mat4.html">mat4</a></li>
+  <li><a href="../classes/quat.html">quat</a></li>
+  <li><a href="../classes/vec2.html">vec2</a></li>
+  <li><a href="../classes/vec3.html">vec3</a></li>
+  <li><a href="../classes/vec4.html">vec4</a></li>
+  <li><a href="../classes/Node.html">Node</a></li>
+  <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/Sprite.html">Sprite</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.html">menori</a></li>
+  <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
+  <li><a href="../modules/utils.html">utils</a></li>
+  <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
 </ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>menori.Application</code></h1>
+<h1>Class <code>Application</code></h1>
+<p>Singleton object.</p>
 <p>The main class for managing scenes and the viewport.</p>
-<p>
-
-</p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#application:init">application:init ()</a></td>
-	<td class="summary">init.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#application:resize_viewport">application:resize_viewport (w, h, opt)</a></td>
+	<td class="name" nowrap><a href="#application:resize_viewport">application:resize_viewport (w, h[, opt])</a></td>
 	<td class="summary">Resize viewport.</td>
 	</tr>
 	<tr>
@@ -106,11 +108,11 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#application:update">application:update (dt)</a></td>
-	<td class="summary">Application update function.</td>
+	<td class="summary">Main update function.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#application:render">application:render (dt)</a></td>
-	<td class="summary">Application render function.</td>
+	<td class="summary">Main render function.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#application.resize">application.resize (w, h)</a></td>
@@ -118,19 +120,27 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#application.mousemoved">application.mousemoved (x, y, dx, dy, istouch)</a></td>
-	<td class="summary">Mousemoved callback.</td>
+	<td class="summary">mousemoved callback.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#application.wheelmoved">application.wheelmoved (x, y)</a></td>
-	<td class="summary">Wheelmoved callback.</td>
+	<td class="summary">wheelmoved callback.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#application.mousepressed">application.mousepressed (x, y, button)</a></td>
-	<td class="summary">Mousemoved callback.</td>
+	<td class="summary">mousepressed callback.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#application.mousereleased">application.mousereleased (x, y, button)</a></td>
-	<td class="summary">Wheelmoved callback.</td>
+	<td class="summary">mousereleased callback.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application.keypressed">application.keypressed (key, scancode, isrepeat)</a></td>
+	<td class="summary">keypressed callback.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#application.keyreleased">application.keyreleased (key, scancode, isrepeat)</a></td>
+	<td class="summary">keyreleased callback.</td>
 	</tr>
 </table>
 
@@ -142,22 +152,8 @@
 
     <dl class="function">
     <dt>
-    <a name = "application:init"></a>
-    <strong>application:init ()</strong>
-    </dt>
-    <dd>
-    init.
-
-
-
-
-
-
-
-</dd>
-    <dt>
     <a name = "application:resize_viewport"></a>
-    <strong>application:resize_viewport (w, h, opt)</strong>
+    <strong>application:resize_viewport (w, h[, opt])</strong>
     </dt>
     <dd>
     Resize viewport.
@@ -167,19 +163,16 @@
     <ul>
         <li><span class="parameter">w</span>
             <span class="types"><span class="type">number</span></span>
-
-
-
+         Virtual viewport width
         </li>
         <li><span class="parameter">h</span>
             <span class="types"><span class="type">number</span></span>
-
-
-
+         Virtual viewport height
         </li>
         <li><span class="parameter">opt</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         (Optional)
+         canvas format, filter and msaa. {format=, msaa=, filter=}
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -199,6 +192,12 @@
 
     <h3>Returns:</h3>
     <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        x</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        y</li>
         <li>
            <span class="types"><span class="type">number</span></span>
         w</li>
@@ -332,7 +331,7 @@
     <strong>application:update (dt)</strong>
     </dt>
     <dd>
-    Application update function.
+    Main update function.
 
 
     <h3>Parameters:</h3>
@@ -355,7 +354,7 @@
     <strong>application:render (dt)</strong>
     </dt>
     <dd>
-    Application render function.
+    Main render function.
 
 
     <h3>Parameters:</h3>
@@ -405,7 +404,7 @@
     <strong>application.mousemoved (x, y, dx, dy, istouch)</strong>
     </dt>
     <dd>
-    Mousemoved callback.
+    mousemoved callback.
 
 
     <h3>Parameters:</h3>
@@ -447,7 +446,7 @@
     <strong>application.wheelmoved (x, y)</strong>
     </dt>
     <dd>
-    Wheelmoved callback.
+    wheelmoved callback.
 
 
     <h3>Parameters:</h3>
@@ -474,7 +473,7 @@
     <strong>application.mousepressed (x, y, button)</strong>
     </dt>
     <dd>
-    Mousemoved callback.
+    mousepressed callback.
 
 
     <h3>Parameters:</h3>
@@ -506,7 +505,7 @@
     <strong>application.mousereleased (x, y, button)</strong>
     </dt>
     <dd>
-    Wheelmoved callback.
+    mousereleased callback.
 
 
     <h3>Parameters:</h3>
@@ -533,6 +532,70 @@
 
 
 </dd>
+    <dt>
+    <a name = "application.keypressed"></a>
+    <strong>application.keypressed (key, scancode, isrepeat)</strong>
+    </dt>
+    <dd>
+    keypressed callback.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">key</span>
+
+
+
+        </li>
+        <li><span class="parameter">scancode</span>
+
+
+
+        </li>
+        <li><span class="parameter">isrepeat</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "application.keyreleased"></a>
+    <strong>application.keyreleased (key, scancode, isrepeat)</strong>
+    </dt>
+    <dd>
+    keyreleased callback.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">key</span>
+
+
+
+        </li>
+        <li><span class="parameter">scancode</span>
+
+
+
+        </li>
+        <li><span class="parameter">isrepeat</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
 </dl>
 
 
@@ -540,7 +603,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-05-08 19:33:54 </i>
+<i style="float:right;">Last updated 2022-05-09 22:09:09 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

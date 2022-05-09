@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Menori documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Menori</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><strong>menori.ModelNode</strong></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.Application.html">menori.Application</a></li>
+  <li><a href="../modules/menori.Camera.html">menori.Camera</a></li>
+  <li><a href="../modules/menori.PerspectiveCamera.html">menori.PerspectiveCamera</a></li>
+  <li><a href="../modules/menori.Environment.html">menori.Environment</a></li>
+  <li><a href="../modules/menori.glTFLoader.html">menori.glTFLoader</a></li>
+  <li><a href="../modules/menori.Material.html">menori.Material</a></li>
+  <li><a href="../modules/menori.Mesh.html">menori.Mesh</a></li>
+  <li><a href="../modules/menori.ModelNodeTree.html">menori.ModelNodeTree</a></li>
+  <li><a href="../modules/menori.UniformList.html">menori.UniformList</a></li>
+  <li><a href="../modules/menori.Input.html">menori.Input</a></li>
+  <li><a href="../modules/menori.Node.html">menori.Node</a></li>
+  <li><a href="../modules/menori.Scene.html">menori.Scene</a></li>
+  <li><a href="../modules/menori.Sprite.html">menori.Sprite</a></li>
+  <li><a href="../modules/menori.SpriteLoader.html">menori.SpriteLoader</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>menori.ModelNode</code></h1>
+<p>Класс для отрисовки Mesh объектов.</p>
+<p>(Наследуется от класса Node)</p>
+
+
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#menori.ModelNode:init">menori.ModelNode:init (mesh[, material])</a></td>
+	<td class="summary">Инициализация</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#menori.ModelNode:clone">menori.ModelNode:clone ()</a></td>
+	<td class="summary">Cloning an object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#menori.ModelNode:calculate_aabb">menori.ModelNode:calculate_aabb ([index])</a></td>
+	<td class="summary">Вычисляет AABB применяя текущие трансформации.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#menori.ModelNode:render">menori.ModelNode:render (scene, environment)</a></td>
+	<td class="summary">Функция отрисовки объекта.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "menori.ModelNode:init"></a>
+    <strong>menori.ModelNode:init (mesh[, material])</strong>
+    </dt>
+    <dd>
+    Инициализация
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">mesh</span>
+            <span class="types"><span class="type">Mesh</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">material</span>
+            <span class="types"><span class="type">Material</span></span>
+         Объект материала. (Для материала будет создана новая копия)
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "menori.ModelNode:clone"></a>
+    <strong>menori.ModelNode:clone ()</strong>
+    </dt>
+    <dd>
+    Cloning an object
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        новая копия ModelNode
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "menori.ModelNode:calculate_aabb"></a>
+    <strong>menori.ModelNode:calculate_aabb ([index])</strong>
+    </dt>
+    <dd>
+    Вычисляет AABB применяя текущие трансформации.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">index</span>
+         Индекс примитива в меше (по умолчанию - 1).
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "menori.ModelNode:render"></a>
+    <strong>menori.ModelNode:render (scene, environment)</strong>
+    </dt>
+    <dd>
+    Функция отрисовки объекта.
+ Эта функция будет вызвана неявно по иерархии, когда узел будет рисоваться с помощью scene:render_nodes()
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">scene</span>
+         Scene that draws this object
+        </li>
+        <li><span class="parameter">environment</span>
+         Environment that is used when drawing the current object
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2022-05-08 02:40:52 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

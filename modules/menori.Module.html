@@ -43,11 +43,11 @@
   <li><a href="../modules/menori.PerspectiveCamera.html">menori.PerspectiveCamera</a></li>
   <li><a href="../modules/menori.Environment.html">menori.Environment</a></li>
   <li><a href="../modules/menori.glTFLoader.html">menori.glTFLoader</a></li>
-  <li><strong>menori.Model</strong></li>
+  <li><a href="../modules/menori.Material.html">menori.Material</a></li>
+  <li><strong>menori.Module</strong></li>
   <li><a href="../modules/menori.ModelNode.html">menori.ModelNode</a></li>
   <li><a href="../modules/menori.ModelNodeTree.html">menori.ModelNodeTree</a></li>
   <li><a href="../modules/menori.UniformList.html">menori.UniformList</a></li>
-  <li><a href="../modules/menori.ImageLoader.html">menori.ImageLoader</a></li>
   <li><a href="../modules/menori.Input.html">menori.Input</a></li>
   <li><a href="../modules/menori.Node.html">menori.Node</a></li>
   <li><a href="../modules/menori.Scene.html">menori.Scene</a></li>
@@ -59,7 +59,7 @@
 
 <div id="content">
 
-<h1>Module <code>menori.Model</code></h1>
+<h1>Module <code>menori.Module</code></h1>
 <p>Class for initializing and storing mesh vertices and material.</p>
 <p>
 
@@ -69,20 +69,20 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#create_primitive">create_primitive (vertices, indices, count, Image, vertexformat, color, indices_type_size)</a></td>
-	<td class="summary">Сreates a primitive data structure.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#create_mesh_from_primitive">create_mesh_from_primitive (primitive)</a></td>
-	<td class="summary">Сreate mesh from primitive.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#generate_indices">generate_indices (count, template)</a></td>
+	<td class="name" nowrap><a href="#Mesh.generate_indices">Mesh.generate_indices (count, template)</a></td>
 	<td class="summary">Generates indices for quadrilateral primitives.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#constructor">constructor (primitives)</a></td>
-	<td class="summary">Constructor</td>
+	<td class="name" nowrap><a href="#Mesh.get_attribute_index">Mesh.get_attribute_index (attribute, format)</a></td>
+	<td class="summary">Gets the attribute index from the vertex format.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Mesh.from_primitive">Mesh.from_primitive (vertices)</a></td>
+	<td class="summary">Creates a menori.Mesh from vertices.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Mesh:init">Mesh:init (primitives)</a></td>
+	<td class="summary">Constructor.</td>
 	</tr>
 </table>
 
@@ -94,73 +94,8 @@
 
     <dl class="function">
     <dt>
-    <a name = "create_primitive"></a>
-    <strong>create_primitive (vertices, indices, count, Image, vertexformat, color, indices_type_size)</strong>
-    </dt>
-    <dd>
-    Сreates a primitive data structure.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">vertices</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         Table or Data of vertices
-        </li>
-        <li><span class="parameter">indices</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         Table or Data of indices
-        </li>
-        <li><span class="parameter">count</span>
-            <span class="types"><span class="type">number</span></span>
-         Count of vertices
-        </li>
-        <li><span class="parameter">Image</span>
-         image Image object that is used when drawing the mesh
-        </li>
-        <li><span class="parameter">vertexformat</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         A table in the form of {attribute, ...}_
-        </li>
-        <li><span class="parameter">color</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         Сolor table that is used when drawing the mesh
-        </li>
-        <li><span class="parameter">indices_type_size</span>
-            <span class="types"><span class="type">number</span></span>
-         Size of the index type if the indices stored in Data [2 or 4]
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "create_mesh_from_primitive"></a>
-    <strong>create_mesh_from_primitive (primitive)</strong>
-    </dt>
-    <dd>
-    Сreate mesh from primitive.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">primitive</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         Primitive object created by Model.create_primitive function
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "generate_indices"></a>
-    <strong>generate_indices (count, template)</strong>
+    <a name = "Mesh.generate_indices"></a>
+    <strong>Mesh.generate_indices (count, template)</strong>
     </dt>
     <dd>
     Generates indices for quadrilateral primitives.
@@ -184,11 +119,59 @@
 
 </dd>
     <dt>
-    <a name = "constructor"></a>
-    <strong>constructor (primitives)</strong>
+    <a name = "Mesh.get_attribute_index"></a>
+    <strong>Mesh.get_attribute_index (attribute, format)</strong>
     </dt>
     <dd>
-    Constructor
+    Gets the attribute index from the vertex format.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">attribute</span>
+
+
+
+        </li>
+        <li><span class="parameter">format</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Mesh.from_primitive"></a>
+    <strong>Mesh.from_primitive (vertices)</strong>
+    </dt>
+    <dd>
+    Creates a menori.Mesh from vertices.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vertices</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         that contains vertex data. See <a href="https://love2d.org/wiki/love.graphics.newMesh">LOVE Mesh</a>
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Mesh:init"></a>
+    <strong>Mesh:init (primitives)</strong>
+    </dt>
+    <dd>
+    Constructor.
 
 
     <h3>Parameters:</h3>
@@ -211,7 +194,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-06-02 04:47:41 </i>
+<i style="float:right;">Last updated 2022-05-08 07:21:18 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

@@ -26,82 +26,79 @@
 <br/>
 <h1>Menori</h1>
 
+
 <ul>
   <li><a href="../index.html">Index</a></li>
 </ul>
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Class_UniformList">Class UniformList </a></li>
+<li><a href="#Functions">Functions</a></li>
 </ul>
 
 
 <h2>Modules</h2>
 <ul class="nowrap">
-  <li><a href="../modules/menori.html">menori</a></li>
   <li><a href="../modules/menori.Application.html">menori.Application</a></li>
   <li><a href="../modules/menori.Camera.html">menori.Camera</a></li>
-  <li><a href="../modules/menori.glTFLoader.html">menori.glTFLoader</a></li>
-  <li><a href="../modules/modules.core3d.model_node_tree.html">modules.core3d.model_node_tree</a></li>
-  <li><strong>menori.UniformList</strong></li>
+  <li><a href="../modules/core3d.camera.html">core3d.camera</a></li>
+  <li><a href="../modules/core3d.environment.html">core3d.environment</a></li>
+  <li><a href="../modules/core3d.gltf.html">core3d.gltf</a></li>
+  <li><a href="../modules/core3d.material.html">core3d.material</a></li>
+  <li><a href="../modules/core3d.mesh.html">core3d.mesh</a></li>
+  <li><a href="../modules/core3d.model_node.html">core3d.model_node</a></li>
+  <li><a href="../modules/core3d.model_node_tree.html">core3d.model_node_tree</a></li>
+  <li><strong>core3d.uniform_list</strong></li>
   <li><a href="../modules/menori.Input.html">menori.Input</a></li>
   <li><a href="../modules/menori.Node.html">menori.Node</a></li>
   <li><a href="../modules/menori.Scene.html">menori.Scene</a></li>
   <li><a href="../modules/menori.Sprite.html">menori.Sprite</a></li>
   <li><a href="../modules/menori.SpriteLoader.html">menori.SpriteLoader</a></li>
 </ul>
-<h2>Classes</h2>
-<ul class="nowrap">
-  <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
-  <li><a href="../classes/Environment.html">Environment</a></li>
-  <li><a href="../classes/Material.html">Material</a></li>
-  <li><a href="../classes/Mesh.html">Mesh</a></li>
-  <li><a href="../classes/ModelNode.html">ModelNode</a></li>
-</ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>menori.UniformList</code></h1>
-<p>A class that stores a list of Uniform variables and implements their sending to the shader.</p>
+<h1>Module <code>core3d.uniform_list</code></h1>
+<p>Класс который хранит список Uniform переменных и реализует их отправку в шейдер.</p>
 <p>
 
 </p>
 
 
-<h2><a href="#Class_UniformList">Class UniformList </a></h2>
+<h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#UniformList:init">UniformList:init ()</a></td>
+	<td class="name" nowrap><a href="#init">init ()</a></td>
 	<td class="summary">Constructor.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#UniformList:set">UniformList:set (name, ...)</a></td>
+	<td class="name" nowrap><a href="#set">set (name, ...)</a></td>
 	<td class="summary">Set one or more any values to a Uniform variable into list.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#UniformList:set_color">UniformList:set_color (name, ...)</a></td>
+	<td class="name" nowrap><a href="#set_color">set_color (name, ...)</a></td>
 	<td class="summary">Set one or more color values to Uniform variable into list.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#UniformList:set_matrix">UniformList:set_matrix (name, object)</a></td>
+	<td class="name" nowrap><a href="#set_matrix">set_matrix (name, object)</a></td>
 	<td class="summary">Set matrix object to Uniform variable into list.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#UniformList:set_vector">UniformList:set_vector (name, object)</a></td>
+	<td class="name" nowrap><a href="#set_vector">set_vector (name, object)</a></td>
 	<td class="summary">Set vector object to Uniform variable into list.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#UniformList:get">UniformList:get (name)</a></td>
+	<td class="name" nowrap><a href="#get">get (name)</a></td>
 	<td class="summary">Get Uniform variable from list.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#UniformList:remove">UniformList:remove (name)</a></td>
+	<td class="name" nowrap><a href="#remove">remove (name)</a></td>
 	<td class="summary">Remove Uniform variable from list.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#UniformList:send_to">UniformList:send_to (shader[, concat_str=''])</a></td>
+	<td class="name" nowrap><a href="#send_to">send_to (shader[, concat_str=''])</a></td>
 	<td class="summary">Sends all Uniform values from the list to the Shader.</td>
 	</tr>
 </table>
@@ -110,12 +107,12 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Class_UniformList"></a>Class UniformList </h2>
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
-    <a name = "UniformList:init"></a>
-    <strong>UniformList:init ()</strong>
+    <a name = "init"></a>
+    <strong>init ()</strong>
     </dt>
     <dd>
     Constructor.
@@ -128,8 +125,8 @@
 
 </dd>
     <dt>
-    <a name = "UniformList:set"></a>
-    <strong>UniformList:set (name, ...)</strong>
+    <a name = "set"></a>
+    <strong>set (name, ...)</strong>
     </dt>
     <dd>
     Set one or more any values to a Uniform variable into list.
@@ -154,8 +151,8 @@
 
 </dd>
     <dt>
-    <a name = "UniformList:set_color"></a>
-    <strong>UniformList:set_color (name, ...)</strong>
+    <a name = "set_color"></a>
+    <strong>set_color (name, ...)</strong>
     </dt>
     <dd>
     Set one or more color values to Uniform variable into list.
@@ -180,8 +177,8 @@
 
 </dd>
     <dt>
-    <a name = "UniformList:set_matrix"></a>
-    <strong>UniformList:set_matrix (name, object)</strong>
+    <a name = "set_matrix"></a>
+    <strong>set_matrix (name, object)</strong>
     </dt>
     <dd>
     Set matrix object to Uniform variable into list.
@@ -209,8 +206,8 @@
 
 </dd>
     <dt>
-    <a name = "UniformList:set_vector"></a>
-    <strong>UniformList:set_vector (name, object)</strong>
+    <a name = "set_vector"></a>
+    <strong>set_vector (name, object)</strong>
     </dt>
     <dd>
     Set vector object to Uniform variable into list.
@@ -236,8 +233,8 @@
 
 </dd>
     <dt>
-    <a name = "UniformList:get"></a>
-    <strong>UniformList:get (name)</strong>
+    <a name = "get"></a>
+    <strong>get (name)</strong>
     </dt>
     <dd>
     Get Uniform variable from list.
@@ -265,8 +262,8 @@
 
 </dd>
     <dt>
-    <a name = "UniformList:remove"></a>
-    <strong>UniformList:remove (name)</strong>
+    <a name = "remove"></a>
+    <strong>remove (name)</strong>
     </dt>
     <dd>
     Remove Uniform variable from list.
@@ -288,8 +285,8 @@
 
 </dd>
     <dt>
-    <a name = "UniformList:send_to"></a>
-    <strong>UniformList:send_to (shader[, concat_str=''])</strong>
+    <a name = "send_to"></a>
+    <strong>send_to (shader[, concat_str=''])</strong>
     </dt>
     <dd>
     Sends all Uniform values from the list to the Shader.
@@ -318,7 +315,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-05-08 19:32:47 </i>
+<i style="float:right;">Last updated 2022-05-08 08:20:28 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

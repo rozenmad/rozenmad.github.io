@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Menori documentation</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Menori</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/Camera.html">Camera</a></li>
+  <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+  <li><a href="../classes/Environment.html">Environment</a></li>
+  <li><a href="../classes/Material.html">Material</a></li>
+  <li><a href="../classes/Mesh.html">Mesh</a></li>
+  <li><a href="../classes/ModelNode.html">ModelNode</a></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><strong>bound3</strong></li>
+  <li><a href="../classes/intersect.html">intersect</a></li>
+  <li><a href="../classes/mat4.html">mat4</a></li>
+  <li><a href="../classes/quat.html">quat</a></li>
+  <li><a href="../classes/vec2.html">vec2</a></li>
+  <li><a href="../classes/vec3.html">vec3</a></li>
+  <li><a href="../classes/vec4.html">vec4</a></li>
+  <li><a href="../classes/Node.html">Node</a></li>
+  <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/Sprite.html">Sprite</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.html">menori</a></li>
+  <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
+  <li><a href="../modules/utils.html">utils</a></li>
+  <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>bound3</code></h1>
+<p>Bound3.</p>
+<p>menori.ml.bound3</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#bound3.with_size">bound3.with_size (min, size)</a></td>
+	<td class="summary">with size</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#bound3:clone">bound3:clone ()</a></td>
+	<td class="summary">clone</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bound3:scale">bound3:scale (v)</a></td>
+	<td class="summary">scale</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bound3:move">bound3:move (x, y, z)</a></td>
+	<td class="summary">move</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bound3:contain">bound3:contain (b)</a></td>
+	<td class="summary">contain by XZ axis</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bound3:center">bound3:center ()</a></td>
+	<td class="summary">center</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bound3:size">bound3:size ()</a></td>
+	<td class="summary">size</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "bound3.with_size"></a>
+    <strong>bound3.with_size (min, size)</strong>
+    </dt>
+    <dd>
+    with size
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">min</span>
+
+
+
+        </li>
+        <li><span class="parameter">size</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "bound3:clone"></a>
+    <strong>bound3:clone ()</strong>
+    </dt>
+    <dd>
+    clone
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bound3:scale"></a>
+    <strong>bound3:scale (v)</strong>
+    </dt>
+    <dd>
+    scale
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">v</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bound3:move"></a>
+    <strong>bound3:move (x, y, z)</strong>
+    </dt>
+    <dd>
+    move
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+
+
+
+        </li>
+        <li><span class="parameter">z</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bound3:contain"></a>
+    <strong>bound3:contain (b)</strong>
+    </dt>
+    <dd>
+    contain by XZ axis
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bound3:center"></a>
+    <strong>bound3:center ()</strong>
+    </dt>
+    <dd>
+    center
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bound3:size"></a>
+    <strong>bound3:size ()</strong>
+    </dt>
+    <dd>
+    size
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2022-05-09 22:09:09 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
