@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Menori documentation</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Menori</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><strong>App</strong></li>
+  <li><a href="../classes/Camera.html">Camera</a></li>
+  <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+  <li><a href="../classes/Environment.html">Environment</a></li>
+  <li><a href="../classes/glTFAnimation.html">glTFAnimation</a></li>
+  <li><a href="../classes/InstancedMesh.html">InstancedMesh</a></li>
+  <li><a href="../classes/Material.html">Material</a></li>
+  <li><a href="../classes/Mesh.html">Mesh</a></li>
+  <li><a href="../classes/ModelNode.html">ModelNode</a></li>
+  <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/bound3.html">bound3</a></li>
+  <li><a href="../classes/bvh.html">bvh</a></li>
+  <li><a href="../classes/intersect.html">intersect</a></li>
+  <li><a href="../classes/mat4.html">mat4</a></li>
+  <li><a href="../classes/quat.html">quat</a></li>
+  <li><a href="../classes/vec2.html">vec2</a></li>
+  <li><a href="../classes/vec3.html">vec3</a></li>
+  <li><a href="../classes/vec4.html">vec4</a></li>
+  <li><a href="../classes/Node.html">Node</a></li>
+  <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/Sprite.html">Sprite</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/menori.html">menori</a></li>
+  <li><a href="../modules/modules.core3d.boxshape.html">modules.core3d.boxshape</a></li>
+  <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
+  <li><a href="../modules/NodeTreeBuilder.html">NodeTreeBuilder</a></li>
+  <li><a href="../modules/utils.html">utils</a></li>
+  <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>App</code></h1>
+<p>Singleton object.</p>
+<p>The main class for managing scenes and the viewport.</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#app_mt:get_current_scene">app_mt:get_current_scene ()</a></td>
+	<td class="summary">Get current scene.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#app_mt:get_viewport">app_mt:get_viewport ()</a></td>
+	<td class="summary">Get viewport dimensions.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#app_mt:get_viewport_w">app_mt:get_viewport_w ()</a></td>
+	<td class="summary">Get viewport width.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#app_mt:get_viewport_h">app_mt:get_viewport_h ()</a></td>
+	<td class="summary">Get viewport height.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#app_mt:add_scene">app_mt:add_scene (name, scene)</a></td>
+	<td class="summary">Add scene to the scene list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#app_mt:set_scene">app_mt:set_scene (name)</a></td>
+	<td class="summary">Get scene from the scene list by the name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#app_mt:update">app_mt:update (dt)</a></td>
+	<td class="summary">Main update function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#app_mt:render">app_mt:render ()</a></td>
+	<td class="summary">Main render function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#app_mt:handle_event">app_mt:handle_event (eventname)</a></td>
+	<td class="summary">Handling any LOVE event.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "app_mt:get_current_scene"></a>
+    <strong>app_mt:get_current_scene ()</strong>
+    </dt>
+    <dd>
+    Get current scene.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Scene object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "app_mt:get_viewport"></a>
+    <strong>app_mt:get_viewport ()</strong>
+    </dt>
+    <dd>
+    Get viewport dimensions.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        x</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        y</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        w</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        h</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "app_mt:get_viewport_w"></a>
+    <strong>app_mt:get_viewport_w ()</strong>
+    </dt>
+    <dd>
+    Get viewport width.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "app_mt:get_viewport_h"></a>
+    <strong>app_mt:get_viewport_h ()</strong>
+    </dt>
+    <dd>
+    Get viewport height.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "app_mt:add_scene"></a>
+    <strong>app_mt:add_scene (name, scene)</strong>
+    </dt>
+    <dd>
+    Add scene to the scene list.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">scene</span>
+            <span class="types"><span class="type">menori.Scene</span></span>
+         object
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "app_mt:set_scene"></a>
+    <strong>app_mt:set_scene (name)</strong>
+    </dt>
+    <dd>
+    Get scene from the scene list by the name.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">menori.Scene</span></span>
+        object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "app_mt:update"></a>
+    <strong>app_mt:update (dt)</strong>
+    </dt>
+    <dd>
+    Main update function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dt</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "app_mt:render"></a>
+    <strong>app_mt:render ()</strong>
+    </dt>
+    <dd>
+    Main render function.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "app_mt:handle_event"></a>
+    <strong>app_mt:handle_event (eventname)</strong>
+    </dt>
+    <dd>
+    Handling any LOVE event.  Redirects an event call to an overridden function in the active scene.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">eventname</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2023-03-21 17:41:24 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

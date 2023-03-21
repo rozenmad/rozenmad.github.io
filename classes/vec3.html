@@ -40,16 +40,20 @@
 
 <h2>Classes</h2>
 <ul class="nowrap">
-  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/Camera.html">Camera</a></li>
   <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
   <li><a href="../classes/Environment.html">Environment</a></li>
+  <li><a href="../classes/glTFAnimation.html">glTFAnimation</a></li>
+  <li><a href="../classes/InstancedMesh.html">InstancedMesh</a></li>
   <li><a href="../classes/Material.html">Material</a></li>
   <li><a href="../classes/Mesh.html">Mesh</a></li>
   <li><a href="../classes/ModelNode.html">ModelNode</a></li>
-  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
   <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
   <li><a href="../classes/bound3.html">bound3</a></li>
+  <li><a href="../classes/bvh.html">bvh</a></li>
   <li><a href="../classes/intersect.html">intersect</a></li>
   <li><a href="../classes/mat4.html">mat4</a></li>
   <li><a href="../classes/quat.html">quat</a></li>
@@ -63,7 +67,9 @@
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/menori.html">menori</a></li>
+  <li><a href="../modules/modules.core3d.boxshape.html">modules.core3d.boxshape</a></li>
   <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
+  <li><a href="../modules/NodeTreeBuilder.html">NodeTreeBuilder</a></li>
   <li><a href="../modules/utils.html">utils</a></li>
   <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
 </ul>
@@ -100,6 +106,10 @@
 	<td class="summary">cross</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#vec3.lerp">vec3.lerp (a, b, s)</a></td>
+	<td class="summary">lerp</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#vec3.min">vec3.min (a, b)</a></td>
 	<td class="summary">min</td>
 	</tr>
@@ -108,8 +118,28 @@
 	<td class="summary">abs</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#vec3.equal">vec3.equal (a, b)</a></td>
+	<td class="summary">equal</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3.notEqual">vec3.notEqual (a, b)</a></td>
+	<td class="summary">notEqual</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#vec3.lessThan">vec3.lessThan (a, b)</a></td>
 	<td class="summary">lessThan</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3.lessThanEqual">vec3.lessThanEqual (a, b)</a></td>
+	<td class="summary">lessThanEqual</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3.greaterThan">vec3.greaterThan (a, b)</a></td>
+	<td class="summary">greaterThan</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3.greaterThanEqual">vec3.greaterThanEqual (a, b)</a></td>
+	<td class="summary">greaterThanEqual</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#vec3.pow">vec3.pow (a, b)</a></td>
@@ -133,6 +163,14 @@
 	<tr>
 	<td class="name" nowrap><a href="#vec3:sub">vec3:sub (a, b)</a></td>
 	<td class="summary">sub</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:add_scalar">vec3:add_scalar (scalar)</a></td>
+	<td class="summary">add_scalar</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#vec3:sub_scalar">vec3:sub_scalar (scalar)</a></td>
+	<td class="summary">add_scalar</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#vec3:mul">vec3:mul (a, b)</a></td>
@@ -309,6 +347,38 @@
 
 </dd>
     <dt>
+    <a name = "vec3.lerp"></a>
+    <strong>vec3.lerp (a, b, s)</strong>
+    </dt>
+    <dd>
+    lerp
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+        <li><span class="parameter">s</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "vec3.min"></a>
     <strong>vec3.min (a, b)</strong>
     </dt>
@@ -358,11 +428,146 @@
 
 </dd>
     <dt>
+    <a name = "vec3.equal"></a>
+    <strong>vec3.equal (a, b)</strong>
+    </dt>
+    <dd>
+    equal
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3.notEqual"></a>
+    <strong>vec3.notEqual (a, b)</strong>
+    </dt>
+    <dd>
+    notEqual
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "vec3.lessThan"></a>
     <strong>vec3.lessThan (a, b)</strong>
     </dt>
     <dd>
     lessThan
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3.lessThanEqual"></a>
+    <strong>vec3.lessThanEqual (a, b)</strong>
+    </dt>
+    <dd>
+    lessThanEqual
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3.greaterThan"></a>
+    <strong>vec3.greaterThan (a, b)</strong>
+    </dt>
+    <dd>
+    greaterThan
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+
+
+
+        </li>
+        <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3.greaterThanEqual"></a>
+    <strong>vec3.greaterThanEqual (a, b)</strong>
+    </dt>
+    <dd>
+    greaterThanEqual
 
 
     <h3>Parameters:</h3>
@@ -504,6 +709,50 @@
 
         </li>
         <li><span class="parameter">b</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:add_scalar"></a>
+    <strong>vec3:add_scalar (scalar)</strong>
+    </dt>
+    <dd>
+    add_scalar
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">scalar</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "vec3:sub_scalar"></a>
+    <strong>vec3:sub_scalar (scalar)</strong>
+    </dt>
+    <dd>
+    add_scalar
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">scalar</span>
 
 
 
@@ -717,7 +966,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-05-09 22:09:09 </i>
+<i style="float:right;">Last updated 2023-03-21 17:41:24 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

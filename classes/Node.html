@@ -40,16 +40,20 @@
 
 <h2>Classes</h2>
 <ul class="nowrap">
-  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/Camera.html">Camera</a></li>
   <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
   <li><a href="../classes/Environment.html">Environment</a></li>
+  <li><a href="../classes/glTFAnimation.html">glTFAnimation</a></li>
+  <li><a href="../classes/InstancedMesh.html">InstancedMesh</a></li>
   <li><a href="../classes/Material.html">Material</a></li>
   <li><a href="../classes/Mesh.html">Mesh</a></li>
   <li><a href="../classes/ModelNode.html">ModelNode</a></li>
-  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
   <li><a href="../classes/UniformList.html">UniformList</a></li>
+  <li><a href="../classes/Application.html">Application</a></li>
+  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
   <li><a href="../classes/bound3.html">bound3</a></li>
+  <li><a href="../classes/bvh.html">bvh</a></li>
   <li><a href="../classes/intersect.html">intersect</a></li>
   <li><a href="../classes/mat4.html">mat4</a></li>
   <li><a href="../classes/quat.html">quat</a></li>
@@ -63,7 +67,9 @@
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/menori.html">menori</a></li>
+  <li><a href="../modules/modules.core3d.boxshape.html">modules.core3d.boxshape</a></li>
   <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
+  <li><a href="../modules/NodeTreeBuilder.html">NodeTreeBuilder</a></li>
   <li><a href="../modules/utils.html">utils</a></li>
   <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
 </ul>
@@ -180,12 +186,12 @@ You need to inherit from the Node class to create your own display object.</p>
 	<td class="summary">Calculate the largest AABB in down the hierarchy of nodes.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Node:recursive_update_transform">Node:recursive_update_transform ()</a></td>
+	<td class="name" nowrap><a href="#Node:recursive_update_transform">Node:recursive_update_transform ([force])</a></td>
 	<td class="summary">Update all transform up the hierarchy to the root node.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Node:update_transform">Node:update_transform ()</a></td>
-	<td class="summary">Update transformation matrix only for this node.</td>
+	<td class="name" nowrap><a href="#Node:update_transform">Node:update_transform (parent_world_matrix)</a></td>
+	<td class="summary">Update transform only for this node.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Node:get_child_by_index">Node:get_child_by_index (index)</a></td>
@@ -205,10 +211,10 @@ You need to inherit from the Node class to create your own display object.</p>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Node:find">Node:find (name)</a></td>
-	<td class="summary">Find a child by name and returns it.</td>
+	<td class="summary">Find a child node by name.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Node:foreach">Node:foreach (callback)</a></td>
+	<td class="name" nowrap><a href="#Node:traverse">Node:traverse (callback)</a></td>
 	<td class="summary">Recursively traverse all nodes.</td>
 	</tr>
 	<tr>
@@ -838,12 +844,20 @@ You need to inherit from the Node class to create your own display object.</p>
 </dd>
     <dt>
     <a name = "Node:recursive_update_transform"></a>
-    <strong>Node:recursive_update_transform ()</strong>
+    <strong>Node:recursive_update_transform ([force])</strong>
     </dt>
     <dd>
     Update all transform up the hierarchy to the root node.
 
 
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">force</span>
+            <span class="types"><span class="type">bool</span></span>
+         Forced update transformations of all nodes up to the root node.
+         (<em>optional</em>)
+        </li>
+    </ul>
 
 
 
@@ -852,12 +866,20 @@ You need to inherit from the Node class to create your own display object.</p>
 </dd>
     <dt>
     <a name = "Node:update_transform"></a>
-    <strong>Node:update_transform ()</strong>
+    <strong>Node:update_transform (parent_world_matrix)</strong>
     </dt>
     <dd>
-    Update transformation matrix only for this node.
+    Update transform only for this node.
 
 
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">parent_world_matrix</span>
+
+
+
+        </li>
+    </ul>
 
 
 
@@ -964,7 +986,7 @@ You need to inherit from the Node class to create your own display object.</p>
     <strong>Node:find (name)</strong>
     </dt>
     <dd>
-    Find a child by name and returns it.
+    Find a child node by name.
 
 
     <h3>Parameters:</h3>
@@ -988,8 +1010,8 @@ You need to inherit from the Node class to create your own display object.</p>
 
 </dd>
     <dt>
-    <a name = "Node:foreach"></a>
-    <strong>Node:foreach (callback)</strong>
+    <a name = "Node:traverse"></a>
+    <strong>Node:traverse (callback)</strong>
     </dt>
     <dd>
     Recursively traverse all nodes.
@@ -1092,7 +1114,7 @@ You need to inherit from the Node class to create your own display object.</p>
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-05-09 22:09:09 </i>
+<i style="float:right;">Last updated 2023-03-21 17:41:24 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
