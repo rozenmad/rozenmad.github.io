@@ -40,7 +40,6 @@
 
 <h2>Classes</h2>
 <ul class="nowrap">
-  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/Camera.html">Camera</a></li>
   <li><strong>PerspectiveCamera</strong></li>
   <li><a href="../classes/Environment.html">Environment</a></li>
@@ -50,8 +49,7 @@
   <li><a href="../classes/Mesh.html">Mesh</a></li>
   <li><a href="../classes/ModelNode.html">ModelNode</a></li>
   <li><a href="../classes/UniformList.html">UniformList</a></li>
-  <li><a href="../classes/Application.html">Application</a></li>
-  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/bound3.html">bound3</a></li>
   <li><a href="../classes/bvh.html">bvh</a></li>
   <li><a href="../classes/intersect.html">intersect</a></li>
@@ -62,14 +60,19 @@
   <li><a href="../classes/vec4.html">vec4</a></li>
   <li><a href="../classes/Node.html">Node</a></li>
   <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/SceneManager.html">SceneManager</a></li>
   <li><a href="../classes/Sprite.html">Sprite</a></li>
 </ul>
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/menori.html">menori</a></li>
-  <li><a href="../modules/modules.core3d.boxshape.html">modules.core3d.boxshape</a></li>
   <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
   <li><a href="../modules/NodeTreeBuilder.html">NodeTreeBuilder</a></li>
+  <li><a href="../modules/Box.html">Box</a></li>
+  <li><a href="../modules/Capsule.html">Capsule</a></li>
+  <li><a href="../modules/Plane.html">Plane</a></li>
+  <li><a href="../modules/Sphere.html">Sphere</a></li>
+  <li><a href="../modules/Triangle.html">Triangle</a></li>
   <li><a href="../modules/utils.html">utils</a></li>
   <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
 </ul>
@@ -79,60 +82,59 @@
 <div id="content">
 
 <h1>Class <code>PerspectiveCamera</code></h1>
-<p>Perspective camera class.</p>
-<p>
-
-</p>
+<p>Perspective camera class for 3D rendering.</p>
+<p> Provides a perspective projection camera with configurable field of view, aspect ratio,
+ and near/far clipping planes. Supports view transformations and coordinate conversions.</p>
 
 
 <h2><a href="#Fields">Fields</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#PerspectiveCamera.m_projection">PerspectiveCamera.m_projection</a></td>
-	<td class="summary">Projection matrix.</td>
+	<td class="name" nowrap><a href="#perspectivecamera.m_projection">perspectivecamera.m_projection</a></td>
+	<td class="summary">Projection matrix for perspective transformation.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PerspectiveCamera.m_inv_projection">PerspectiveCamera.m_inv_projection</a></td>
+	<td class="name" nowrap><a href="#perspectivecamera.m_inv_projection">perspectivecamera.m_inv_projection</a></td>
 	<td class="summary">Inverse projection matrix.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PerspectiveCamera.m_view">PerspectiveCamera.m_view</a></td>
-	<td class="summary">View matrix.</td>
+	<td class="name" nowrap><a href="#perspectivecamera.m_view">perspectivecamera.m_view</a></td>
+	<td class="summary">View matrix computed from eye, center, and up vectors.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PerspectiveCamera.center">PerspectiveCamera.center</a></td>
+	<td class="name" nowrap><a href="#perspectivecamera.center">perspectivecamera.center</a></td>
 	<td class="summary">Position where the camera is looking at.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PerspectiveCamera.eye">PerspectiveCamera.eye</a></td>
-	<td class="summary">Position of the camera.</td>
+	<td class="name" nowrap><a href="#perspectivecamera.eye">perspectivecamera.eye</a></td>
+	<td class="summary">Position of the camera in world space.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PerspectiveCamera.up">PerspectiveCamera.up</a></td>
-	<td class="summary">Normalized up vector, how the camera is oriented.</td>
+	<td class="name" nowrap><a href="#perspectivecamera.up">perspectivecamera.up</a></td>
+	<td class="summary">Normalized up vector defining camera orientation.</td>
 	</tr>
 </table>
 <h2><a href="#Methods">Methods</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#PerspectiveCamera:init">PerspectiveCamera:init (fov, aspect, nclip, fclip)</a></td>
-	<td class="summary">The public constructor.</td>
+	<td class="name" nowrap><a href="#perspectivecamera:init">perspectivecamera:init (fov, aspect, nclip, fclip)</a></td>
+	<td class="summary">Creates a new PerspectiveCamera instance.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PerspectiveCamera:update_view_matrix">PerspectiveCamera:update_view_matrix ()</a></td>
-	<td class="summary">Updating the view matrix.</td>
+	<td class="name" nowrap><a href="#perspectivecamera:update_view_matrix">perspectivecamera:update_view_matrix ()</a></td>
+	<td class="summary">Updates the view matrix based on current eye, center, and up vectors.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PerspectiveCamera:screen_point_to_ray">PerspectiveCamera:screen_point_to_ray (x, y, viewport)</a></td>
-	<td class="summary">Get a ray going from camera through screen point.</td>
+	<td class="name" nowrap><a href="#perspectivecamera:screen_point_to_ray">perspectivecamera:screen_point_to_ray (x, y, viewport)</a></td>
+	<td class="summary">Generates a ray from the camera through a screen point.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PerspectiveCamera:world_to_screen_point">PerspectiveCamera:world_to_screen_point (x, y, z)</a></td>
-	<td class="summary">Transform position from world space into screen space.</td>
+	<td class="name" nowrap><a href="#perspectivecamera:world_to_screen_point">perspectivecamera:world_to_screen_point (x, y, z, viewport)</a></td>
+	<td class="summary">Transforms a position from world space into screen space.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#PerspectiveCamera:get_direction">PerspectiveCamera:get_direction ()</a></td>
-	<td class="summary">Get direction.</td>
+	<td class="name" nowrap><a href="#perspectivecamera:get_direction">perspectivecamera:get_direction ()</a></td>
+	<td class="summary">Gets the normalized direction vector the camera is facing.</td>
 	</tr>
 </table>
 
@@ -144,11 +146,11 @@
 
     <dl class="function">
     <dt>
-    <a name = "PerspectiveCamera.m_projection"></a>
-    <strong>PerspectiveCamera.m_projection</strong>
+    <a name = "perspectivecamera.m_projection"></a>
+    <strong>perspectivecamera.m_projection</strong>
     </dt>
     <dd>
-    Projection matrix.
+    Projection matrix for perspective transformation.
 
 
     <ul>
@@ -166,8 +168,8 @@
 
 </dd>
     <dt>
-    <a name = "PerspectiveCamera.m_inv_projection"></a>
-    <strong>PerspectiveCamera.m_inv_projection</strong>
+    <a name = "perspectivecamera.m_inv_projection"></a>
+    <strong>perspectivecamera.m_inv_projection</strong>
     </dt>
     <dd>
     Inverse projection matrix.
@@ -188,11 +190,12 @@
 
 </dd>
     <dt>
-    <a name = "PerspectiveCamera.m_view"></a>
-    <strong>PerspectiveCamera.m_view</strong>
+    <a name = "perspectivecamera.m_view"></a>
+    <strong>perspectivecamera.m_view</strong>
     </dt>
     <dd>
-    View matrix.
+    View matrix computed from eye, center, and up vectors.
+ Updated by calling update<em>view</em>matrix().
 
 
     <ul>
@@ -211,8 +214,8 @@
 
 </dd>
     <dt>
-    <a name = "PerspectiveCamera.center"></a>
-    <strong>PerspectiveCamera.center</strong>
+    <a name = "perspectivecamera.center"></a>
+    <strong>perspectivecamera.center</strong>
     </dt>
     <dd>
     Position where the camera is looking at.
@@ -233,11 +236,11 @@
 
 </dd>
     <dt>
-    <a name = "PerspectiveCamera.eye"></a>
-    <strong>PerspectiveCamera.eye</strong>
+    <a name = "perspectivecamera.eye"></a>
+    <strong>perspectivecamera.eye</strong>
     </dt>
     <dd>
-    Position of the camera.
+    Position of the camera in world space.
 
 
     <ul>
@@ -255,11 +258,11 @@
 
 </dd>
     <dt>
-    <a name = "PerspectiveCamera.up"></a>
-    <strong>PerspectiveCamera.up</strong>
+    <a name = "perspectivecamera.up"></a>
+    <strong>perspectivecamera.up</strong>
     </dt>
     <dd>
-    Normalized up vector, how the camera is oriented.
+    Normalized up vector defining camera orientation.
 
 
     <ul>
@@ -281,30 +284,31 @@
 
     <dl class="function">
     <dt>
-    <a name = "PerspectiveCamera:init"></a>
-    <strong>PerspectiveCamera:init (fov, aspect, nclip, fclip)</strong>
+    <a name = "perspectivecamera:init"></a>
+    <strong>perspectivecamera:init (fov, aspect, nclip, fclip)</strong>
     </dt>
     <dd>
-    The public constructor.
+    Creates a new PerspectiveCamera instance.
+ Initializes the camera with perspective projection.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">fov</span>
             <span class="types"><span class="type">number</span></span>
-         Field of view of the Camera, in degrees.
+         Field of view of the camera, in degrees (default: 60)
         </li>
         <li><span class="parameter">aspect</span>
             <span class="types"><span class="type">number</span></span>
-         The aspect ratio.
+         The aspect ratio (width/height) (default: 1.6666667)
         </li>
         <li><span class="parameter">nclip</span>
             <span class="types"><span class="type">number</span></span>
-         The distance of the near clipping plane from the the Camera.
+         The distance of the near clipping plane from the camera (default: 0.1)
         </li>
         <li><span class="parameter">fclip</span>
             <span class="types"><span class="type">number</span></span>
-         The distance of the far clipping plane from the Camera.
+         The distance of the far clipping plane from the camera (default: 2048.0)
         </li>
     </ul>
 
@@ -314,11 +318,12 @@
 
 </dd>
     <dt>
-    <a name = "PerspectiveCamera:update_view_matrix"></a>
-    <strong>PerspectiveCamera:update_view_matrix ()</strong>
+    <a name = "perspectivecamera:update_view_matrix"></a>
+    <strong>perspectivecamera:update_view_matrix ()</strong>
     </dt>
     <dd>
-    Updating the view matrix.
+    Updates the view matrix based on current eye, center, and up vectors.
+ Call this method after modifying the camera position or orientation.
 
 
 
@@ -328,26 +333,27 @@
 
 </dd>
     <dt>
-    <a name = "PerspectiveCamera:screen_point_to_ray"></a>
-    <strong>PerspectiveCamera:screen_point_to_ray (x, y, viewport)</strong>
+    <a name = "perspectivecamera:screen_point_to_ray"></a>
+    <strong>perspectivecamera:screen_point_to_ray (x, y, viewport)</strong>
     </dt>
     <dd>
-    Get a ray going from camera through screen point.
+    Generates a ray from the camera through a screen point.
+ Useful for ray casting, mouse picking, and collision detection.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">x</span>
             <span class="types"><span class="type">number</span></span>
-         screen position x
+         Screen position x coordinate
         </li>
         <li><span class="parameter">y</span>
             <span class="types"><span class="type">number</span></span>
-         screen position y
+         Screen position y coordinate
         </li>
         <li><span class="parameter">viewport</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         (optional) viewport rectangle (x, y, w, h)
+         Viewport rectangle {x, y, width, height}
         </li>
     </ul>
 
@@ -355,7 +361,7 @@
     <ol>
 
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-        that containing {position = vec3, direction = vec3}
+        Ray data containing {position = vec3, direction = vec3}
     </ol>
 
 
@@ -363,26 +369,31 @@
 
 </dd>
     <dt>
-    <a name = "PerspectiveCamera:world_to_screen_point"></a>
-    <strong>PerspectiveCamera:world_to_screen_point (x, y, z)</strong>
+    <a name = "perspectivecamera:world_to_screen_point"></a>
+    <strong>perspectivecamera:world_to_screen_point (x, y, z, viewport)</strong>
     </dt>
     <dd>
-    Transform position from world space into screen space.
+    Transforms a position from world space into screen space.
+ Converts 3D world coordinates to 2D screen coordinates.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">x</span>
-            <span class="types"><span class="type">number</span></span>
-         screen position x or vec3
+            <span class="types"><span class="type">number</span> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         World position x coordinate, or vec3 object containing world position
         </li>
         <li><span class="parameter">y</span>
             <span class="types"><span class="type">number</span></span>
-         screen position y
+         World position y coordinate (ignored if x is vec3)
         </li>
         <li><span class="parameter">z</span>
             <span class="types"><span class="type">number</span></span>
-         screen position z
+         World position z coordinate (ignored if x is vec3)
+        </li>
+        <li><span class="parameter">viewport</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Screen viewport {x, y, width, height}
         </li>
     </ul>
 
@@ -390,7 +401,7 @@
     <ol>
 
            <span class="types"><a class="type" href="../classes/vec2.html#">vec2</a></span>
-        object
+        Screen space coordinates
     </ol>
 
 
@@ -398,11 +409,11 @@
 
 </dd>
     <dt>
-    <a name = "PerspectiveCamera:get_direction"></a>
-    <strong>PerspectiveCamera:get_direction ()</strong>
+    <a name = "perspectivecamera:get_direction"></a>
+    <strong>perspectivecamera:get_direction ()</strong>
     </dt>
     <dd>
-    Get direction.
+    Gets the normalized direction vector the camera is facing.
 
 
 
@@ -410,7 +421,7 @@
     <ol>
 
            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
-        object
+        Normalized direction vector from eye to center
     </ol>
 
 
@@ -423,8 +434,8 @@
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-03-21 17:41:24 </i>
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2025-08-11 00:42:18 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

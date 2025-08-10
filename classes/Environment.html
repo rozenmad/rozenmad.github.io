@@ -40,7 +40,6 @@
 
 <h2>Classes</h2>
 <ul class="nowrap">
-  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/Camera.html">Camera</a></li>
   <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
   <li><strong>Environment</strong></li>
@@ -50,8 +49,7 @@
   <li><a href="../classes/Mesh.html">Mesh</a></li>
   <li><a href="../classes/ModelNode.html">ModelNode</a></li>
   <li><a href="../classes/UniformList.html">UniformList</a></li>
-  <li><a href="../classes/Application.html">Application</a></li>
-  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/bound3.html">bound3</a></li>
   <li><a href="../classes/bvh.html">bvh</a></li>
   <li><a href="../classes/intersect.html">intersect</a></li>
@@ -62,14 +60,19 @@
   <li><a href="../classes/vec4.html">vec4</a></li>
   <li><a href="../classes/Node.html">Node</a></li>
   <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/SceneManager.html">SceneManager</a></li>
   <li><a href="../classes/Sprite.html">Sprite</a></li>
 </ul>
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/menori.html">menori</a></li>
-  <li><a href="../modules/modules.core3d.boxshape.html">modules.core3d.boxshape</a></li>
   <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
   <li><a href="../modules/NodeTreeBuilder.html">NodeTreeBuilder</a></li>
+  <li><a href="../modules/Box.html">Box</a></li>
+  <li><a href="../modules/Capsule.html">Capsule</a></li>
+  <li><a href="../modules/Plane.html">Plane</a></li>
+  <li><a href="../modules/Sphere.html">Sphere</a></li>
+  <li><a href="../modules/Triangle.html">Triangle</a></li>
   <li><a href="../modules/utils.html">utils</a></li>
   <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
 </ul>
@@ -79,49 +82,48 @@
 <div id="content">
 
 <h1>Class <code>Environment</code></h1>
-<p>An environment is a class that sends information about the current settings of the environment
-(such as ambient color, fog, light sources, camera transformation matrices) etc to the shader.</p>
-<p>
-
-</p>
+<p>Environment management class for 3D rendering.</p>
+<p> An environment class that manages and sends information about the current rendering settings
+ (such as ambient color, fog, light sources, camera transformation matrices) to shaders.
+ Extends UniformList to provide automatic uniform management and light source handling.</p>
 
 
 <h2><a href="#Fields">Fields</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Environment.camera">Environment.camera</a></td>
+	<td class="name" nowrap><a href="#environment.camera">environment.camera</a></td>
 	<td class="summary">Camera object associated with the current Environment.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Environment.uniform_list">Environment.uniform_list</a></td>
-	<td class="summary">UniformList object.</td>
+	<td class="name" nowrap><a href="#environment.uniform_list">environment.uniform_list</a></td>
+	<td class="summary">Inherited UniformList functionality.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Environment.lights">Environment.lights</a></td>
-	<td class="summary">List of light sources.</td>
+	<td class="name" nowrap><a href="#environment.lights">environment.lights</a></td>
+	<td class="summary">Collection of light sources organized by uniform name.</td>
 	</tr>
 </table>
 <h2><a href="#Methods">Methods</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Environment:init">Environment:init (camera)</a></td>
+	<td class="name" nowrap><a href="#environment:init">environment:init (camera)</a></td>
 	<td class="summary">The public constructor.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Environment:add_light">Environment:add_light (uniform_name, light)</a></td>
-	<td class="summary">Add light source.</td>
+	<td class="name" nowrap><a href="#environment:add_light">environment:add_light (uniform_name, light)</a></td>
+	<td class="summary">Adds a light source to the environment.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Environment:send_uniforms_to">Environment:send_uniforms_to (shader)</a></td>
-	<td class="summary">Send all the environment uniforms to the shader.</td>
+	<td class="name" nowrap><a href="#environment:send_uniforms_to">environment:send_uniforms_to (shader)</a></td>
+	<td class="summary">Sends all environment uniforms to the specified shader.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Environment:apply_shader">Environment:apply_shader (shader)</a></td>
-	<td class="summary">Set a Shader as current pixel effect or vertex shaders.</td>
+	<td class="name" nowrap><a href="#environment:apply_shader">environment:apply_shader (shader)</a></td>
+	<td class="summary">Applies the shader and sends all environment uniforms to it.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Environment:send_light_sources_to">Environment:send_light_sources_to (shader)</a></td>
-	<td class="summary">Send light sources uniforms to the shader.</td>
+	<td class="name" nowrap><a href="#environment:send_light_sources_to">environment:send_light_sources_to (shader)</a></td>
+	<td class="summary">Sends light source uniforms to the shader.</td>
 	</tr>
 </table>
 
@@ -133,8 +135,8 @@
 
     <dl class="function">
     <dt>
-    <a name = "Environment.camera"></a>
-    <strong>Environment.camera</strong>
+    <a name = "environment.camera"></a>
+    <strong>environment.camera</strong>
     </dt>
     <dd>
     Camera object associated with the current Environment.
@@ -142,7 +144,10 @@
 
     <ul>
         <li><span class="parameter">camera</span>
-         (menori.Camera or menori.PerspectiveCamera)
+            <span class="types"><span class="type">menori.Camera</span> or <span class="type">menori.PerspectiveCamera</span></span>
+
+
+
         </li>
     </ul>
 
@@ -152,11 +157,13 @@
 
 </dd>
     <dt>
-    <a name = "Environment.uniform_list"></a>
-    <strong>Environment.uniform_list</strong>
+    <a name = "environment.uniform_list"></a>
+    <strong>environment.uniform_list</strong>
     </dt>
     <dd>
-    UniformList object.  Uniforms in the list are automatically sent to the shader, which will be used to display objects with this environment.
+    Inherited UniformList functionality.
+ Uniforms in the list are automatically sent to the shader when rendering
+ objects with this environment.
 
 
     <ul>
@@ -174,11 +181,12 @@
 
 </dd>
     <dt>
-    <a name = "Environment.lights"></a>
-    <strong>Environment.lights</strong>
+    <a name = "environment.lights"></a>
+    <strong>environment.lights</strong>
     </dt>
     <dd>
-    List of light sources.
+    Collection of light sources organized by uniform name.
+ Each key maps to an array of light objects that implement UniformList.
 
 
     <ul>
@@ -200,17 +208,19 @@
 
     <dl class="function">
     <dt>
-    <a name = "Environment:init"></a>
-    <strong>Environment:init (camera)</strong>
+    <a name = "environment:init"></a>
+    <strong>environment:init (camera)</strong>
     </dt>
     <dd>
     The public constructor.
+ Initializes the environment with a camera.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">camera</span>
-         Camera that will be associated with this environment.
+            <span class="types"><span class="type">menori.Camera</span> or <span class="type">menori.PerspectiveCamera</span></span>
+         Camera that will be associated with this environment
         </li>
     </ul>
 
@@ -220,22 +230,23 @@
 
 </dd>
     <dt>
-    <a name = "Environment:add_light"></a>
-    <strong>Environment:add_light (uniform_name, light)</strong>
+    <a name = "environment:add_light"></a>
+    <strong>environment:add_light (uniform_name, light)</strong>
     </dt>
     <dd>
-    Add light source.
+    Adds a light source to the environment.
+ Light sources are grouped by uniform name and sent to shaders as arrays.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">uniform_name</span>
-            <span class="types"><span class="type">strign</span></span>
-         Name of uniform used in the shader
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         Name of uniform used in the shader (e.g., "directional<em>lights", "point</em>lights")
         </li>
         <li><span class="parameter">light</span>
             <span class="types"><span class="type">menori.UniformList</span></span>
-         Light source object
+         Light source object that implements UniformList
         </li>
     </ul>
 
@@ -245,19 +256,20 @@
 
 </dd>
     <dt>
-    <a name = "Environment:send_uniforms_to"></a>
-    <strong>Environment:send_uniforms_to (shader)</strong>
+    <a name = "environment:send_uniforms_to"></a>
+    <strong>environment:send_uniforms_to (shader)</strong>
     </dt>
     <dd>
-    Send all the environment uniforms to the shader.
- This function can be used when creating your own display objects, or for shading technique.
- This method is called automatically when the environment is used in scene:render_nodes()
+    Sends all environment uniforms to the specified shader.
+ This function can be used when creating custom display objects or shading techniques.
+ This method is called automatically when the environment is used in scene:render_nodes().
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">shader</span>
-         <a href="https://love2d.org/wiki/Shader">LOVE Shader</a>
+            <span class="types"><span class="type">love.Shader</span></span>
+         LOVE Shader object to send uniforms to
         </li>
     </ul>
 
@@ -267,19 +279,20 @@
 
 </dd>
     <dt>
-    <a name = "Environment:apply_shader"></a>
-    <strong>Environment:apply_shader (shader)</strong>
+    <a name = "environment:apply_shader"></a>
+    <strong>environment:apply_shader (shader)</strong>
     </dt>
     <dd>
-    Set a Shader as current pixel effect or vertex shaders.
- All drawing operations until the next apply will be drawn using the Shader object specified.
- This method is called automatically when the environment is used in scene:render_nodes()
+    Applies the shader and sends all environment uniforms to it.
+ Sets the shader as current and ensures all uniforms are transmitted.
+ This method is called automatically when the environment is used in scene:render_nodes().
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">shader</span>
-         <a href="https://love2d.org/wiki/Shader">LOVE Shader</a>
+            <span class="types"><span class="type">love.Shader</span></span>
+         LOVE Shader object to apply and configure
         </li>
     </ul>
 
@@ -289,19 +302,22 @@
 
 </dd>
     <dt>
-    <a name = "Environment:send_light_sources_to"></a>
-    <strong>Environment:send_light_sources_to (shader)</strong>
+    <a name = "environment:send_light_sources_to"></a>
+    <strong>environment:send_light_sources_to (shader)</strong>
     </dt>
     <dd>
-    Send light sources uniforms to the shader.
- This function can be used when creating your own display objects, or for shading technique.
- This method is called automatically when the environment is used in scene:render_nodes()
+    Sends light source uniforms to the shader.
+ Transmits all registered light sources as shader uniform arrays with count variables.
+ For each light group, sends a "<em>count" uniform and individual light data.
+ This function can be used when creating custom display objects or shading techniques.
+ This method is called automatically when the environment is used in scene:render</em>nodes().
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">shader</span>
-         <a href="https://love2d.org/wiki/Shader">LOVE Shader</a>
+            <span class="types"><span class="type">love.Shader</span></span>
+         LOVE Shader object to send light uniforms to
         </li>
     </ul>
 
@@ -316,8 +332,8 @@
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-03-21 17:41:24 </i>
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2025-08-11 00:42:18 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

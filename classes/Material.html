@@ -40,7 +40,6 @@
 
 <h2>Classes</h2>
 <ul class="nowrap">
-  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/Camera.html">Camera</a></li>
   <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
   <li><a href="../classes/Environment.html">Environment</a></li>
@@ -50,8 +49,7 @@
   <li><a href="../classes/Mesh.html">Mesh</a></li>
   <li><a href="../classes/ModelNode.html">ModelNode</a></li>
   <li><a href="../classes/UniformList.html">UniformList</a></li>
-  <li><a href="../classes/Application.html">Application</a></li>
-  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/bound3.html">bound3</a></li>
   <li><a href="../classes/bvh.html">bvh</a></li>
   <li><a href="../classes/intersect.html">intersect</a></li>
@@ -62,14 +60,19 @@
   <li><a href="../classes/vec4.html">vec4</a></li>
   <li><a href="../classes/Node.html">Node</a></li>
   <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/SceneManager.html">SceneManager</a></li>
   <li><a href="../classes/Sprite.html">Sprite</a></li>
 </ul>
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/menori.html">menori</a></li>
-  <li><a href="../modules/modules.core3d.boxshape.html">modules.core3d.boxshape</a></li>
   <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
   <li><a href="../modules/NodeTreeBuilder.html">NodeTreeBuilder</a></li>
+  <li><a href="../modules/Box.html">Box</a></li>
+  <li><a href="../modules/Capsule.html">Capsule</a></li>
+  <li><a href="../modules/Plane.html">Plane</a></li>
+  <li><a href="../modules/Sphere.html">Sphere</a></li>
+  <li><a href="../modules/Triangle.html">Triangle</a></li>
   <li><a href="../modules/utils.html">utils</a></li>
   <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
 </ul>
@@ -80,7 +83,9 @@
 
 <h1>Class <code>Material</code></h1>
 <p>Base class for materials.</p>
-<p> A material describes the appearance of an object. (Inherited from UniformList)</p>
+<p> A material describes the appearance of an object.
+ This class is inherited from UniformList and provides material
+ properties and shader management functionality.</p>
     <h3>See also:</h3>
     <ul>
          <a href="../classes/UniformList.html#">UniformList</a>
@@ -90,38 +95,58 @@
 <h2><a href="#Fields">Fields</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Material.name">Material.name</a></td>
+	<td class="name" nowrap><a href="#material.default">material.default</a></td>
+	<td class="summary">Default material instance.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#material.name">material.name</a></td>
 	<td class="summary">Material name.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Material.shader">Material.shader</a></td>
+	<td class="name" nowrap><a href="#material.shader">material.shader</a></td>
 	<td class="summary">The shader object that is bound to the material.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Material.depth_test">Material.depth_test</a></td>
+	<td class="name" nowrap><a href="#material.depth_test">material.depth_test</a></td>
 	<td class="summary">Depth test flag.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Material.depth_func">Material.depth_func</a></td>
-	<td class="summary">Depth comparison func (mode) used for depth testing.</td>
+	<td class="name" nowrap><a href="#material.depth_func">material.depth_func</a></td>
+	<td class="summary">Depth comparison function used for depth testing.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Material.wireframe">Material.wireframe</a></td>
+	<td class="name" nowrap><a href="#material.wireframe">material.wireframe</a></td>
 	<td class="summary">Sets whether wireframe lines will be used when drawing.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Material.mesh_cull_mode">Material.mesh_cull_mode</a></td>
+	<td class="name" nowrap><a href="#material.mesh_cull_mode">material.mesh_cull_mode</a></td>
 	<td class="summary">Sets whether back-facing triangles in a Mesh are culled.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Material.main_texture">Material.main_texture</a></td>
-	<td class="summary">The texture to be used in mesh:setTexture().</td>
+	<td class="name" nowrap><a href="#material.alpha_mode">material.alpha_mode</a></td>
+	<td class="summary">Alpha blending mode for transparency.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#material.main_texture">material.main_texture</a></td>
+	<td class="summary">The main texture to be used with mesh:setTexture().</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#material.shader_vertcode">material.shader_vertcode</a></td>
+	<td class="summary">Vertex shader source code.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#material.shader_fragcode">material.shader_fragcode</a></td>
+	<td class="summary">Fragment shader source code.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#material.attributes">material.attributes</a></td>
+	<td class="summary">Material attributes table.</td>
 	</tr>
 </table>
 <h2><a href="#Methods">Methods</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Material:init">Material:init (name[, shader=Material.default_shader])</a></td>
+	<td class="name" nowrap><a href="#material:init">material:init ([opt])</a></td>
 	<td class="summary">The public constructor.</td>
 	</tr>
 </table>
@@ -134,8 +159,28 @@
 
     <dl class="function">
     <dt>
-    <a name = "Material.name"></a>
-    <strong>Material.name</strong>
+    <a name = "material.default"></a>
+    <strong>material.default</strong>
+    </dt>
+    <dd>
+    Default material instance.
+ Pre-configured material with white base color.
+
+
+    <ul>
+        <li><span class="parameter">default</span>
+         Material
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "material.name"></a>
+    <strong>material.name</strong>
     </dt>
     <dd>
     Material name.
@@ -143,9 +188,7 @@
 
     <ul>
         <li><span class="parameter">name</span>
-
-
-
+         string
         </li>
     </ul>
 
@@ -155,18 +198,16 @@
 
 </dd>
     <dt>
-    <a name = "Material.shader"></a>
-    <strong>Material.shader</strong>
+    <a name = "material.shader"></a>
+    <strong>material.shader</strong>
     </dt>
     <dd>
-    The shader object that is bound to the material.  (default_shader by default)
+    The shader object that is bound to the material.
 
 
     <ul>
         <li><span class="parameter">shader</span>
-
-
-
+         love.Shader
         </li>
     </ul>
 
@@ -176,18 +217,16 @@
 
 </dd>
     <dt>
-    <a name = "Material.depth_test"></a>
-    <strong>Material.depth_test</strong>
+    <a name = "material.depth_test"></a>
+    <strong>material.depth_test</strong>
     </dt>
     <dd>
-    Depth test flag.  (Enabled by default)
+    Depth test flag.
 
 
     <ul>
         <li><span class="parameter">depth_test</span>
-
-
-
+         boolean (default: true)
         </li>
     </ul>
 
@@ -197,18 +236,17 @@
 
 </dd>
     <dt>
-    <a name = "Material.depth_func"></a>
-    <strong>Material.depth_func</strong>
+    <a name = "material.depth_func"></a>
+    <strong>material.depth_func</strong>
     </dt>
     <dd>
-    Depth comparison func (mode) used for depth testing.
+    Depth comparison function used for depth testing.
+ Possible values: 'never', 'less', 'equal', 'lequal', 'greater', 'notequal', 'gequal', 'always'
 
 
     <ul>
         <li><span class="parameter">depth_func</span>
-
-
-
+         string (default: 'less')
         </li>
     </ul>
 
@@ -218,8 +256,8 @@
 
 </dd>
     <dt>
-    <a name = "Material.wireframe"></a>
-    <strong>Material.wireframe</strong>
+    <a name = "material.wireframe"></a>
+    <strong>material.wireframe</strong>
     </dt>
     <dd>
     Sets whether wireframe lines will be used when drawing.
@@ -227,9 +265,7 @@
 
     <ul>
         <li><span class="parameter">wireframe</span>
-
-
-
+         boolean (default: false)
         </li>
     </ul>
 
@@ -239,18 +275,17 @@
 
 </dd>
     <dt>
-    <a name = "Material.mesh_cull_mode"></a>
-    <strong>Material.mesh_cull_mode</strong>
+    <a name = "material.mesh_cull_mode"></a>
+    <strong>material.mesh_cull_mode</strong>
     </dt>
     <dd>
     Sets whether back-facing triangles in a Mesh are culled.
+ Possible values: 'back', 'front', 'none'
 
 
     <ul>
         <li><span class="parameter">mesh_cull_mode</span>
-
-
-
+         string (default: 'back')
         </li>
     </ul>
 
@@ -260,18 +295,94 @@
 
 </dd>
     <dt>
-    <a name = "Material.main_texture"></a>
-    <strong>Material.main_texture</strong>
+    <a name = "material.alpha_mode"></a>
+    <strong>material.alpha_mode</strong>
     </dt>
     <dd>
-    The texture to be used in mesh:setTexture().  (uniform Image MainTex) in shader.
+    Alpha blending mode for transparency.
+ Possible values: 'OPAQUE', 'MASK', 'BLEND'
+
+
+    <ul>
+        <li><span class="parameter">alpha_mode</span>
+         string (default: 'OPAQUE')
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "material.main_texture"></a>
+    <strong>material.main_texture</strong>
+    </dt>
+    <dd>
+    The main texture to be used with mesh:setTexture().
+ Corresponds to uniform Image MainTex in shader.
 
 
     <ul>
         <li><span class="parameter">main_texture</span>
+         love.Texture
+        </li>
+    </ul>
 
 
 
+
+
+</dd>
+    <dt>
+    <a name = "material.shader_vertcode"></a>
+    <strong>material.shader_vertcode</strong>
+    </dt>
+    <dd>
+    Vertex shader source code.
+
+
+    <ul>
+        <li><span class="parameter">shader_vertcode</span>
+         string
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "material.shader_fragcode"></a>
+    <strong>material.shader_fragcode</strong>
+    </dt>
+    <dd>
+    Fragment shader source code.
+
+
+    <ul>
+        <li><span class="parameter">shader_fragcode</span>
+         string
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "material.attributes"></a>
+    <strong>material.attributes</strong>
+    </dt>
+    <dd>
+    Material attributes table.
+
+
+    <ul>
+        <li><span class="parameter">attributes</span>
+         table
         </li>
     </ul>
 
@@ -285,28 +396,61 @@
 
     <dl class="function">
     <dt>
-    <a name = "Material:init"></a>
-    <strong>Material:init (name[, shader=Material.default_shader])</strong>
+    <a name = "material:init"></a>
+    <strong>material:init ([opt])</strong>
     </dt>
     <dd>
     The public constructor.
+ Creates a new menori.Material instance with optional parameters.
 
 
     <h3>Parameters:</h3>
     <ul>
+        <li><span class="parameter">opt</span> table Optional parameters table
+        <ul>
         <li><span class="parameter">name</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
-         Name of the material.
+         string Material name
+         (<em>optional</em>)
         </li>
         <li><span class="parameter">shader</span>
-         <a href="https://love2d.org/wiki/Shader">LOVE Shader</a>
-         (<em>default</em> Material.default_shader)
+         Shader Custom shader <a href="https://love2d.org/wiki/Shader">LOVE Shader</a> object
+         (<em>optional</em>)
         </li>
+        <li><span class="parameter">shader_vertcode</span>
+         string Custom vertex shader code
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">shader_fragcode</span>
+         string Custom fragment shader code
+         (<em>optional</em>)
+        </li>
+        </li></ul>
     </ul>
 
 
 
 
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Create a basic material
+</span><span class="keyword">local</span> material = menori.<span class="function-name">Material</span>()
+
+<span class="comment">-- Create a named material with custom shader
+</span><span class="keyword">local</span> material = menori.<span class="function-name">Material</span>({
+    name = <span class="string">"MyMaterial"</span>,
+    shader = my_custom_shader,
+})
+
+<span class="comment">-- Create a named material with custom shader code
+</span><span class="keyword">local</span> material = menori.<span class="function-name">Material</span>({
+    name = <span class="string">"MyMaterial"</span>,
+    shader_vertcode = <span class="string">"vertex shader code here"</span>,
+    shader_fragcode = <span class="string">"fragment shader code here"</span>,
+})
+
+<span class="comment">-- Create a ModelNode with material
+</span><span class="keyword">local</span> model_node = menori.<span class="function-name">ModelNode</span>(mesh, material)</pre>
+    </ul>
 
 </dd>
 </dl>
@@ -315,8 +459,8 @@
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-03-21 17:41:24 </i>
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2025-08-11 00:42:18 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

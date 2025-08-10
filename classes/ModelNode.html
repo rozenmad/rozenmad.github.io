@@ -40,7 +40,6 @@
 
 <h2>Classes</h2>
 <ul class="nowrap">
-  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/Camera.html">Camera</a></li>
   <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
   <li><a href="../classes/Environment.html">Environment</a></li>
@@ -50,8 +49,7 @@
   <li><a href="../classes/Mesh.html">Mesh</a></li>
   <li><strong>ModelNode</strong></li>
   <li><a href="../classes/UniformList.html">UniformList</a></li>
-  <li><a href="../classes/Application.html">Application</a></li>
-  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/bound3.html">bound3</a></li>
   <li><a href="../classes/bvh.html">bvh</a></li>
   <li><a href="../classes/intersect.html">intersect</a></li>
@@ -62,14 +60,19 @@
   <li><a href="../classes/vec4.html">vec4</a></li>
   <li><a href="../classes/Node.html">Node</a></li>
   <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/SceneManager.html">SceneManager</a></li>
   <li><a href="../classes/Sprite.html">Sprite</a></li>
 </ul>
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/menori.html">menori</a></li>
-  <li><a href="../modules/modules.core3d.boxshape.html">modules.core3d.boxshape</a></li>
   <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
   <li><a href="../modules/NodeTreeBuilder.html">NodeTreeBuilder</a></li>
+  <li><a href="../modules/Box.html">Box</a></li>
+  <li><a href="../modules/Capsule.html">Capsule</a></li>
+  <li><a href="../modules/Plane.html">Plane</a></li>
+  <li><a href="../modules/Sphere.html">Sphere</a></li>
+  <li><a href="../modules/Triangle.html">Triangle</a></li>
   <li><a href="../modules/utils.html">utils</a></li>
   <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
 </ul>
@@ -80,7 +83,9 @@
 
 <h1>Class <code>ModelNode</code></h1>
 <p>Class for drawing Mesh objects.</p>
-<p> (Inherited from menori.Node class)</p>
+<p> (Inherited from menori.Node class)
+ ModelNode is a specialized node that renders 3D mesh geometry with materials.
+ It handles transformation matrices, skeletal animation joints, and material properties.</p>
     <h3>See also:</h3>
     <ul>
          <a href="../classes/Node.html#">Node</a>
@@ -90,35 +95,31 @@
 <h2><a href="#Fields">Fields</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#ModelNode.material">ModelNode.material</a></td>
+	<td class="name" nowrap><a href="#modelnode.material">modelnode.material</a></td>
 	<td class="summary">Own copy of the Material that is bound to the model.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ModelNode.mesh">ModelNode.mesh</a></td>
+	<td class="name" nowrap><a href="#modelnode.mesh">modelnode.mesh</a></td>
 	<td class="summary">The menori.Mesh object that is bound to the model.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#ModelNode.color">ModelNode.color</a></td>
-	<td class="summary">Model color.</td>
 	</tr>
 </table>
 <h2><a href="#Methods">Methods</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#ModelNode:init">ModelNode:init (mesh[, material=Material.default])</a></td>
+	<td class="name" nowrap><a href="#modelnode:init">modelnode:init (mesh[, material=Material.default])</a></td>
 	<td class="summary">The public constructor.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ModelNode:clone">ModelNode:clone ()</a></td>
-	<td class="summary">Clone an object.</td>
+	<td class="name" nowrap><a href="#modelnode:clone">modelnode:clone ()</a></td>
+	<td class="summary">Clone the ModelNode object.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ModelNode:calculate_aabb">ModelNode:calculate_aabb ([index=1])</a></td>
-	<td class="summary">Calculate AABB by applying the current transformations.</td>
+	<td class="name" nowrap><a href="#modelnode:calculate_aabb">modelnode:calculate_aabb ()</a></td>
+	<td class="summary">Calculate axis-aligned bounding box (AABB) with current transformations applied.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ModelNode:render">ModelNode:render (scene, environment)</a></td>
-	<td class="summary">Draw a ModelNode object on the screen.</td>
+	<td class="name" nowrap><a href="#modelnode:render">modelnode:render (scene, environment)</a></td>
+	<td class="summary">Draw a ModelNode object.</td>
 	</tr>
 </table>
 
@@ -130,18 +131,18 @@
 
     <dl class="function">
     <dt>
-    <a name = "ModelNode.material"></a>
-    <strong>ModelNode.material</strong>
+    <a name = "modelnode.material"></a>
+    <strong>modelnode.material</strong>
     </dt>
     <dd>
     Own copy of the Material that is bound to the model.
+ This is a cloned copy of the material passed to the constructor, allowing
+ independent modification without affecting the original material.
 
 
     <ul>
         <li><span class="parameter">material</span>
-
-
-
+         menori.Material
         </li>
     </ul>
 
@@ -151,8 +152,8 @@
 
 </dd>
     <dt>
-    <a name = "ModelNode.mesh"></a>
-    <strong>ModelNode.mesh</strong>
+    <a name = "modelnode.mesh"></a>
+    <strong>modelnode.mesh</strong>
     </dt>
     <dd>
     The menori.Mesh object that is bound to the model.
@@ -160,30 +161,7 @@
 
     <ul>
         <li><span class="parameter">mesh</span>
-
-
-
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "ModelNode.color"></a>
-    <strong>ModelNode.color</strong>
-    </dt>
-    <dd>
-    Model color.  (Deprecated)
-
-
-    <ul>
-        <li><span class="parameter">color</span>
-
-
-
+         menori.Mesh
         </li>
     </ul>
 
@@ -197,8 +175,8 @@
 
     <dl class="function">
     <dt>
-    <a name = "ModelNode:init"></a>
-    <strong>ModelNode:init (mesh[, material=Material.default])</strong>
+    <a name = "modelnode:init"></a>
+    <strong>modelnode:init (mesh[, material=Material.default])</strong>
     </dt>
     <dd>
     The public constructor.
@@ -208,11 +186,11 @@
     <ul>
         <li><span class="parameter">mesh</span>
             <span class="types"><span class="type">menori.Mesh</span></span>
-         object
+         The mesh object to render
         </li>
         <li><span class="parameter">material</span>
             <span class="types"><span class="type">menori.Material</span></span>
-         object. (A new copy will be created for the material)
+         The material object (a new copy will be created)
          (<em>default</em> Material.default)
         </li>
     </ul>
@@ -220,14 +198,24 @@
 
 
 
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Create a ModelNode with a mesh and default material
+</span><span class="keyword">local</span> model = <span class="function-name">ModelNode</span>(mesh)
+
+<span class="comment">-- Create a ModelNode with a custom material
+</span><span class="keyword">local</span> material = menori.<span class="function-name">Material</span>()
+<span class="keyword">local</span> model = <span class="function-name">ModelNode</span>(mesh, material)</pre>
+    </ul>
 
 </dd>
     <dt>
-    <a name = "ModelNode:clone"></a>
-    <strong>ModelNode:clone ()</strong>
+    <a name = "modelnode:clone"></a>
+    <strong>modelnode:clone ()</strong>
     </dt>
     <dd>
-    Clone an object.
+    Clone the ModelNode object.
+ Creates a copy of the ModelNode with the same mesh and a cloned material.
 
 
 
@@ -235,7 +223,7 @@
     <ol>
 
            <span class="types"><span class="type">menori.ModelNode</span></span>
-        object
+        A new cloned ModelNode object
     </ol>
 
 
@@ -243,27 +231,21 @@
 
 </dd>
     <dt>
-    <a name = "ModelNode:calculate_aabb"></a>
-    <strong>ModelNode:calculate_aabb ([index=1])</strong>
+    <a name = "modelnode:calculate_aabb"></a>
+    <strong>modelnode:calculate_aabb ()</strong>
     </dt>
     <dd>
-    Calculate AABB by applying the current transformations.
+    Calculate axis-aligned bounding box (AABB) with current transformations applied.
+ Computes the world-space bounding box by transforming the mesh's local bounds
+ using the current world transformation matrix.
 
 
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">index</span>
-            <span class="types"><span class="type">number</span></span>
-         The index of the primitive in the mesh.
-         (<em>default</em> 1)
-        </li>
-    </ul>
 
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">menori.ml.bound3</span></span>
-        object
+        The transformed bounding box in world coordinates
     </ol>
 
 
@@ -271,29 +253,38 @@
 
 </dd>
     <dt>
-    <a name = "ModelNode:render"></a>
-    <strong>ModelNode:render (scene, environment)</strong>
+    <a name = "modelnode:render"></a>
+    <strong>modelnode:render (scene, environment)</strong>
     </dt>
     <dd>
-    Draw a ModelNode object on the screen.
- This function will be called implicitly in the hierarchy when a node is drawn with scene:render_nodes()
+    Draw a ModelNode object.
+ This function renders the model using the current material and handles skeletal animation
+ if joints are present. It's called implicitly in the hierarchy when a node is drawn with scene:render_nodes()
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">scene</span>
             <span class="types"><span class="type">menori.Scene</span></span>
-         object that is used when drawing the model
+         The scene object used for rendering context
         </li>
         <li><span class="parameter">environment</span>
             <span class="types"><span class="type">menori.Environment</span></span>
-         object that is used when drawing the model
+         The environment object providing lighting and other rendering parameters
         </li>
     </ul>
 
 
 
 
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- This is typically called automatically by the scene
+</span>scene:<span class="function-name">render_nodes</span>()
+
+<span class="comment">-- Or manually for custom rendering
+</span>model_node:<span class="function-name">render</span>(scene, environment)</pre>
+    </ul>
 
 </dd>
 </dl>
@@ -302,8 +293,8 @@
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-03-21 17:41:24 </i>
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2025-08-11 00:42:18 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

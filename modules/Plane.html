@@ -41,10 +41,10 @@
 <ul class="nowrap">
   <li><a href="../modules/menori.html">menori</a></li>
   <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
-  <li><strong>NodeTreeBuilder</strong></li>
+  <li><a href="../modules/NodeTreeBuilder.html">NodeTreeBuilder</a></li>
   <li><a href="../modules/Box.html">Box</a></li>
   <li><a href="../modules/Capsule.html">Capsule</a></li>
-  <li><a href="../modules/Plane.html">Plane</a></li>
+  <li><strong>Plane</strong></li>
   <li><a href="../modules/Sphere.html">Sphere</a></li>
   <li><a href="../modules/Triangle.html">Triangle</a></li>
   <li><a href="../modules/utils.html">utils</a></li>
@@ -80,8 +80,8 @@
 
 <div id="content">
 
-<h1>Module <code>NodeTreeBuilder</code></h1>
-<p>Module for building scene nodes from a loaded gltf format.</p>
+<h1>Module <code>Plane</code></h1>
+<p>Plane shape factory function.</p>
 <p>
 
 </p>
@@ -90,8 +90,8 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#create">create (gltf, callback)</a></td>
-	<td class="summary">Creates a node tree from glTF data.</td>
+	<td class="name" nowrap><a href="#Plane">Plane (width, height, v_segments, h_segments)</a></td>
+	<td class="summary">Creates a <code>menori.Mesh</code> with a plane geometry.</td>
 	</tr>
 </table>
 
@@ -103,62 +103,55 @@
 
     <dl class="function">
     <dt>
-    <a name = "create"></a>
-    <strong>create (gltf, callback)</strong>
+    <a name = "Plane"></a>
+    <strong>Plane (width, height, v_segments, h_segments)</strong>
     </dt>
     <dd>
-    Creates a node tree from glTF data.
- Processes glTF data and builds a complete scene hierarchy with meshes, materials,
- animations, and skinning information.
+    Creates a <code>menori.Mesh</code> with a plane geometry.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">gltf</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         Data obtained with glTFLoader.load containing meshes, materials, nodes, scenes, etc.
+        <li><span class="parameter">width</span>
+            <span class="types"><span class="type">number</span></span>
+         Width of the plane along the X-axis.
         </li>
-        <li><span class="parameter">callback</span>
-            <span class="types"><span class="type">function[opt]</span></span>
-         Optional callback function called for each built scene with params (scene, builder)
+        <li><span class="parameter">height</span>
+            <span class="types"><span class="type">number</span></span>
+         Height of the plane along the Y-axis.
+        </li>
+        <li><span class="parameter">v_segments</span>
+            <span class="types"><span class="type">number</span></span>
+         Number of vertical subdivisions (parallel to the Y-axis).
+        </li>
+        <li><span class="parameter">h_segments</span>
+            <span class="types"><span class="type">number</span></span>
+         Number of horizontal subdivisions (parallel to the X-axis).
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-        An array of scenes, where each scene is a menori.Node object representing the root of a scene hierarchy
+           <span class="types"><span class="type">menori.Mesh</span></span>
+        A new <code>menori.Mesh</code> object representing the generated plane.
     </ol>
 
 
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="comment">-- Basic usage
-</span><span class="keyword">local</span> gltf_data = menori.glTFLoader.<span class="global">load</span>(<span class="string">"model.gltf"</span>)
-<span class="keyword">local</span> scenes = menori.NodeTreeBuilder.<span class="function-name">create</span>(gltf_data)
-<span class="keyword">local</span> main_scene = scenes[<span class="number">1</span>]
+        <pre class="example"><span class="comment">-- Create a default 1x1 plane with no subdivisions
+</span><span class="keyword">local</span> plane = menori.<span class="function-name">Plane</span>()
 
-<span class="comment">-- With callback for post-processing
-</span><span class="keyword">local</span> scenes = menori.NodeTreeBuilder.<span class="function-name">create</span>(gltf_data, <span class="keyword">function</span>(scene, builder)
-    <span class="global">print</span>(<span class="string">"Built scene:"</span>, scene.name)
-    <span class="global">print</span>(<span class="string">"Animations available:"</span>, #builder.animations)
-    <span class="comment">-- Access builder.meshes, builder.materials, builder.nodes, builder.animations
-</span>    scene:<span class="function-name">traverse</span>(<span class="keyword">function</span>(node, index)
-        <span class="global">print</span>(<span class="string">"Processing node:"</span>, node.name)
-        <span class="comment">-- Access extra data from glTF
-</span>        <span class="keyword">if</span> node.extras <span class="keyword">then</span>
-            <span class="global">print</span>(<span class="string">"  - Has extra data:"</span>, node.extras)
-        <span class="keyword">end</span>
-    <span class="keyword">end</span>)
-<span class="keyword">end</span>)
+<span class="comment">-- Create a 4x3 plane with no subdivisions
+</span><span class="keyword">local</span> plane = menori.<span class="function-name">Plane</span>(<span class="number">4</span>, <span class="number">3</span>)
 
-<span class="comment">-- The builder table contains:
-</span><span class="comment">-- builder.meshes - array of mesh arrays (one per gltf mesh)
-</span><span class="comment">-- builder.materials - array of Material objects
-</span><span class="comment">-- builder.nodes - array of Node objects
-</span><span class="comment">-- builder.animations - array of animation data</span></pre>
+<span class="comment">-- Create a 1x1 plane subdivided into a 10x10 grid
+</span><span class="keyword">local</span> plane = menori.<span class="function-name">Plane</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">10</span>)
+
+<span class="comment">-- Create a ModelNode with plane
+</span><span class="keyword">local</span> model_node = menori.<span class="function-name">ModelNode</span>(plane)</pre>
     </ul>
 
 </dd>

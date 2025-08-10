@@ -39,7 +39,6 @@
 
 <h2>Classes</h2>
 <ul class="nowrap">
-  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/Camera.html">Camera</a></li>
   <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
   <li><a href="../classes/Environment.html">Environment</a></li>
@@ -49,8 +48,7 @@
   <li><a href="../classes/Mesh.html">Mesh</a></li>
   <li><a href="../classes/ModelNode.html">ModelNode</a></li>
   <li><a href="../classes/UniformList.html">UniformList</a></li>
-  <li><a href="../classes/Application.html">Application</a></li>
-  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/bound3.html">bound3</a></li>
   <li><a href="../classes/bvh.html">bvh</a></li>
   <li><a href="../classes/intersect.html">intersect</a></li>
@@ -61,14 +59,19 @@
   <li><a href="../classes/vec4.html">vec4</a></li>
   <li><a href="../classes/Node.html">Node</a></li>
   <li><strong>Scene</strong></li>
+  <li><a href="../classes/SceneManager.html">SceneManager</a></li>
   <li><a href="../classes/Sprite.html">Sprite</a></li>
 </ul>
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/menori.html">menori</a></li>
-  <li><a href="../modules/modules.core3d.boxshape.html">modules.core3d.boxshape</a></li>
   <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
   <li><a href="../modules/NodeTreeBuilder.html">NodeTreeBuilder</a></li>
+  <li><a href="../modules/Box.html">Box</a></li>
+  <li><a href="../modules/Capsule.html">Capsule</a></li>
+  <li><a href="../modules/Plane.html">Plane</a></li>
+  <li><a href="../modules/Sphere.html">Sphere</a></li>
+  <li><a href="../modules/Triangle.html">Triangle</a></li>
   <li><a href="../modules/utils.html">utils</a></li>
   <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
 </ul>
@@ -79,8 +82,8 @@
 
 <h1>Class <code>Scene</code></h1>
 <p>Base class of scenes.</p>
-<p>It contains methods for recursively drawing and updating nodes.
-You need to inherit from the Scene class to create your own scene object.</p>
+<p> It contains methods for recursively drawing and updating nodes.
+ You need to inherit from the Scene class to create your own scene object.</p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
@@ -90,12 +93,12 @@ You need to inherit from the Scene class to create your own scene object.</p>
 	<td class="summary">The public constructor.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#scene:render_nodes">scene:render_nodes (node, environment[, renderstates[, filter]])</a></td>
-	<td class="summary">Recursive node render function.</td>
+	<td class="name" nowrap><a href="#scene:render_nodes">scene:render_nodes (node, environment, renderstates, filter)</a></td>
+	<td class="summary">Node render function.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#scene:update_nodes">scene:update_nodes (node, environment)</a></td>
-	<td class="summary">Recursive node update function.</td>
+	<td class="summary">Node update function.</td>
 	</tr>
 </table>
 
@@ -122,47 +125,63 @@ You need to inherit from the Scene class to create your own scene object.</p>
 </dd>
     <dt>
     <a name = "scene:render_nodes"></a>
-    <strong>scene:render_nodes (node, environment[, renderstates[, filter]])</strong>
+    <strong>scene:render_nodes (node, environment, renderstates, filter)</strong>
     </dt>
     <dd>
-    Recursive node render function.
+    Node render function.
+ Recursively renders all nodes in the hierarchy with proper sorting and filtering.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">node</span>
             <span class="types"><span class="type">menori.Node</span></span>
-
-
-
+         Node to start rendering from
         </li>
         <li><span class="parameter">environment</span>
             <span class="types"><span class="type">menori.Environment</span></span>
-
-
-
+         Rendering environment containing camera and other settings
         </li>
         <li><span class="parameter">renderstates</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-
-
-
-         (<em>optional</em>)
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table[opt]</a></span>
+         Table containing render states and canvas configuration
         </li>
         <li><span class="parameter">filter</span>
-            <span class="types"><span class="type">function</span></span>
-         The callback function.
-         (<em>optional</em>)
+            <span class="types"><span class="type">function[opt]</span></span>
+         Callback function for custom node filtering during render
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        Number of rendered drawable nodes
+    </ol>
 
 
 
     <h3>Usage:</h3>
     <ul>
-        <li><pre class="example">renderstates = { canvas, ..., clear = <span class="keyword">true</span>, colors = {color, ...} }</pre></li>
-        <li><pre class="example"><span class="keyword">function</span> default_filter(node, scene, environment) node:render(scene, environment) <span class="keyword">end</span></pre></li>
+        <pre class="example"><span class="comment">-- Basic usage with default parameters
+</span><span class="keyword">local</span> count = scene:<span class="function-name">render_nodes</span>(root_node, environment)
+
+<span class="comment">-- With custom render states
+</span><span class="keyword">local</span> renderstates = {
+    canvas1, canvas2,      <span class="comment">-- canvases to render to
+</span>    clear = <span class="keyword">true</span>,          <span class="comment">-- clear before rendering
+</span>    colors = {color, ...}, <span class="comment">-- clear color
+</span>    node_sort_comp = custom_sort_function
+}
+scene:<span class="function-name">render_nodes</span>(root_node, environment, renderstates)
+
+<span class="comment">-- With custom filter function
+</span><span class="keyword">local</span> <span class="keyword">function</span> <span class="function-name">custom_filter</span>(node, scene, environment)
+    <span class="keyword">if</span> node.visible <span class="keyword">then</span>
+        node:<span class="function-name">render</span>(scene, environment)
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+scene:<span class="function-name">render_nodes</span>(root_node, environment, <span class="keyword">nil</span>, custom_filter)</pre>
     </ul>
 
 </dd>
@@ -171,7 +190,7 @@ You need to inherit from the Scene class to create your own scene object.</p>
     <strong>scene:update_nodes (node, environment)</strong>
     </dt>
     <dd>
-    Recursive node update function.
+    Node update function.
 
 
     <h3>Parameters:</h3>
@@ -201,8 +220,8 @@ You need to inherit from the Scene class to create your own scene object.</p>
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-03-21 17:41:24 </i>
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2025-08-11 00:42:18 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

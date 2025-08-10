@@ -40,15 +40,18 @@
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/menori.html">menori</a></li>
-  <li><strong>modules.core3d.boxshape</strong></li>
   <li><a href="../modules/glTFLoader.html">glTFLoader</a></li>
   <li><a href="../modules/NodeTreeBuilder.html">NodeTreeBuilder</a></li>
+  <li><a href="../modules/Box.html">Box</a></li>
+  <li><strong>Capsule</strong></li>
+  <li><a href="../modules/Plane.html">Plane</a></li>
+  <li><a href="../modules/Sphere.html">Sphere</a></li>
+  <li><a href="../modules/Triangle.html">Triangle</a></li>
   <li><a href="../modules/utils.html">utils</a></li>
   <li><a href="../modules/SpriteLoader.html">SpriteLoader</a></li>
 </ul>
 <h2>Classes</h2>
 <ul class="nowrap">
-  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/Camera.html">Camera</a></li>
   <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
   <li><a href="../classes/Environment.html">Environment</a></li>
@@ -58,8 +61,7 @@
   <li><a href="../classes/Mesh.html">Mesh</a></li>
   <li><a href="../classes/ModelNode.html">ModelNode</a></li>
   <li><a href="../classes/UniformList.html">UniformList</a></li>
-  <li><a href="../classes/Application.html">Application</a></li>
-  <li><a href="../classes/ModelNodeTree.html">ModelNodeTree</a></li>
+  <li><a href="../classes/App.html">App</a></li>
   <li><a href="../classes/bound3.html">bound3</a></li>
   <li><a href="../classes/bvh.html">bvh</a></li>
   <li><a href="../classes/intersect.html">intersect</a></li>
@@ -70,6 +72,7 @@
   <li><a href="../classes/vec4.html">vec4</a></li>
   <li><a href="../classes/Node.html">Node</a></li>
   <li><a href="../classes/Scene.html">Scene</a></li>
+  <li><a href="../classes/SceneManager.html">SceneManager</a></li>
   <li><a href="../classes/Sprite.html">Sprite</a></li>
 </ul>
 
@@ -77,8 +80,8 @@
 
 <div id="content">
 
-<h1>Module <code>modules.core3d.boxshape</code></h1>
-<p>Box shape.</p>
+<h1>Module <code>Capsule</code></h1>
+<p>Capsule shape factory function.</p>
 <p>
 
 </p>
@@ -87,8 +90,8 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#BoxShape">BoxShape (sx, sy, sz)</a></td>
-	<td class="summary">The public constructor.</td>
+	<td class="name" nowrap><a href="#Capsule">Capsule (radius, height, v_segments, h_segments, cylinder_segments)</a></td>
+	<td class="summary">Creates a <code>menori.Mesh</code> with a capsule geometry.</td>
 	</tr>
 </table>
 
@@ -100,33 +103,60 @@
 
     <dl class="function">
     <dt>
-    <a name = "BoxShape"></a>
-    <strong>BoxShape (sx, sy, sz)</strong>
+    <a name = "Capsule"></a>
+    <strong>Capsule (radius, height, v_segments, h_segments, cylinder_segments)</strong>
     </dt>
     <dd>
-    The public constructor.
- Creates a menori.Mesh with a cube shape.
+    Creates a <code>menori.Mesh</code> with a capsule geometry.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">sx</span>
+        <li><span class="parameter">radius</span>
             <span class="types"><span class="type">number</span></span>
-         Box shape width
+         Capsule radius (default: 0.5)
         </li>
-        <li><span class="parameter">sy</span>
+        <li><span class="parameter">height</span>
             <span class="types"><span class="type">number</span></span>
-         Box shape height
+         Total capsule height including hemispheres (default: 1)
         </li>
-        <li><span class="parameter">sz</span>
+        <li><span class="parameter">v_segments</span>
             <span class="types"><span class="type">number</span></span>
-         Box shape depth
+         Number of vertical segments around the capsule (default: 8)
+        </li>
+        <li><span class="parameter">h_segments</span>
+            <span class="types"><span class="type">number</span></span>
+         Number of horizontal segments for each hemisphere (default: 16)
+        </li>
+        <li><span class="parameter">cylinder_segments</span>
+            <span class="types"><span class="type">number</span></span>
+         Number of segments along the cylinder height (default: 1)
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">menori.Mesh</span></span>
+        A new <code>menori.Mesh</code> object containing the capsule geometry
+    </ol>
 
 
 
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Create a capsule with default parameters
+</span><span class="keyword">local</span> capsule = menori.<span class="function-name">Capsule</span>()
+
+<span class="comment">-- Create a capsule with radius 1 and height 3
+</span><span class="keyword">local</span> capsule = menori.<span class="function-name">Capsule</span>(<span class="number">1</span>, <span class="number">3</span>)
+
+<span class="comment">-- Create a detailed capsule with custom segment counts
+</span><span class="keyword">local</span> capsule = menori.<span class="function-name">Capsule</span>(<span class="number">0.5</span>, <span class="number">2</span>, <span class="number">12</span>, <span class="number">24</span>, <span class="number">4</span>)
+
+<span class="comment">-- Create a ModelNode with capsule
+</span><span class="keyword">local</span> model_node = menori.<span class="function-name">ModelNode</span>(capsule)</pre>
+    </ul>
 
 </dd>
 </dl>
@@ -135,8 +165,8 @@
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-03-21 17:41:24 </i>
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2025-08-11 00:42:18 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
