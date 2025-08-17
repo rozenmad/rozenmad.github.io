@@ -118,11 +118,11 @@
 	<td class="summary">Flag that sets whether the node transformations will be updated.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node.local_matrix">node.local_matrix</a></td>
+	<td class="name" nowrap><a href="#node.mat4">node.mat4</a></td>
 	<td class="summary">Local transformation matrix</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node.world_matrix">node.world_matrix</a></td>
+	<td class="name" nowrap><a href="#node.mat4">node.mat4</a></td>
 	<td class="summary">World transformation matrix based on world (parent) factors.</td>
 	</tr>
 	<tr>
@@ -141,15 +141,15 @@
 <h2><a href="#Methods">Methods</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#node:init">node:init (name)</a></td>
+	<td class="name" nowrap><a href="#node:init">node:init ([name='node'])</a></td>
 	<td class="summary">The public constructor.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:clone">node:clone (new_object)</a></td>
+	<td class="name" nowrap><a href="#node:clone">node:clone ([new_object])</a></td>
 	<td class="summary">Clone a node object.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:set_position">node:set_position (x, y, z)</a></td>
+	<td class="name" nowrap><a href="#node:set_position">node:set_position (x[, y[, z]])</a></td>
 	<td class="summary">Set Node local position.</td>
 	</tr>
 	<tr>
@@ -157,31 +157,31 @@
 	<td class="summary">Set Node local rotation.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:set_scale">node:set_scale (sx, sy, sz)</a></td>
+	<td class="name" nowrap><a href="#node:set_scale">node:set_scale (sx[, sy[, sz]])</a></td>
 	<td class="summary">Set Node local scale.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:get_world_position">node:get_world_position (retvalue)</a></td>
+	<td class="name" nowrap><a href="#node:get_world_position">node:get_world_position ([retvalue])</a></td>
 	<td class="summary">Get world space position of the Node.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:get_world_rotation">node:get_world_rotation (retvalue)</a></td>
+	<td class="name" nowrap><a href="#node:get_world_rotation">node:get_world_rotation ([retvalue])</a></td>
 	<td class="summary">Get world space rotation of the Node.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:get_world_scale">node:get_world_scale (retvalue)</a></td>
+	<td class="name" nowrap><a href="#node:get_world_scale">node:get_world_scale ([retvalue])</a></td>
 	<td class="summary">Get world space scale of the Node.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:right">node:right (retvalue)</a></td>
+	<td class="name" nowrap><a href="#node:right">node:right ([retvalue])</a></td>
 	<td class="summary">Get the right axis of the transform in world space.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:up">node:up (retvalue)</a></td>
+	<td class="name" nowrap><a href="#node:up">node:up ([retvalue])</a></td>
 	<td class="summary">Get the up axis of the transform in world space.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:forward">node:forward (retvalue)</a></td>
+	<td class="name" nowrap><a href="#node:forward">node:forward ([retvalue])</a></td>
 	<td class="summary">Get the forward axis of the transform in world space.</td>
 	</tr>
 	<tr>
@@ -189,11 +189,11 @@
 	<td class="summary">Calculate the largest AABB down the hierarchy of nodes.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:recursive_update_transform">node:recursive_update_transform (force)</a></td>
+	<td class="name" nowrap><a href="#node:recursive_update_transform">node:recursive_update_transform ([force])</a></td>
 	<td class="summary">Update all transforms up the hierarchy to the root node.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:update_transform">node:update_transform (parent_world_matrix)</a></td>
+	<td class="name" nowrap><a href="#node:update_transform">node:update_transform ([parent_world_matrix])</a></td>
 	<td class="summary">Update transform only for this node.</td>
 	</tr>
 	<tr>
@@ -217,7 +217,7 @@
 	<td class="summary">Find a child node by name.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:traverse">node:traverse (callback, _index)</a></td>
+	<td class="name" nowrap><a href="#node:traverse">node:traverse (callback[, _index])</a></td>
 	<td class="summary">Recursively traverse all nodes.</td>
 	</tr>
 	<tr>
@@ -225,7 +225,7 @@
 	<td class="summary">Detach this node from its parent node.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:get_root_node">node:get_root_node (upto)</a></td>
+	<td class="name" nowrap><a href="#node:get_root_node">node:get_root_node ([upto])</a></td>
 	<td class="summary">Get the topmost Node in the hierarchy.</td>
 	</tr>
 	<tr>
@@ -233,7 +233,7 @@
 	<td class="summary">Get the number of children attached to this node.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#node:debug_print">node:debug_print (node, tabs)</a></td>
+	<td class="name" nowrap><a href="#node:debug_print">node:debug_print ([node[, tabs]])</a></td>
 	<td class="summary">Recursively print all the children attached to this node.</td>
 	</tr>
 </table>
@@ -403,18 +403,16 @@
 
 </dd>
     <dt>
-    <a name = "node.local_matrix"></a>
-    <strong>node.local_matrix</strong>
+    <a name = "node.mat4"></a>
+    <strong>node.mat4</strong>
     </dt>
     <dd>
     Local transformation matrix
 
 
     <ul>
-        <li><span class="parameter">local_matrix</span>
-
-
-
+        <li><span class="parameter">mat4</span>
+         local_matrix
           <em>readonly</em>
         </li>
     </ul>
@@ -425,18 +423,16 @@
 
 </dd>
     <dt>
-    <a name = "node.world_matrix"></a>
-    <strong>node.world_matrix</strong>
+    <a name = "node.mat4"></a>
+    <strong>node.mat4</strong>
     </dt>
     <dd>
     World transformation matrix based on world (parent) factors.
 
 
     <ul>
-        <li><span class="parameter">world_matrix</span>
-
-
-
+        <li><span class="parameter">mat4</span>
+         world_matrix
           <em>readonly</em>
         </li>
     </ul>
@@ -521,7 +517,7 @@
     <dl class="function">
     <dt>
     <a name = "node:init"></a>
-    <strong>node:init (name)</strong>
+    <strong>node:init ([name='node'])</strong>
     </dt>
     <dd>
     The public constructor.
@@ -530,8 +526,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">name</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string[opt='node']</a></span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
          Node name
+         (<em>default</em> 'node')
         </li>
     </ul>
 
@@ -542,7 +539,7 @@
 </dd>
     <dt>
     <a name = "node:clone"></a>
-    <strong>node:clone (new_object)</strong>
+    <strong>node:clone ([new_object])</strong>
     </dt>
     <dd>
     Clone a node object.
@@ -551,8 +548,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">new_object</span>
-            <span class="types"><span class="type">menori.Node[opt]</span></span>
+            <span class="types"><span class="type">menori.Node</span></span>
          Target object to copy data to
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -569,7 +567,7 @@
 </dd>
     <dt>
     <a name = "node:set_position"></a>
-    <strong>node:set_position (x, y, z)</strong>
+    <strong>node:set_position (x[, y[, z]])</strong>
     </dt>
     <dd>
     Set Node local position.
@@ -582,12 +580,14 @@
          Position x coordinate or vec3 position vector
         </li>
         <li><span class="parameter">y</span>
-            <span class="types"><span class="type">number[opt]</span></span>
+            <span class="types"><span class="type">number</span></span>
          Position y coordinate
+         (<em>optional</em>)
         </li>
         <li><span class="parameter">z</span>
-            <span class="types"><span class="type">number[opt]</span></span>
+            <span class="types"><span class="type">number</span></span>
          Position z coordinate
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -619,7 +619,7 @@
 </dd>
     <dt>
     <a name = "node:set_scale"></a>
-    <strong>node:set_scale (sx, sy, sz)</strong>
+    <strong>node:set_scale (sx[, sy[, sz]])</strong>
     </dt>
     <dd>
     Set Node local scale.
@@ -632,12 +632,14 @@
          Scale x factor or vec3 scale vector
         </li>
         <li><span class="parameter">sy</span>
-            <span class="types"><span class="type">number[opt]</span></span>
+            <span class="types"><span class="type">number</span></span>
          Scale y factor
+         (<em>optional</em>)
         </li>
         <li><span class="parameter">sz</span>
-            <span class="types"><span class="type">number[opt]</span></span>
+            <span class="types"><span class="type">number</span></span>
          Scale z factor
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -648,7 +650,7 @@
 </dd>
     <dt>
     <a name = "node:get_world_position"></a>
-    <strong>node:get_world_position (retvalue)</strong>
+    <strong>node:get_world_position ([retvalue])</strong>
     </dt>
     <dd>
     Get world space position of the Node.
@@ -657,8 +659,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">retvalue</span>
-            <span class="types"><a class="type" href="../classes/vec3.html#">vec3[opt]</a></span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
          Optional vec3 object to store the result
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -675,7 +678,7 @@
 </dd>
     <dt>
     <a name = "node:get_world_rotation"></a>
-    <strong>node:get_world_rotation (retvalue)</strong>
+    <strong>node:get_world_rotation ([retvalue])</strong>
     </dt>
     <dd>
     Get world space rotation of the Node.
@@ -684,8 +687,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">retvalue</span>
-            <span class="types"><a class="type" href="../classes/quat.html#">quat[opt]</a></span>
+            <span class="types"><a class="type" href="../classes/quat.html#">quat</a></span>
          Optional quat object to store the result
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -702,7 +706,7 @@
 </dd>
     <dt>
     <a name = "node:get_world_scale"></a>
-    <strong>node:get_world_scale (retvalue)</strong>
+    <strong>node:get_world_scale ([retvalue])</strong>
     </dt>
     <dd>
     Get world space scale of the Node.
@@ -711,8 +715,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">retvalue</span>
-            <span class="types"><a class="type" href="../classes/vec3.html#">vec3[opt]</a></span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
          Optional vec3 object to store the result
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -729,7 +734,7 @@
 </dd>
     <dt>
     <a name = "node:right"></a>
-    <strong>node:right (retvalue)</strong>
+    <strong>node:right ([retvalue])</strong>
     </dt>
     <dd>
     Get the right axis of the transform in world space.
@@ -738,8 +743,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">retvalue</span>
-            <span class="types"><a class="type" href="../classes/vec3.html#">vec3[opt]</a></span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
          Optional vec3 object to store the result
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -756,7 +762,7 @@
 </dd>
     <dt>
     <a name = "node:up"></a>
-    <strong>node:up (retvalue)</strong>
+    <strong>node:up ([retvalue])</strong>
     </dt>
     <dd>
     Get the up axis of the transform in world space.
@@ -765,8 +771,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">retvalue</span>
-            <span class="types"><a class="type" href="../classes/vec3.html#">vec3[opt]</a></span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
          Optional vec3 object to store the result
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -783,7 +790,7 @@
 </dd>
     <dt>
     <a name = "node:forward"></a>
-    <strong>node:forward (retvalue)</strong>
+    <strong>node:forward ([retvalue])</strong>
     </dt>
     <dd>
     Get the forward axis of the transform in world space.
@@ -792,8 +799,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">retvalue</span>
-            <span class="types"><a class="type" href="../classes/vec3.html#">vec3[opt]</a></span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
          Optional vec3 object to store the result
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -830,7 +838,7 @@
 </dd>
     <dt>
     <a name = "node:recursive_update_transform"></a>
-    <strong>node:recursive_update_transform (force)</strong>
+    <strong>node:recursive_update_transform ([force])</strong>
     </dt>
     <dd>
     Update all transforms up the hierarchy to the root node.
@@ -839,8 +847,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">force</span>
-            <span class="types"><span class="type">bool[opt]</span></span>
+            <span class="types"><span class="type">bool</span></span>
          Force update transformations of all nodes up to the root node
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -851,7 +860,7 @@
 </dd>
     <dt>
     <a name = "node:update_transform"></a>
-    <strong>node:update_transform (parent_world_matrix)</strong>
+    <strong>node:update_transform ([parent_world_matrix])</strong>
     </dt>
     <dd>
     Update transform only for this node.
@@ -860,8 +869,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">parent_world_matrix</span>
-            <span class="types"><a class="type" href="../classes/mat4.html#">mat4[opt]</a></span>
+            <span class="types"><a class="type" href="../classes/mat4.html#">mat4</a></span>
          Parent world matrix to use for transformation
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -989,7 +999,7 @@
 </dd>
     <dt>
     <a name = "node:traverse"></a>
-    <strong>node:traverse (callback, _index)</strong>
+    <strong>node:traverse (callback[, _index])</strong>
     </dt>
     <dd>
     Recursively traverse all nodes.
@@ -1002,8 +1012,9 @@
          Function that is called for every child node with params (child, index)
         </li>
         <li><span class="parameter">_index</span>
-            <span class="types"><span class="type">number[opt]</span></span>
+            <span class="types"><span class="type">number</span></span>
          Internal parameter for recursion
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -1028,7 +1039,7 @@
 </dd>
     <dt>
     <a name = "node:get_root_node"></a>
-    <strong>node:get_root_node (upto)</strong>
+    <strong>node:get_root_node ([upto])</strong>
     </dt>
     <dd>
     Get the topmost Node in the hierarchy.
@@ -1037,8 +1048,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">upto</span>
-            <span class="types"><span class="type">menori.Node[opt]</span></span>
+            <span class="types"><span class="type">menori.Node</span></span>
          The Node where the hierarchy recursion will stop if it exists
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -1075,7 +1087,7 @@
 </dd>
     <dt>
     <a name = "node:debug_print"></a>
-    <strong>node:debug_print (node, tabs)</strong>
+    <strong>node:debug_print ([node[, tabs]])</strong>
     </dt>
     <dd>
     Recursively print all the children attached to this node.
@@ -1084,12 +1096,14 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">node</span>
-            <span class="types"><span class="type">menori.Node[opt]</span></span>
+            <span class="types"><span class="type">menori.Node</span></span>
          Node to start printing from (defaults to self)
+         (<em>optional</em>)
         </li>
         <li><span class="parameter">tabs</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string[opt]</a></span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
          Indentation string for formatting
+         (<em>optional</em>)
         </li>
     </ul>
 
@@ -1105,7 +1119,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2025-08-11 00:42:18 </i>
+<i style="float:right;">Last updated 2025-08-18 00:01:40 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

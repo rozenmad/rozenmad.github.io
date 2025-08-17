@@ -88,8 +88,68 @@
 <h2><a href="#Methods">Methods</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#intersect:ray_triangle">intersect:ray_triangle (ray, triangle[, backface_cull])</a></td>
-	<td class="summary">See <a href="https://github.com/excessive/cpml/blob/cf707cb6af59c8be13918ea4ac9478eba9e8a7a0/modules/intersect.lua#L101">cpml</a>.</td>
+	<td class="name" nowrap><a href="#intersect:ray_triangle">intersect:ray_triangle (ray, triangle[, backface_cull=nil])</a></td>
+	<td class="summary">Tests intersection between a ray and a triangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:ray_plane">intersect:ray_plane (ray, position, normal)</a></td>
+	<td class="summary">Tests intersection between a ray and a plane.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:ray_sphere">intersect:ray_sphere (ray, center, radius)</a></td>
+	<td class="summary">Tests intersection between a ray and a sphere.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:ray_capsule">intersect:ray_capsule (ray, p0, p1, radius)</a></td>
+	<td class="summary">Tests intersection between a ray and a capsule.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:ray_aabb">intersect:ray_aabb (ray, aabb)</a></td>
+	<td class="summary">Tests intersection between a ray and an axis-aligned bounding box (AABB).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:sphere_sphere">intersect:sphere_sphere (a_center, a_radius, b_center, b_radius)</a></td>
+	<td class="summary">Tests intersection between two spheres.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:sphere_aabb">intersect:sphere_aabb (center, radius, aabb)</a></td>
+	<td class="summary">Tests intersection between a sphere and an axis-aligned bounding box (AABB).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:sphere_triangle">intersect:sphere_triangle (center, radius, triangle)</a></td>
+	<td class="summary">Tests intersection between a sphere and a triangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:capsule_sphere">intersect:capsule_sphere (p0, p1, capsule_radius, center, sphere_radius)</a></td>
+	<td class="summary">Tests intersection between a capsule and a sphere.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:capsule_capsule">intersect:capsule_capsule (a0, a1, a_radius, b0, b1, b_radius)</a></td>
+	<td class="summary">Tests intersection between two capsules.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:capsule_aabb">intersect:capsule_aabb (p0, p1, radius, aabb)</a></td>
+	<td class="summary">Tests intersection between a sphere and an axis-aligned bounding box (AABB).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:capsule_triangle">intersect:capsule_triangle (p0, p1, radius, triangle)</a></td>
+	<td class="summary">Tests intersection between a capsule and a triangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:aabb_aabb">intersect:aabb_aabb (a, b)</a></td>
+	<td class="summary">Tests intersection between two AABBs.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:point_in_triangle">intersect:point_in_triangle (point, normal, triangle)</a></td>
+	<td class="summary">Checks if a point lies inside a triangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:closest_point_on_triangle">intersect:closest_point_on_triangle (point, triangle)</a></td>
+	<td class="summary">Finds the closest point on a triangle to a given point.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersect:closest_point_segment_segment">intersect:closest_point_segment_segment (a1, a2, b1, b2)</a></td>
+	<td class="summary">Finds the closest points between two line segments.</td>
 	</tr>
 </table>
 
@@ -102,34 +162,588 @@
     <dl class="function">
     <dt>
     <a name = "intersect:ray_triangle"></a>
-    <strong>intersect:ray_triangle (ray, triangle[, backface_cull])</strong>
+    <strong>intersect:ray_triangle (ray, triangle[, backface_cull=nil])</strong>
     </dt>
     <dd>
-    See <a href="https://github.com/excessive/cpml/blob/cf707cb6af59c8be13918ea4ac9478eba9e8a7a0/modules/intersect.lua#L101">cpml</a>.
+    Tests intersection between a ray and a triangle.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">ray</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         ray.position  is a vec3;
- ray.direction is a vec3.
+         Ray definition {origin=vec3|table, dir=vec3|table}
         </li>
         <li><span class="parameter">triangle</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         triangle[1]   is a vec3 or array;
- triangle[2]   is a vec3 or array;
- triangle[3]   is a vec3 or array.
+         Triangle vertices {vec3|table, vec3|table, vec3|table}
         </li>
         <li><span class="parameter">backface_cull</span>
             <span class="types"><span class="type">boolean</span></span>
-
-
-
-         (<em>optional</em>)
+         If true, ignores back-facing triangles
+         (<em>default</em> nil)
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">false</span></span>
+        Intersection data {point=vec3, normal=vec3, t=number} or false if no hit
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:ray_plane"></a>
+    <strong>intersect:ray_plane (ray, position, normal)</strong>
+    </dt>
+    <dd>
+    Tests intersection between a ray and a plane.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ray</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Ray definition {origin=vec3|table, direction=vec3|table}
+        </li>
+        <li><span class="parameter">position</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         A point on the plane
+        </li>
+        <li><span class="parameter">normal</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Plane normal
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">false</span></span>
+        Intersection data {point=vec3, normal=vec3, t=number} or false if no hit
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:ray_sphere"></a>
+    <strong>intersect:ray_sphere (ray, center, radius)</strong>
+    </dt>
+    <dd>
+    Tests intersection between a ray and a sphere.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ray</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Ray definition {origin=vec3|table, direction=vec3|table}
+        </li>
+        <li><span class="parameter">center</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Sphere center
+        </li>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">number</span></span>
+         Sphere radius
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">false</span></span>
+        Intersection data {point=vec3, normal=vec3, t=number} or false if no hit
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:ray_capsule"></a>
+    <strong>intersect:ray_capsule (ray, p0, p1, radius)</strong>
+    </dt>
+    <dd>
+    Tests intersection between a ray and a capsule.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ray</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Ray definition {origin=vec3|table, direction=vec3|table}
+        </li>
+        <li><span class="parameter">p0</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Capsule start point
+        </li>
+        <li><span class="parameter">p1</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Capsule end point
+        </li>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">number</span></span>
+         Capsule radius
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">false</span></span>
+        Intersection data {point=vec3, normal=vec3, t=number} or false if no hit
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:ray_aabb"></a>
+    <strong>intersect:ray_aabb (ray, aabb)</strong>
+    </dt>
+    <dd>
+    Tests intersection between a ray and an axis-aligned bounding box (AABB).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ray</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Ray definition {origin=vec3|table, direction=vec3|table}
+        </li>
+        <li><span class="parameter">aabb</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         AABB definition {min=vec3|table, max=vec3|table}
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">false</span></span>
+        Intersection data {point=vec3, normal=vec3, t=number} or false if no hit
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:sphere_sphere"></a>
+    <strong>intersect:sphere_sphere (a_center, a_radius, b_center, b_radius)</strong>
+    </dt>
+    <dd>
+    Tests intersection between two spheres.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a_center</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Center of first sphere
+        </li>
+        <li><span class="parameter">a_radius</span>
+            <span class="types"><span class="type">number</span></span>
+         Radius of first sphere
+        </li>
+        <li><span class="parameter">b_center</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Center of second sphere
+        </li>
+        <li><span class="parameter">b_radius</span>
+            <span class="types"><span class="type">number</span></span>
+         Radius of second sphere
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">false</span></span>
+        Collision data {normal=vec3, depth=number, point=vec3} or false if no collision
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:sphere_aabb"></a>
+    <strong>intersect:sphere_aabb (center, radius, aabb)</strong>
+    </dt>
+    <dd>
+    Tests intersection between a sphere and an axis-aligned bounding box (AABB).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">center</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Sphere center
+        </li>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">number</span></span>
+         Sphere radius
+        </li>
+        <li><span class="parameter">aabb</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         AABB definition {min=vec3|table, max=vec3|table}
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">false</span></span>
+        Collision data {normal=vec3, depth=number, point=vec3} or false if no collision
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:sphere_triangle"></a>
+    <strong>intersect:sphere_triangle (center, radius, triangle)</strong>
+    </dt>
+    <dd>
+    Tests intersection between a sphere and a triangle.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">center</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Sphere center
+        </li>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">number</span></span>
+         Sphere radius
+        </li>
+        <li><span class="parameter">triangle</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Triangle vertices {vec3|table, vec3|table, vec3|table}
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">false</span></span>
+        Collision data {normal=vec3, depth=number, point=vec3} or false if no collision
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:capsule_sphere"></a>
+    <strong>intersect:capsule_sphere (p0, p1, capsule_radius, center, sphere_radius)</strong>
+    </dt>
+    <dd>
+    Tests intersection between a capsule and a sphere.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p0</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Capsule start point
+        </li>
+        <li><span class="parameter">p1</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Capsule end point
+        </li>
+        <li><span class="parameter">capsule_radius</span>
+            <span class="types"><span class="type">number</span></span>
+         Capsule radius
+        </li>
+        <li><span class="parameter">center</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Sphere center
+        </li>
+        <li><span class="parameter">sphere_radius</span>
+            <span class="types"><span class="type">number</span></span>
+         Sphere radius
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">false</span></span>
+        Collision data {normal=vec3, depth=number, point=vec3} or false if no collision
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:capsule_capsule"></a>
+    <strong>intersect:capsule_capsule (a0, a1, a_radius, b0, b1, b_radius)</strong>
+    </dt>
+    <dd>
+    Tests intersection between two capsules.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a0</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         First capsule start
+        </li>
+        <li><span class="parameter">a1</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         First capsule end
+        </li>
+        <li><span class="parameter">a_radius</span>
+            <span class="types"><span class="type">number</span></span>
+         First capsule radius
+        </li>
+        <li><span class="parameter">b0</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Second capsule start
+        </li>
+        <li><span class="parameter">b1</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Second capsule end
+        </li>
+        <li><span class="parameter">b_radius</span>
+            <span class="types"><span class="type">number</span></span>
+         Second capsule radius
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">false</span></span>
+        Collision data {normal=vec3, depth=number, point=vec3} or false if no collision
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:capsule_aabb"></a>
+    <strong>intersect:capsule_aabb (p0, p1, radius, aabb)</strong>
+    </dt>
+    <dd>
+    Tests intersection between a sphere and an axis-aligned bounding box (AABB).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p0</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Capsule start
+        </li>
+        <li><span class="parameter">p1</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Capsule end
+        </li>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">number</span></span>
+         Capsule radius
+        </li>
+        <li><span class="parameter">aabb</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         AABB definition {min=vec3|table, max=vec3|table}
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">false</span></span>
+        Collision data {normal=vec3, depth=number, point=vec3} or false if no collision
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:capsule_triangle"></a>
+    <strong>intersect:capsule_triangle (p0, p1, radius, triangle)</strong>
+    </dt>
+    <dd>
+    Tests intersection between a capsule and a triangle.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p0</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Capsule start
+        </li>
+        <li><span class="parameter">p1</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Capsule end
+        </li>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">number</span></span>
+         Capsule radius
+        </li>
+        <li><span class="parameter">triangle</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Triangle vertices {vec3|table, vec3|table, vec3|table}
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">false</span></span>
+        Collision data {normal=vec3, depth=number, point=vec3} or false if no collision
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:aabb_aabb"></a>
+    <strong>intersect:aabb_aabb (a, b)</strong>
+    </dt>
+    <dd>
+    Tests intersection between two AABBs.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         AABB {min=vec3, max=vec3}
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         AABB {min=vec3, max=vec3}
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        True if intersecting, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:point_in_triangle"></a>
+    <strong>intersect:point_in_triangle (point, normal, triangle)</strong>
+    </dt>
+    <dd>
+    Checks if a point lies inside a triangle.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">point</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         The point
+        </li>
+        <li><span class="parameter">normal</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Triangle normal
+        </li>
+        <li><span class="parameter">triangle</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Triangle vertices {vec3|table, vec3|table, vec3|table}
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        True if point is inside triangle, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:closest_point_on_triangle"></a>
+    <strong>intersect:closest_point_on_triangle (point, triangle)</strong>
+    </dt>
+    <dd>
+    Finds the closest point on a triangle to a given point.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">point</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         The point
+        </li>
+        <li><span class="parameter">triangle</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Triangle vertices {vec3|table, vec3|table, vec3|table}
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a></span>
+        Closest point
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersect:closest_point_segment_segment"></a>
+    <strong>intersect:closest_point_segment_segment (a1, a2, b1, b2)</strong>
+    </dt>
+    <dd>
+    Finds the closest points between two line segments.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a1</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         First segment start
+        </li>
+        <li><span class="parameter">a2</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         First segment end
+        </li>
+        <li><span class="parameter">b1</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Second segment start
+        </li>
+        <li><span class="parameter">b2</span>
+            <span class="types"><a class="type" href="../classes/vec3.html#">vec3</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         Second segment end
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/vec3.html#">vec3,</a></span>
+        vec3 Closest points
+    </ol>
 
 
 
@@ -142,7 +756,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2025-08-11 00:42:18 </i>
+<i style="float:right;">Last updated 2025-08-18 00:01:40 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
